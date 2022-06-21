@@ -1,0 +1,249 @@
+--select * from [OrderState] where stateID=1
+--select * from OrderDetail where orderDetailID=1
+--select * from ProductDetail where detailID=1
+--select * from Color
+--select * from [Order]
+
+
+
+--Insert to Role
+insert into [Role] values ('Admin'),('Sale Manager'),('Sale'),('Marketing'),('Customer')
+--Insert to userStatus
+insert into userStatus values('Active'),('Not Active')
+
+--Insert to User
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('mbackshell0', 'Q5m8wuT49Br', 'Margarethe Backshell', 'Zalophus californicus', '084 Holmberg Junction', '1999-11-13', 0, 'mbackshell0@t-online.de', '755-186-7594', 5, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('hpotkins1', 'nvDuuzsPLwnO', 'Hall Potkins', 'Sciurus niger', '83 Dunning Pass', '1968-02-09', 1, 'hpotkins1@wikimedia.org', '682-687-3663', 2, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('obutting2', 'Gi2XXZarm9', 'Olin Butting', 'Ictalurus furcatus', '79471 Meadow Valley Street', '2001-11-09', 1, 'obutting2@mayoclinic.com', '681-720-8476', 3, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('dsimeons3', 'oVJn0VUCC', 'Dar Simeons', 'Ictonyx striatus', '3634 Burning Wood Center', '2005-02-28', 1, 'dsimeons3@msu.edu', '890-607-0721',4, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('lcaffrey4', '9hZk9KMz5z', 'Letti Caffrey', 'Martes pennanti', '460 Annamark Parkway', '1964-08-03', 0, 'lcaffrey4@friendfeed.com', '119-957-0063', 5, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('avoff5', 'tNnYDL', 'Afton Voff', 'Threskionis aethiopicus', '2 Novick Parkway', '2006-09-23', 0, 'avoff5@europa.eu', '316-132-8479', 4, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('omacscherie6', 'rpb1ioDmq', 'Obadias MacScherie', 'Axis axis', '84447 Sherman Court', '1976-07-26', 1, 'omacscherie6@artisteer.com', '946-601-7782', 5, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('csporle7', 'tVk4UQyRup7', 'Constantino Sporle', 'Crotaphytus collaris', '5 Welch Crossing', '1960-12-04', 1, 'csporle7@edublogs.org', '561-516-5804', 4, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('lsaddler8', 'tPwTXnsfE', 'Lavinie Saddler', 'Actophilornis africanus', '276 Reinke Court', '2001-12-12', 0, 'lsaddler8@livejournal.com', '825-498-4707', 5, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('glouedey9', 'lt9fg52Rr', 'Gabriellia Louedey', 'Vulpes cinereoargenteus', '8080 Corscot Hill', '1984-09-01', 0, 'glouedey9@archive.org', '895-344-5866', 4, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('jstafforda', 'wfOUPN7KREr2', 'Julio Stafford', 'Loxodonta africana', '9492 4th Road', '1986-12-22', 1, 'jstafforda@oaic.gov.au', '899-858-9556', 5, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('rjuryb', '9ZsyrprE', 'Rozamond Jury', 'Axis axis', '437 Dexter Park', '1976-03-19', 0, 'rjuryb@mapquest.com', '281-645-9032', 5, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('tperchc', 'ZkaQbMad', 'Thorndike Perch', 'Aonyx cinerea', '36137 Moose Junction', '1962-01-27', 1, 'tperchc@drupal.org', '594-721-4314', 5, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('fhebardd', 'FGjsFqDl0ry', 'Fielding Hebard', 'Paroaria gularis', '6055 Arkansas Crossing', '1953-07-31', 1, 'fhebardd@house.gov', '937-711-5076', 5, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('tgarroche', 'ZbJcXZH8oBt5', 'Thorny Garroch', 'Didelphis virginiana', '55 Del Sol Place', '1995-11-23', 1, 'tgarroche@dailymotion.com', '499-870-8546',5, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('tbenettolof', 'Z04YuXm7oUew', 'Theodore Benettolo', 'Corvus albicollis', '071 Gerald Point', '1985-06-16', 1, 'tbenettolof@hc360.com', '163-586-4358', 5, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('mcopnellg', 'UPnxvN', 'Marigold Copnell', 'Rhea americana', '46722 Talmadge Lane', '1964-07-12', 0, 'mcopnellg@bigcartel.com', '841-648-1266', 5, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('mloosh', 'GHjhptOkZXw', 'Moyna Loos', 'Erethizon dorsatum', '136 Bonner Road', '2008-10-25', 0, 'mloosh@live.com', '591-643-4063', 5, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('khukei', 'J7sENx3dT9', 'Kirstin Huke', 'Toxostoma curvirostre', '5 Mifflin Circle', '1961-04-22', 0, 'khukei@hao123.com', '174-463-4183', 5, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('pyurinj', 'Xh5mb101qz', 'Palm Yurin', 'Neophron percnopterus', '8807 Eastlawn Hill', '1981-11-09', 1, 'pyurinj@sina.com.cn', '113-554-1445', 5, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('abdasa', 'GHjhptOkZXw', 'Moyna Loos', 'Erethizon dorsatum', '136 Bonner Road', '2008-10-25', 0, 'mloosh@live.com', '591-643-4063', 5, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('dasfasf', 'J7sENx3dT9', 'Kirstin Huke', 'Toxostoma curvirostre', '5 Mifflin Circle', '1961-04-22', 0, 'khukei@hao123.com', '174-463-4183', 5, 1);
+insert into [User] (userName, userPass, fullName, userAvatar, userAdress, userBirth, userGender, userEmail, userPhone, userRole, uStatusID) values ('admin', '123', 'Palm Yurin', 'Neophron percnopterus', '8807 Eastlawn Hill', '1981-11-09', 1, 'pyurinj@sina.com.cn', '113-554-1445', 1, 1);
+
+
+
+
+
+--====================inSERT PRODUCT
+insert into Color (colorName) values ('pink');
+insert into Color (colorName) values ('black');
+insert into Color (colorName) values ('yellow');
+insert into Color (colorName) values ('red');
+insert into Color (colorName) values ('white');
+insert into Color (colorName) values ('blue');
+insert into Color (colorName) values ('grey');
+insert into Color (colorName) values ('orange');
+
+--=================================================================================
+
+insert into Size (numberSize) values (38);
+insert into Size (numberSize) values (39);
+insert into Size (numberSize) values (40);
+insert into Size (numberSize) values (41);
+insert into Size (numberSize) values (42);
+insert into Size (numberSize) values (43);
+
+--=============================================================================================
+insert into Brand (brandName) values ('Kappa');
+insert into Brand (brandName) values ('Ecko Unltd');
+insert into Brand (brandName) values ('Superga');
+insert into Brand (brandName) values ('Staple');
+
+--============================================================================================================
+insert into Category (brandID, cateName) values (1, 'Sneakers');
+insert into Category (brandID, cateName) values (1, 'Sport');
+insert into Category (brandID, cateName) values (1, 'Casual');
+insert into Category (brandID, cateName) values (2, 'Sneakers');
+insert into Category (brandID, cateName) values (2, 'Sport');
+insert into Category (brandID, cateName) values (2, 'Casual');
+insert into Category (brandID, cateName) values (3, 'Sneakers');
+insert into Category (brandID, cateName) values (3, 'Sport');
+insert into Category (brandID, cateName) values (3, 'Casual');
+insert into Category (brandID, cateName) values (4, 'Sneakers');
+insert into Category (brandID, cateName) values (4, 'Sport');
+insert into Category (brandID, cateName) values (4, 'Casual');
+
+--====================================================================================================================
+
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt, isSale, isActive) values ('Eszopiclone', 5.0, 'Eurasian red squirrel', 'Royal tern', 1, 1, 1.6,'2022-05-25', 0, 0);
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt,  isSale, isActive) values ('nifedipine', 7.0, 'Heron, little', 'Collared lemming', 2, 2, 2.4,'2022-05-25', 1, 0);
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt,  isSale, isActive) values ('Risperidone', 7.1, 'Mongoose, small indian', 'Black-crowned crane', 3, 3, 8.4,'2022-05-25', 1, 0);
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt, isSale, isActive) values ('Clinpro 5000', 4.8, 'Deer, spotted', 'Javanese cormorant', 4, 4, 6.4,'2022-05-25', 0, 0);
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt, isSale, isActive) values ('Anti Chafe Balm', 2.5, 'Square-lipped rhinoceros', 'Hawk-eagle, crowned', 5, 5, 7.8,'2022-05-25', 0, 0);
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt, isSale, isActive) values ('ESIKA', 3.8, 'Dove, emerald-spotted wood', 'Badger, american', 6, 6, 6.2,'2022-05-25', 0, 1);
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt, isSale, isActive) values ('Nitrogen', 3.4, 'Black curlew', 'Oystercatcher, blackish', 7, 7, 3.6,'2022-05-25', 0, 1);
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt, isSale, isActive) values ('Carisoprodol', 5.7, 'Moose', 'Cattle egret', 8, 8, 2.2,'2022-05-25', 1, 1);
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt, isSale, isActive) values ('Alba Natural Acnedote', 8.2, 'Hottentot teal', 'Indian mynah', 9, 9, 1.2,'2022-05-25', 0, 1);
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt, isSale, isActive) values ('Pain Relief', 4.0, 'Purple grenadier', 'Wallaby, dama', 10, 10, 1.2,'2022-05-25', 1, 0);
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt, isSale, isActive) values ('OC8', 6.1, 'Hornbill, southern ground', 'Red meerkat', 11, 11, 4.9,'2022-05-25', 1, 0);
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt, isSale, isActive) values ('Hydrocortisone', 3.3, 'Goose, andean', 'Cardinal, red-capped', 12, 12, 7.7,'2022-05-25', 0, 0);
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt, isSale, isActive) values ('Isoniazid', 9.0, 'Duiker, common', 'Tropical buckeye butterfly', 13, 13, 7.4,'2022-05-25', 0, 1);
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt, isSale, isActive) values ('AVONEX', 5.9, 'Heron, striated', 'Zorro, common', 14, 14, 7.9,'2022-05-25', 1, 0);
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt, isSale, isActive) values ('TAZICEF', 5.6, 'Rainbow lory', 'Snake, buttermilk', 15, 15, 3.7,'2022-05-25', 1, 1);
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt, isSale, isActive) values ('meloxicam', 4.9, 'Otter, oriental short-clawed', 'Spoonbill, white', 16, 16, 1.4,'2022-05-25', 1, 1);
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt, isSale, isActive) values ('Phendimetrazine Tartrate', 6.0, 'Worm snake (unidentified)', 'Capuchin, black-capped', 17, 17, 7.4,'2022-05-25', 0, 1);
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt, isSale, isActive) values ('Cefprozil', 4.5, 'Nubian bee-eater', 'Paradoxure', 18, 18, 8.4,'2022-05-25', 1, 0);
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt, isSale, isActive) values ('DIANEAL PD-2 with Dextrose', 8.1, 'Silver gull', 'Asian 0 vampire bat', 19, 19, 1.8,'2022-05-25', 1, 1);
+insert into Product (productName, productPrice, productImage, productDescribe, cateID, totalQuantity, discount, createAt, isSale, isActive) values ('LANEIGE BB Cushion Light', 9.9, 'Gelada baboon', 'Scottish highland cow', 20, 20, 9.0,'2022-05-25', 0, 0);
+
+--=======================================================================================================================================
+--5 size prodcut1 color 1
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (1, 1, 1, 1);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (1, 2, 1, 1);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (1, 3, 1, 1);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (1, 4, 1, 1);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (1, 5, 1, 1);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (1, 6, 1, 1);
+--5 size prodcut2 color 2
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (2, 1, 2, 2);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (2, 2, 2, 2);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (2, 3, 2, 2);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (2, 4, 2, 2);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (2, 5, 2, 2);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (2, 6, 2, 2);
+--5 size prodcut3 color 3
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (3, 1, 3, 3);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (3, 2, 3, 3);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (3, 3, 3, 3);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (3, 4, 3, 3);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (3, 5, 3, 3);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (3, 6, 3, 3);
+--5 size prodcut4 color 4
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (4, 1, 4, 4);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (4, 2, 4, 4);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (4, 3, 4, 4);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (4, 4, 4, 4);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (4, 5, 4, 4);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (4, 6, 4, 4);
+--5 size prodcut5 color 5
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (5, 1, 5, 5);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (5, 2, 5, 5);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (5, 3, 5, 5);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (5, 4, 5, 5);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (5, 5, 5, 5);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (5, 6, 5, 5);
+--5 size prodcut6 color 4
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (6, 1, 6, 4);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (6, 2, 6, 4);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (6, 3, 6, 4);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (6, 4, 6, 4);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (6, 5, 6, 4);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (6, 6, 6, 4);
+
+
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (7, 1, 7, 1);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (8, 2, 8, 2);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (9, 3, 9, 3);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (10, 1, 10, 4);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (11, 2, 11, 5);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (12, 1, 12, 4);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (13, 3, 13, 5);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (14, 1, 14, 4);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (15, 1, 15, 1);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (16, 1, 16, 2);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (17, 2, 17, 3);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (18, 1, 18, 4);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (19, 2, 19, 1);
+insert into ProductDetail (productID, sizeID, quantity, colorID) values (20, 3, 20, 2);
+
+
+insert ProductDetail values(2,1,100,3);
+insert ProductDetail values(2,2,100,3);
+insert ProductDetail values(2,3,100,3);
+insert ProductDetail values(2,4,100,3);
+insert ProductDetail values(2,5,100,3);
+insert ProductDetail values(2,6,100,3);
+
+--=======================================================================================
+insert into OrderState (nameState) values ('Completed');
+insert into OrderState (nameState) values ('Processing');
+insert into OrderState (nameState) values ('Canceled');
+
+--=========================insert Order
+insert into [Order] values (1, '2022-02-18', 1, 1);
+insert into [Order] values (2, '2022-05-02', 2, 2);
+insert into [Order] values (3, '2022-05-25', 3, 1);
+insert into [Order] values (4, '2022-05-19', 4, 1);
+insert into [Order] values (5, '2022-04-20', 5, 1);
+insert into [Order] values (6, '2022-03-25', 6, 3);
+insert into [Order] values (7, '2022-04-16', 7, 1);
+insert into [Order] values (8, '2022-02-14', 8, 2);
+insert into [Order] values (9, '2022-04-08', 9, 3);
+insert into [Order] values (10, '2022-03-17', 10, 1);
+insert into [Order] values (11, '2022-01-11', 11, 3);
+insert into [Order] values (12, '2022-01-07', 12, 2);
+insert into [Order] values (13, '2022-05-02', 13, 1);
+insert into [Order] values (14, '2022-03-26', 14, 3);
+insert into [Order] values (15, '2022-03-15', 15, 1);
+insert into [Order] values (16, '2022-04-24', 16, 1);
+insert into [Order] values (17, '2022-02-27', 17, 1);
+insert into [Order] values (18, '2022-05-12', 18, 1);
+insert into [Order] values (19, '2022-03-18', 19, 2);
+insert into [Order] values (20, '2022-05-02', 20, 1);
+
+--=========================Insert OrderDetail
+
+insert into OrderDetail values (1, 1, 1, 7.1, '2022-05-07', '2022-03-01',1, 1);
+insert into OrderDetail values (2, 2, 2, 9.7, '2022-05-12', '2022-04-04',2, 2);
+insert into OrderDetail values (3, 3, 3, 1.3, '2022-01-21', '2022-04-08',3, 3);
+insert into OrderDetail values (4, 4, 4, 2.8, '2022-01-06', '2022-04-02',4, 4);
+insert into OrderDetail values (5, 5, 5, 3.5, '2022-05-29', '2022-04-11',5, 5);
+insert into OrderDetail values (6, 6, 6, 9.2, '2022-01-21', '2022-05-05',6, 6);
+insert into OrderDetail values (7, 7, 7, 2.9, '2022-03-05', '2022-04-02',7,7);
+insert into OrderDetail values (8, 8, 8, 6.4, '2022-03-02', '2022-05-06',8, 8);
+insert into OrderDetail values (9, 9, 9, 6.4, '2022-05-29', '2022-04-12',9, 9);
+insert into OrderDetail values (10, 10, 10, 3.4, '2022-02-26', '2022-05-13',10, 10);
+insert into OrderDetail values (11, 11, 11, 4.1, '2022-02-16', '2022-03-13',11, 11);
+insert into OrderDetail values (12, 12, 12, 4.3, '2022-01-05', '2022-04-18',12, 12);
+insert into OrderDetail values (13, 13, 13, 6.1, '2022-03-22', '2022-06-04',13, 13);
+insert into OrderDetail values (14, 14, 14, 9.4, '2022-03-02', '2022-04-09',14, 14);
+insert into OrderDetail values (15, 15, 15, 9.8, '2022-01-30', '2022-03-29',15, 15);
+insert into OrderDetail values (16, 16, 16, 4.6, '2022-03-20', '2022-04-23',16, 16);
+insert into OrderDetail values (17, 17, 17, 3.6, '2022-01-14', '2022-03-30',17, 17);
+insert into OrderDetail values (18, 18, 18, 8.1, '2022-02-20', '2022-03-26',18, 18);
+insert into OrderDetail values (19, 19, 19, 9.7, '2022-01-21', '2022-05-25',19, 19);
+insert into OrderDetail values (20, 20, 20, 4.6, '2022-01-16', '2022-03-24',20,20);
+
+--=============ImgProduct
+insert into ImgOfProduct values( 1, 1,'1.1.jpg'),(1,1,'1.2.jpg'),(1,1,'1.3.jpg'),(1,1,'1.4.jpg'),(1,1,'1.5.jpg')
+insert into ImgOfProduct values( 2, 2,'2.1.jpg'),(2,2,'2.2.jpg'),(2,2,'2.3.jpg'),(2,2,'2.4.jpg'),(2,2,'2.5.jpg')
+insert into ImgOfProduct values( 3, 2,'2.1.jpg'),(3,2,'2.2.jpg'),(3,2,'2.3.jpg'),(3,2,'2.4.jpg'),(3,2,'2.5.jpg')
+
+insert into CategoryBlog values ('Clean Shoes'),('Custom Shoes'),('Recovery Shoes'),('Repair Shoes')
+
+
+
+insert into Blog (userID, blogTitle, blogContent, blogImg, authorName, createDate, statusBlogID,cateBlogID) values (1, 'Director of Sales', 'bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce', 'blog0.jpg', 'vhalm0', '2021-06-21', 0,2)
+insert into Blog (userID, blogTitle, blogContent, blogImg, authorName, createDate, statusBlogID,cateBlogID) values (2, 'Legal Assistant', 'volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at', 'blog1.png', 'oianiello1', '2020-10-26', 0,1);
+insert into Blog (userID, blogTitle, blogContent, blogImg, authorName, createDate, statusBlogID,cateBlogID) values (3, 'Senior Sales Associate', 'morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede', 'blog2.jpg', 'mhayton2', '2021-01-27', 1,2);
+insert into Blog (userID, blogTitle, blogContent, blogImg, authorName, createDate, statusBlogID,cateBlogID) values (4, 'Actuary', 'magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum', 'blog3.jpg', 'rleare3', '2021-12-21', 1,4);
+insert into Blog (userID, blogTitle, blogContent, blogImg, authorName, createDate, statusBlogID,cateBlogID) values (5, 'Quality Engineer', 'turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis', 'blog4.jpeg', 'acrudgington4', '2022-05-15', 1,4);
+insert into Blog (userID, blogTitle, blogContent, blogImg, authorName, createDate, statusBlogID,cateBlogID) values (6, 'Web Developer III', 'odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat', 'blog5.jpg', 'emoulsdall5', '2021-04-01', 1,2);
+insert into Blog (userID, blogTitle, blogContent, blogImg, authorName, createDate, statusBlogID,cateBlogID) values (7, 'Internal Auditor', 'mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus', 'blog6.jpg', 'gwoolard6', '2021-03-11', 0,2);
+insert into Blog (userID, blogTitle, blogContent, blogImg, authorName, createDate, statusBlogID,cateBlogID) values (8, 'Statistician IV', 'maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas', 'blog13.jpg', 'fbulfit7', '2020-07-08', 1,3);
+insert into Blog (userID, blogTitle, blogContent, blogImg, authorName, createDate, statusBlogID,cateBlogID) values (9, 'Research Associate', 'libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in', 'blog7.jpg', 'ldrydale8', '2021-07-16', 1,3);
+insert into Blog (userID, blogTitle, blogContent, blogImg, authorName, createDate, statusBlogID,cateBlogID) values (10, 'Systems Administrator II', 'congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus', 'blog8.jpg', 'arigney9', '2021-03-28', 0,1);
+insert into Blog (userID, blogTitle, blogContent, blogImg, authorName, createDate, statusBlogID,cateBlogID) values (11, 'Geologist IV', 'sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in', 'blog9.jpg', 'wjodkowskia', '2020-07-09', 1,3);
+insert into Blog (userID, blogTitle, blogContent, blogImg, authorName, createDate, statusBlogID,cateBlogID) values (12, 'Nurse Practicioner', 'consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus', 'blog10.jpg', 'mbelvardb', '2022-04-07', 1,2);
+insert into Blog (userID, blogTitle, blogContent, blogImg, authorName, createDate, statusBlogID,cateBlogID) values (13, 'Senior Sales Associate', 'parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis', 'blog11.jpg', 'smichelc', '2020-10-13', 0,1);
+insert into Blog (userID, blogTitle, blogContent, blogImg, authorName, createDate, statusBlogID,cateBlogID) values (14, 'Assistant Professor', 'lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi', 'blog12.jpg', 'afittond', '2021-02-10', 0,1);
+
+insert into Feedback values(1,1,'Nice','20220617'),
+(2,2,'Very Nice','20220613'),
+(3,2,'Wow Very Nice','20220413')
