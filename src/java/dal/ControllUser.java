@@ -262,7 +262,7 @@ public class ControllUser extends DBContext {
             st.setString(1, x.getName());
             st.setString(2, x.getPass());
             st.setString(3, x.getFullname());
-            st.setString(4, "avatar");
+            st.setString(4, x.getAvatar());
             st.setString(5, x.getAddress());
             st.setString(6, x.getDob());
             st.setBoolean(7, x.isGender());
@@ -271,7 +271,7 @@ public class ControllUser extends DBContext {
             st.setInt(10, x.getRole().getRoleID());
             st.setInt(11, x.getUstatusId());
             st.executeUpdate();
-
+            System.out.println("OK");
         } catch (SQLException e) {
             System.out.println(e);
         }
@@ -366,9 +366,8 @@ public class ControllUser extends DBContext {
     public static void main(String[] args) {
         ControllUser d = new ControllUser();
         int ar[] = {-1, 1, -1};
-        String key = null;
         List<User> list = d.getList(ar, 1, 1, 3, null);
-        System.out.println(list.get(0).getRole().getRoleName());
+        d.addUser(new User("taikhoan", "mkahau", "tayduki", "", "Nogko", "20010506", true, "hahaha@gmail.com", "0213", new Role(1, ""), 1));
 //        d.sendEmail(new User("", "", "", "", "", "", true, "hahaha@gmail.com", "0213", new Role(1, ""), 1), "haha", "123324234");
         
     }

@@ -349,62 +349,71 @@ FACEBOOK: https://www.facebook.com/themefisher
                 </div><!-- / .container -->
             </nav>
         </section>
-        <form action="orderdetail" method="post">
-            <div class="search-box">
-                <input class="search-txt" type="text" style="border-radius:9px" name="search" placeholder="Search by name..">
-                <a class="search-btn" href="#">
-                    <i class="fas fa-search"></i>
-                </a>
-                <input type="submit" value="Search">
-            </div>
-        </form>
+        <div style="text-align: center">
+            <form action="shop-sidebar" method="get">
+
+                <input style="width: 70%" type="text" name="txt" placeholder="Search Product"><button style="padding: 10px">Search</button>
+
+            </form>
+        </div>
         <section class="user-dashboard page-wrapper">
+
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="list-inline dashboard-menu text-center">
-                            <li><a href="dashboard.html">Dashboard</a></li>
-                            <li><a href="myorder">Orders</a></li>
-                            <li><a href="address.html">Address</a></li>
+                            <li><a  href="orderdetai?id=1">My Order</a></li>
                             <li><a class="active"  href="orderdetai?id=1">Order Details</a></li>
                         </ul>
                         <div class="dashboard-wrapper dashboard-user-profile">
                             <div class="media-body">
 
                                 <ul class="user-profile-list" style="margin-bottom: 30px">
-                                    <p>Order Id:  ${O.id}</p>
-                                    <p>Order Date:${O.ordate}</p>
-                                    <p>Total Cost:${O.totalCost}</p>
-                                    <p>Status:${O.status}</p>
+                                    <p>Order Id: ${orderOrigin.orderID}</p>
+                                    <p>Order Date: ${orderOrigin.orderDate}</p>
+                                    <p>Total Cost: ${orderOrigin.amount}</p>
+                                    <p>Status: ${orderOrigin.oderState.nameState}</p>
+                                    <c:if test="${orderOrigin.oderState.stateID==2}">
+                                        <form action="receiveItem" method="get">
+                                            <input name="acceptOrder" value="${orderOrigin.orderID}" style="display: none">
+                                            <button>Have received items</button>
+                                        </form>
+                                    </c:if>
+
+
                                 </ul>
-                                <p class="btn btn-main btn-large btn-round-full">Receiver information</p>
-                                <ul class="user-profile-list" style="margin-bottom: 30px">
-                                    <p>Fullname:${U.name}</p>
-                                    <p>Email:${U.email}</p>
-                                    <p>Gender:Male</p>
-                                    <p>Mobile:${U.phone}</p>
-                                </ul>
+
                             </div>
                         </div>
                         <div class="tm-product-table-container">
                             <table class="table table-hover tm-table-small tm-product-table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Amount</th>
-                                        <th scope="col">Total Cost</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Order detail</th>
+                                        <th scope="col" style="text-align: center">Name</th>
+                                        <th scope="col" style="text-align: center">Quantity</th>
+                                        <th scope="col" style="text-align: center">Total Cost</th>
+                                        <th scope="col" style="text-align: center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+
                                     <c:forEach items="${listO}" var="o">
                                         <tr>
-                                            <td>${o.product}</td>
-                                            <td>${o.amount}</td>
-                                            <td>${o.totalCost}</td>
-                                            <td>${o.status}</td>
-                                            <td><a href="#">Rebuy/FeedBack</a></td>
+                                            <td style="text-align: center">${o.productDetail.product.productName}</td>
+                                            <td style="text-align: center">${o.quantity}</td>
+                                            <td style="text-align: center">${o.odAmount}</td>
+
+                                            <td style="text-align: center">
+                                                <c:if test="${orderOrigin.oderState.stateID==1&&o.isFeedback==false}">
+                                                    <a href="feedback?id=${o.productDetail.id}&od=${o.orderDetailID}">FeedBack</a>/<a href="detailproduct?productID=${o.productDetail.product.productID}">Rebuy</a>
+                                                </c:if>
+                                                <c:if test="${orderOrigin.oderState.stateID==1&&o.isFeedback==true}">
+                                                    <a href="detailproduct?productID=${o.productDetail.product.productID}">Rebuy</a>
+                                                </c:if>
+                                                <c:if test="${orderOrigin.oderState.stateID!=1}">
+                                                    <a href="detailproduct?productID=${o.productDetail.product.productID}">Rebuy</a>
+                                                </c:if>
+                                            </td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>

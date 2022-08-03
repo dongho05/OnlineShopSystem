@@ -59,6 +59,8 @@ public class MKTDashBoardServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         MarketingDAO m = new MarketingDAO();
         AdminDAO d = new AdminDAO();
         List<Integer> list = m.getTop5UserBuyMost();
@@ -71,8 +73,15 @@ public class MKTDashBoardServlet extends HttpServlet {
             }
         } catch (Exception e) {
         }
+        List<Double> listRevenueByWeek = m.getTopRevenueByWeek();
+        List<String> listDayRevenueByWeek = m.getDayTopRevenueByWeek();
         ProductDAO pd = new ProductDAO();
         List<Product> listProduct = pd.getTop4Product();
+        int total = m.getTotalPost();
+        
+        request.setAttribute("totalPost", total);
+        request.setAttribute("listRevenueByWeek", listRevenueByWeek);
+        request.setAttribute("listDayRevenueByWeek", listDayRevenueByWeek);
         request.setAttribute("ListProduct", listProduct);
         request.setAttribute("listUser", listUser);
         request.getRequestDispatcher("MKT_Dashboard.jsp").forward(request, response);
@@ -111,10 +120,16 @@ public class MKTDashBoardServlet extends HttpServlet {
         
         ProductDAO pd = new ProductDAO();
         List<Product> listProduct = pd.getTop4Product();
+        request.setAttribute("year", year);
+        request.setAttribute("month", month);
+        request.setAttribute("startDay", from);
+        request.setAttribute("endDay", to);
+        
+        
         request.setAttribute("listProduct", listProduct);
         request.setAttribute("listRevenue", listRevenue);
         request.setAttribute("listDay", listDay);
-        request.getRequestDispatcher("MKT_Dashboard.jsp").forward(request, response);
+        request.getRequestDispatcher("MKT_Dashboard_Chart.jsp").forward(request, response);
     }
 
     /**

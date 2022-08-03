@@ -3,388 +3,706 @@
 <html lang="en">
 
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Marketing Dashboard</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <!-- https://fonts.google.com/specimen/Roboto -->
-        <link rel="stylesheet" href="css/fontawesome.min.css">
-        <!-- https://fontawesome.com/ -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <!-- https://getbootstrap.com/ -->
-        <link rel="stylesheet" href="css/templatemo-style.css">
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Marketing Dashboard</title>
+
+        <!-- Custom fonts for this template-->
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+
+        <!-- Custom styles for this template-->
+        <link href="css/sb-admin-2.min.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.js" integrity="sha512-5m2r+g00HDHnhXQDbRLAfZBwPpPCaK+wPLV6lm8VQ+09ilGdHfXV7IVyKPkLOTfi4vTTUVJnz7ELs7cA87/GMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.esm.js" integrity="sha512-YM18yiANXJFpbiOZjLzUrK/lNfTiBcwtTLeAntG4B8dJY+NdUDjxfPNGPEMuOdXlT7U/uT+zbIvbQYAEFog+MA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.esm.min.js" integrity="sha512-yPOQ2pPoQ9JtP0/jDKpXiKyWNCJWT5OI+6r1EqZmTg+afKQOBpy08VYboeq+Tt9kl9/FOCueEhH6cmHN3nAdJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <!--
-            Product Admin CSS Template
-            https://templatemo.com/tm-524-product-admin
-        -->
     </head>
 
-    <body id="reportsPage">
-        <div class="" id="home">
-            <nav class="navbar navbar-expand-xl">
-                <div class="container h-100">
-                    <a class="navbar-brand" href="index.html">
-                        <h1 class="tm-site-title mb-0">Marketing Dashboard</h1>
-                    </a>
-                    <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-bars tm-nav-icon"></i>
-                    </button>
+    <body id="page-top">
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mx-auto h-100">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">
-                                    <i class="fas fa-tachometer-alt"></i>
-                                    Dashboard
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
+        <!-- Page Wrapper -->
+        <div id="wrapper">
 
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    <i class="far fa-file-alt"></i>
-                                    <span>
-                                        Reports <i class="fas fa-angle-down"></i>
-                                    </span>
+            <!-- Sidebar -->
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="mktDashboard">
+                    <div class="sidebar-brand-icon rotate-n-15">
+                        <i class="fas fa-laugh-wink"></i>
+                    </div>
+                    <div class="sidebar-brand-text mx-3">Marketing Dashboard </div>
+                </a>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="mktDashboard">
+                        <span>Dashboard</span></a>
+                </li>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+                <li class="nav-item">
+                    <a class="nav-link" href="mktDashboard_Chart">
+                        <span>Chart</span></a>
+                </li>
+                <hr class="sidebar-divider">
+                <li class="nav-item">
+                    <a class="nav-link" href="lstpost">
+                        <span>Manage Post</span></a>
+                </li>
+                <hr class="sidebar-divider">
+                <li class="nav-item">
+                    <a class="nav-link" href="listproduct">
+                        <span>List Product</span></a>
+                </li>
+                <hr class="sidebar-divider my-0">
+                <li class="nav-item ">
+                    <a class="nav-link" href="feedbackList">
+                        <ion-icon name="receipt"></ion-icon>                       
+                        <span>Feedback</span></a>
+                </li>
+                <hr class="sidebar-divider my-0">
+                <li class="nav-item ">
+                    <a class="nav-link" href="cus">
+                        <ion-icon name="receipt"></ion-icon>                       
+                        <span>List Customers</span></a>
+                </li>
+                <hr class="sidebar-divider my-0">
+                <li class="nav-item ">
+                    <a class="nav-link" href="lstslider">
+                        <ion-icon name="receipt"></ion-icon>                       
+                        <span>List Sliders</span></a>
+                </li>
+                <hr class="sidebar-divider my-0">
+                <li class="nav-item ">
+                    <a class="nav-link" href="home">
+                        <ion-icon name="receipt"></ion-icon>                       
+                        <span>Home Page</span></a>
+                </li>
+                <!-- Heading -->
+
+
+            </ul>
+            <!-- End of Sidebar -->
+
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+
+                <!-- Main Content -->
+                <div id="content">
+
+                    <!-- Topbar -->
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+
+                        <!-- Topbar Search -->
+                        <form
+                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group">
+                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                       aria-label="Search" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
+
+                            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                            <li class="nav-item dropdown no-arrow d-sm-none">
+                                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-search fa-fw"></i>
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Daily Report</a>
-                                    <a class="dropdown-item" href="#">Weekly Report</a>
-                                    <a class="dropdown-item" href="#">Yearly Report</a>
+                                <!-- Dropdown - Messages -->
+                                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                     aria-labelledby="searchDropdown">
+                                    <form class="form-inline mr-auto w-100 navbar-search">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control bg-light border-0 small"
+                                                   placeholder="Search for..." aria-label="Search"
+                                                   aria-describedby="basic-addon2">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="button">
+                                                    <i class="fas fa-search fa-sm"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="products.html">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    Products
-                                </a>
-                            </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="accounts.html">
-                                    <i class="far fa-user"></i>
-                                    Accounts
+                            <!-- Nav Item - Alerts -->
+<!--                            <li class="nav-item dropdown no-arrow mx-1">
+                                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-bell fa-fw"></i>
+                                     Counter - Alerts 
+                                    <span class="badge badge-danger badge-counter">3+</span>
                                 </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-cog"></i>
-                                    <span>
-                                        Settings <i class="fas fa-angle-down"></i>
-                                    </span>
+                                 Dropdown - Alerts 
+                                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                     aria-labelledby="alertsDropdown">
+                                    <h6 class="dropdown-header">
+                                        Alerts Center
+                                    </h6>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="mr-3">
+                                            <div class="icon-circle bg-primary">
+                                                <i class="fas fa-file-alt text-white"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="small text-gray-500">December 12, 2019</div>
+                                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="mr-3">
+                                            <div class="icon-circle bg-success">
+                                                <i class="fas fa-donate text-white"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="small text-gray-500">December 7, 2019</div>
+                                            $290.29 has been deposited into your account!
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="mr-3">
+                                            <div class="icon-circle bg-warning">
+                                                <i class="fas fa-exclamation-triangle text-white"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="small text-gray-500">December 2, 2019</div>
+                                            Spending Alert: We've noticed unusually high spending for your account.
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                                </div>
+                            </li>-->
+
+                            <!-- Nav Item - Messages -->
+<!--                            <li class="nav-item dropdown no-arrow mx-1">
+                                <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-envelope fa-fw"></i>
+                                     Counter - Messages 
+                                    <span class="badge badge-danger badge-counter">7</span>
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Profile</a>
-                                    <a class="dropdown-item" href="#">Billing</a>
-                                    <a class="dropdown-item" href="#">Customize</a>
+                                 Dropdown - Messages 
+                                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                     aria-labelledby="messagesDropdown">
+                                    <h6 class="dropdown-header">
+                                        Message Center
+                                    </h6>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="img/undraw_profile_1.svg"
+                                                 alt="...">
+                                            <div class="status-indicator bg-success"></div>
+                                        </div>
+                                        <div class="font-weight-bold">
+                                            <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                                problem I've been having.</div>
+                                            <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                                 alt="...">
+                                            <div class="status-indicator"></div>
+                                        </div>
+                                        <div>
+                                            <div class="text-truncate">I have the photos that you ordered last month, how
+                                                would you like them sent to you?</div>
+                                            <div class="small text-gray-500">Jae Chun · 1d</div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                                                 alt="...">
+                                            <div class="status-indicator bg-warning"></div>
+                                        </div>
+                                        <div>
+                                            <div class="text-truncate">Last month's report looks great, I am very happy with
+                                                the progress so far, keep up the good work!</div>
+                                            <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                                 alt="...">
+                                            <div class="status-indicator bg-success"></div>
+                                        </div>
+                                        <div>
+                                            <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                                told me that people say this to all dogs, even if they aren't good...</div>
+                                            <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                                </div>
+                            </li>-->
+
+                            <div class="topbar-divider d-none d-sm-block"></div>
+
+                            <!-- Nav Item - User Information -->
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">${user.fullname}</span>
+                                    <img class="img-profile rounded-circle"
+                                         src="images/shop/user/${user.avatar}">
+                                </a>
+                                <!-- Dropdown - User Information -->
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                     aria-labelledby="userDropdown">
+                                    
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="logout">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </a>
                                 </div>
                             </li>
-                        </ul>
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link d-block" href="login.html">
-                                    Admin, <b>Logout</b>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
 
-            </nav>
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <p class="text-white mt-5 mb-5">Welcome back, <b>Admin</b></p>
-                    </div>
-                </div>
-                <!-- row -->
-                <div class="row tm-content-row">
-<!--                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
-                        <div class="tm-bg-primary-dark tm-block">
-                            <h2 class="tm-block-title">Latest Hits</h2>
-                            <canvas id="lineChart1" ></canvas>
-                            <script>
-                                const ctx = document.getElementById('lineChart1').getContext('2d');
-                                const myChart = new Chart(ctx, {
-                                    type: 'bar',
-                                    data: {
-                                        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-                                        datasets: [{
-                                                label: '# of Votes',
-                                                data: [12, 19, 3, 5, 2, 3, 9],
-                                                backgroundColor: [
-                                                    'rgba(255, 99, 132, 0.7)',
-                                                    'rgba(54, 162, 235, 0.7)',
-                                                    'rgba(255, 206, 86, 0.7)',
-                                                    'rgba(75, 192, 192, 0.7)',
-                                                    'rgba(153, 102, 255, 0.7)',
-                                                    'rgba(153, 204, 255, 0.7)',
-                                                    'rgba(255, 159, 64, 0.7)'
-                                                ],
-                                                borderColor: [
-                                                    'rgba(255, 99, 132, 1)',
-                                                    'rgba(54, 162, 235, 1)',
-                                                    'rgba(255, 206, 86, 1)',
-                                                    'rgba(75, 192, 192, 1)',
-                                                    'rgba(145, 102, 255, 1)',
-                                                    'rgba(153, 102, 255, 1)',
-                                                    'rgba(255, 159, 64, 1)'
-                                                ],
-                                                borderWidth: 1
-                                            }]
-                                    },
-                                    options: {
-                                        scales: {
-                                            y: {
-                                                beginAtZero: true
-                                            }
-                                        }
-                                    }
-                                });
-                            </script>
+                        </ul>
+
+                    </nav>
+                                
+                    <!-- End of Topbar -->
+
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
+
+                        <!-- Page Heading -->
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+
                         </div>
-                    </div>-->
-                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
-                        <div class="tm-bg-primary-dark tm-block">
-                            <h2 class="tm-block-title">Revenue By Day</h2>
-                            <canvas id="myChart" style="width:100%;max-width:600px;color: khaki"></canvas>
-                            <form action="mktDashboard" method="post">
-                                Month<input type="number" name="month" style="background-color: #23527c;color: #ffffff"/>
-                                Year<input type="number" name="year"style="background-color: #23527c;color: #ffffff"/>
-                                From<input type="number" name="from"style="background-color: #23527c;color: #ffffff"/>
-                                To<input type="number" name="to"style="background-color: #23527c;color: #ffffff"/>
-                                <input type="submit" value="Filter"style="background-color: #23527c;color: #ffffff"/>
-                            </form>
-                            <script>
-                                new Chart("myChart", {
-                                    type: "line",
-                                    data: {
-                                        labels: ${listDay},
-                                        datasets: [{
-                                                fill: false,
-                                                lineTension: 0,
-                                                backgroundColor: "rgba(255, 99, 132, 0.7)",
-                                                borderColor: "rgba(255, 99, 132, 1)",
-                                                data: ${listRevenue}
-                                            }]
-                                    },
-                                    options: {
-                                        legend: {display: false},
-                                        scales: {
-                                            yAxes: [{ticks: {min: 6, max: 16}}],
-                                        }
-                                    }
-                                });
-                            </script>
-                        </div>
-                    </div>
-<!--                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
-                        <div class="tm-bg-primary-dark tm-block tm-block-taller">
-                            <h2 class="tm-block-title">Storage Information</h2>
-                            <div id="pieChartContainer">
-                                <canvas id="pieChart" class="chartjs-render-monitor" width="200" height="200"></canvas>
-                            </div>                        
-                        </div>
-                    </div>-->
-                    <!--                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
-                                            <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-overflow">
-                                                <h2 class="tm-block-title">Notification List</h2>
-                                                <div class="tm-notification-items">
-                                                    <div class="media tm-notification-item">
-                                                        <div class="tm-gray-circle"><img src="img/notification-01.jpg" alt="Avatar Image" class="rounded-circle"></div>
-                                                        <div class="media-body">
-                                                            <p class="mb-2"><b>Jessica</b> and <b>6 others</b> sent you new <a href="#"
-                                                                                                                               class="tm-notification-link">product updates</a>. Check new orders.</p>
-                                                            <span class="tm-small tm-text-color-secondary">6h ago.</span>
-                                                        </div>
+                        
+
+                        <!-- Content Row -->
+                        <div class="row">
+
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    Total Post</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">${totalPost}</div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+<!--                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                    Earnings </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>-->
+                            </div>
+
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+<!--                                <div class="card border-left-info shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                                </div>
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col-auto">
+                                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
                                                     </div>
-                                                    <div class="media tm-notification-item">
-                                                        <div class="tm-gray-circle"><img src="img/notification-02.jpg" alt="Avatar Image" class="rounded-circle"></div>
-                                                        <div class="media-body">
-                                                            <p class="mb-2"><b>Oliver Too</b> and <b>6 others</b> sent you existing <a href="#"
-                                                                                                                                       class="tm-notification-link">product updates</a>. Read more reports.</p>
-                                                            <span class="tm-small tm-text-color-secondary">6h ago.</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="media tm-notification-item">
-                                                        <div class="tm-gray-circle"><img src="img/notification-03.jpg" alt="Avatar Image" class="rounded-circle"></div>
-                                                        <div class="media-body">
-                                                            <p class="mb-2"><b>Victoria</b> and <b>6 others</b> sent you <a href="#"
-                                                                                                                            class="tm-notification-link">order updates</a>. Read order information.</p>
-                                                            <span class="tm-small tm-text-color-secondary">6h ago.</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="media tm-notification-item">
-                                                        <div class="tm-gray-circle"><img src="img/notification-01.jpg" alt="Avatar Image" class="rounded-circle"></div>
-                                                        <div class="media-body">
-                                                            <p class="mb-2"><b>Laura Cute</b> and <b>6 others</b> sent you <a href="#"
-                                                                                                                              class="tm-notification-link">product records</a>.</p>
-                                                            <span class="tm-small tm-text-color-secondary">6h ago.</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="media tm-notification-item">
-                                                        <div class="tm-gray-circle"><img src="img/notification-02.jpg" alt="Avatar Image" class="rounded-circle"></div>
-                                                        <div class="media-body">
-                                                            <p class="mb-2"><b>Samantha</b> and <b>6 others</b> sent you <a href="#"
-                                                                                                                            class="tm-notification-link">order stuffs</a>.</p>
-                                                            <span class="tm-small tm-text-color-secondary">6h ago.</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="media tm-notification-item">
-                                                        <div class="tm-gray-circle"><img src="img/notification-03.jpg" alt="Avatar Image" class="rounded-circle"></div>
-                                                        <div class="media-body">
-                                                            <p class="mb-2"><b>Sophie</b> and <b>6 others</b> sent you <a href="#"
-                                                                                                                          class="tm-notification-link">product updates</a>.</p>
-                                                            <span class="tm-small tm-text-color-secondary">6h ago.</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="media tm-notification-item">
-                                                        <div class="tm-gray-circle"><img src="img/notification-01.jpg" alt="Avatar Image" class="rounded-circle"></div>
-                                                        <div class="media-body">
-                                                            <p class="mb-2"><b>Lily A</b> and <b>6 others</b> sent you <a href="#"
-                                                                                                                          class="tm-notification-link">product updates</a>.</p>
-                                                            <span class="tm-small tm-text-color-secondary">6h ago.</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="media tm-notification-item">
-                                                        <div class="tm-gray-circle"><img src="img/notification-02.jpg" alt="Avatar Image" class="rounded-circle"></div>
-                                                        <div class="media-body">
-                                                            <p class="mb-2"><b>Amara</b> and <b>6 others</b> sent you <a href="#"
-                                                                                                                         class="tm-notification-link">product updates</a>.</p>
-                                                            <span class="tm-small tm-text-color-secondary">6h ago.</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="media tm-notification-item">
-                                                        <div class="tm-gray-circle"><img src="img/notification-03.jpg" alt="Avatar Image" class="rounded-circle"></div>
-                                                        <div class="media-body">
-                                                            <p class="mb-2"><b>Cinthela</b> and <b>6 others</b> sent you <a href="#"
-                                                                                                                            class="tm-notification-link">product updates</a>.</p>
-                                                            <span class="tm-small tm-text-color-secondary">6h ago.</span>
+                                                    <div class="col">
+                                                        <div class="progress progress-sm mr-2">
+                                                            <div class="progress-bar bg-info" role="progressbar"
+                                                                 style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                                 aria-valuemax="100"></div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>-->
-                    <div class="col-12 tm-block-col">
-                        <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
-                            <h2 class="tm-block-title">Top Customer Buy The Most </h2>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">ORDER NO.</th>
-                                        <th scope="col">Avatar</th>
-                                        <th scope="col">Full Name</th>
-                                        <th scope="col">Address</th>
-                                        <th scope="col">Birthday</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Phone Number</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach var="i" items="${listUser}">
-                                        <tr>
-                                            <th scope="row"><b>#122349</b></th>
-                                            <td><img  src="images/img_blog/${i.avatar}" alt="" width="50" height="50">
-                                            </td>
-                                            <td><b>${i.fullname}</b></td>
-                                            <td><b>${i.address}</b></td>
-                                            <td><b>${i.dob}</b></td>
-                                            <td>${i.email}</td>
-                                            <td>${i.phone}</td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </table>
+                                            <div class="col-auto">
+                                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>-->
+                            </div>
+
+                            <!-- Pending Requests Card Example -->
+<!--                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-warning shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                    Total Orders Success</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+                        </div>
+
+                        <!-- Content Row -->
+
+                        <div class="row">
+
+                            <!-- Area Chart -->
+                            <div class="col-xl-8 col-lg-7">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                                        <div class="dropdown no-arrow">
+
+                                        </div>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="chart-area" >
+<!--                                            <form action="mktDashboard" method="post">
+                                                <b>Year</b><select name="year" >
+                                                    <c:forEach var="i" begin="1990" end="2026">
+                                                    <option value="${i}">${i}</option>
+                                                    </c:forEach>
+                                                </select>
+                                                <b>Month</b><select name="month" >
+                                                    <c:forEach var="i" begin="01" end="12">
+                                                    <option value="${i}">${i}</option>
+                                                    </c:forEach>
+                                                </select>
+                                                <b>Start Day</b><select name="from" >
+                                                    <c:forEach var="i" begin="01" end="31">
+                                                    <option value="${i}">${i}</option>
+                                                    </c:forEach>
+                                                </select>
+                                                <b>End Day</b><select name="to" >
+                                                    <c:forEach var="i" begin="01" end="31">
+                                                    <option value="${i}">${i}</option>
+                                                    </c:forEach>
+                                                </select>
+                                                <input type="submit" value="Filter"/>
+                                            </form>-->
+                                            <canvas id="myChart" width="1504px" height="340px"></canvas>
+                                            <script>
+                                                const ctx = document.getElementById('myChart').getContext('2d');
+                                                const myChart = new Chart(ctx, {
+                                                    type: 'line',
+                                                    data: {
+                                                        labels: ${listDayRevenueByWeek},
+                                                        datasets: [{
+                                                                label: 'Revenue',
+                                                                data: ${listRevenueByWeek},
+                                                                backgroundColor: [
+                                                                    'rgba(255, 99, 132, 0.2)',
+                                                                    'rgba(54, 162, 235, 0.2)',
+                                                                    'rgba(255, 206, 86, 0.2)',
+                                                                    'rgba(75, 192, 192, 0.2)',
+                                                                    'rgba(153, 102, 255, 0.2)',
+                                                                    'rgba(255, 159, 64, 0.2)'
+                                                                ],
+                                                                borderColor: [
+                                                                    'rgba(255, 99, 132, 1)',
+                                                                    'rgba(54, 162, 235, 1)',
+                                                                    'rgba(255, 206, 86, 1)',
+                                                                    'rgba(75, 192, 192, 1)',
+                                                                    'rgba(153, 102, 255, 1)',
+                                                                    'rgba(255, 159, 64, 1)'
+                                                                ],
+                                                                borderWidth: 1
+                                                            }]
+                                                    },
+                                                    options: {
+                                                        legend: {display: false},
+                                        scales: {
+                                            yAxes: [{ticks: {min: 6, max: 16}}],
+                                        }
+                                                    }
+                                                });
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pie Chart -->
+<!--                            <div class="col-xl-4 col-lg-5">
+                                <div class="card shadow mb-4">
+                                     Card Header - Dropdown 
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                                        <div class="dropdown no-arrow">
+                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                                 aria-labelledby="dropdownMenuLink">
+                                                <div class="dropdown-header">Dropdown Header:</div>
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     Card Body 
+                                    <div class="card-body">
+                                        <div class="chart-pie pt-4 pb-2">
+                                            <canvas id="myPieChart"></canvas>
+                                        </div>
+                                        <div class="mt-4 text-center small">
+                                            <span class="mr-2">
+                                                <i class="fas fa-circle text-primary"></i> Direct
+                                            </span>
+                                            <span class="mr-2">
+                                                <i class="fas fa-circle text-success"></i> Social
+                                            </span>
+                                            <span class="mr-2">
+                                                <i class="fas fa-circle text-info"></i> Referral
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+                        </div>
+
+                        <!-- Content Row -->
+                        <div class="row">
+
+                            <!-- Content Column -->
+                            <div class="col-lg-6 mb-4">
+
+                                <!-- Project Card Example -->
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Top Customer Buy Most</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">NO</th>
+                                                    <th scope="col">Avatar</th>
+                                                    <th scope="col">Full Name</th>
+<!--                                                    <th scope="col">Address</th>
+                                                    <th scope="col">Birthday</th>-->
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Phone Number</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <c:forEach var="i" items="${listUser}">
+                                                    <tr>
+                                                        <th scope="row"><b>${i.id}</b></th>
+                                                        <td><img  src="images/shop/user/${i.avatar}" alt="" width="50" height="50">
+                                                        </td>
+                                                        <td><b>${i.fullname}</b></td>
+                                                        <!--<td><b>${i.address}</b></td>-->
+                                                        <!--<td><b>${i.dob}</b></td>-->
+                                                        <td>${i.email}</td>
+                                                        <td>${i.phone}</td>
+                                                    </tr>
+                                                </c:forEach>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <!-- Color System -->
+
+
+                            </div>
+
+                            <div class="col-lg-6 mb-4">
+
+                                <!-- Project Card Example -->
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Top Product Bought Most</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">NO</th>
+                                                    <th scope="col">Image</th>
+                                                    <th scope="col">Product Name</th>
+                                                    <th scope="col">Price</th>
+                                                    <th scope="col">Category</th>
+                                                    <!--<th scope="col"></th>-->
+                                                    <!--<th scope="col">Phone Number</th>-->
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <c:forEach var="i" items="${ListProduct}">
+                                                    <tr>
+                                                        <th scope="row"><b>${i.productID}</b></th>
+                                                        <td><img  src="images/shop/products/${i.productImg}" alt="" width="50" height="50"></td>
+                                                        <td><b>${i.productName}</b></td>
+                                                        <td><b>${i.productPrice}</b></td>
+                                                        <td><b>${i.cate.cateName}</b></td>
+                                                    </tr>
+                                                </c:forEach>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <!-- Color System -->
+
+
+                            </div>
+
+                            <div class="col-lg-6 mb-4">
+
+                                <!-- Illustrations -->
+<!--                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                                                 src="img/undraw_posting_photo.svg" alt="...">
+                                        </div>
+                                        <p>Add some quality, svg illustrations to your project courtesy of <a
+                                                target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
+                                            constantly updated collection of beautiful svg images that you can use
+                                            completely free and without attribution!</p>
+                                        <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
+                                            unDraw &rarr;</a>
+                                    </div>
+                                </div>-->
+
+                                <!-- Approach -->
+<!--                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
+                                            CSS bloat and poor page performance. Custom CSS classes are used to create
+                                            custom components and custom utility classes.</p>
+                                        <p class="mb-0">Before working with this theme, you should become familiar with the
+                                            Bootstrap framework, especially the utility classes.</p>
+                                    </div>
+                                </div>-->
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.container-fluid -->
+
+                </div>
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Your Website 2021</span>
                         </div>
                     </div>
-                    
-                    <div class="col-12 tm-block-col">
-                        <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
-                            <h2 class="tm-block-title">Top Product Bought Most </h2>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">ORDER NO.</th>
-                                        <th scope="col">Image</th>
-                                        <th scope="col">Product Name</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Category</th>
-                                        <!--<th scope="col"></th>-->
-                                        <!--<th scope="col">Phone Number</th>-->
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach var="i" items="${ListProduct}">
-                                        <tr>
-                                            <th scope="row"><b>#122349</b></th>
-                                            <td><img  src="images/shop/products/${i.productImg}" alt="" width="50" height="50"></td>
-                                            <td><b>${i.productName}</b></td>
-                                            <td><b>${i.productPrice}</b></td>
-                                            <td><b>${i.cate.cateName}</b></td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </table>
-                        </div>
+                </footer>
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
                     </div>
                 </div>
             </div>
-            <footer class="tm-footer row tm-mt-small">
-                <div class="col-12 font-weight-light">
-                    <p class="text-center text-white mb-0 px-4 small">
-                        Copyright &copy; <b>2018</b> All rights reserved. 
-
-                        Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
-                    </p>
-                </div>
-            </footer>
         </div>
 
-<!--        <script src="js/jquery-3.3.1.min.js"></script>
-         https://jquery.com/download/ 
-        <script src="js/moment.min.js"></script>
-         https://momentjs.com/ 
-        <script src="js/Chart.min.js"></script>
-         http://www.chartjs.org/docs/latest/ 
-        <script src="js/bootstrap.min.js"></script>
-         https://getbootstrap.com/ 
-        <script src="js/tooplate-scripts.js"></script>-->
-        <!--        <script>
-                                        Chart.defaults.global.defaultFontColor = 'white';
-                                        let ctxLine,
-                                                ctxBar,
-                                                ctxPie,
-                                                optionsLine,
-                                                optionsBar,
-                                                optionsPie,
-                                                configLine,
-                                                configBar,
-                                                configPie,
-                                                lineChart;
-                                        barChart, pieChart;
-                                        // DOM is ready
-                                        $(function () {
-                                            drawLineChart(); // Line Chart
-                                            drawBarChart(); // Bar Chart
-                                            drawPieChart(); // Pie Chart
-        
-                                            $(window).resize(function () {
-                                                updateLineChart();
-                                                updateBarChart();
-                                            });
-                                        })
-                </script>-->
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="vendor/chart.js/Chart.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="js/demo/chart-area-demo.js"></script>
+        <script src="js/demo/chart-pie-demo.js"></script>
+
     </body>
 
 </html>

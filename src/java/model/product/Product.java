@@ -18,8 +18,32 @@ public class Product{
     private String createAt;
     private boolean inSale;
     private boolean isActive;
+    private int amount =1;
 
     public Product() {
+    }
+
+    public Product(int productID, String productName, double productPrice, String productImg, String productDes, Category cate, int totalQuantity, double discount, String createAt, boolean inSale, boolean isActive, int amount) {
+        this.productID = productID;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productImg = productImg;
+        this.productDes = productDes;
+        this.cate = cate;
+        this.totalQuantity = totalQuantity;
+        this.discount = discount;
+        this.createAt = createAt;
+        this.inSale = inSale;
+        this.isActive = isActive;
+        this.amount = amount;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public Product(int productID, String productName, double productPrice, String productImg, String productDes, Category cate, int totalQuantity, double discount, String createAt, boolean inSale, boolean isActive) {
@@ -123,7 +147,5 @@ public class Product{
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
     }
-    
-    
     
 }

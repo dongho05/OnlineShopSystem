@@ -1,15 +1,20 @@
 package controller;
 
+import dal.MKTDAO;
 import dal.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Slider;
 import model.product.Product;
+import model.product.ProductDetail;
+
 
 public class HomeServlet extends HttpServlet {
 
@@ -17,7 +22,6 @@ public class HomeServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -29,17 +33,59 @@ public class HomeServlet extends HttpServlet {
             out.println("</html>");
         }
     }
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Trang Home Page   
+        response.setContentType("text/html;charset=UTF-8");
         ProductDAO pd = new ProductDAO();
-        List<Product> listT = pd.getTop4Product();
-        String id = request.getParameter("productID");
+        List<Product> listT = pd.getProductHome();
+        List<Product> listN = pd.getProductNew();
+        MKTDAO mkt = new MKTDAO();
+        List<Slider> listS = mkt.getAllSlider();
+        request.setAttribute("listS", listS);
         request.setAttribute("listT", listT);
+        request.setAttribute("listN", listN);
+        
+        
+        Cookie arr[] = request.getCookies();
+        PrintWriter out = response.getWriter();                             
+        List<ProductDetail> list = new ArrayList<>();
+        ProductDAO dao = new ProductDAO();
+        for (Cookie o : arr) {
+            if (o.getName().equals("id")) {
+                String txt[] = o.getValue().split(",");
+                for (String s : txt) {
+                    list.add(dao.getProductDetailByID(Integer.parseInt(s)));
+                }
+            }
+        }
+        for (int i = 0; i < list.size(); i++) {
+            int count = 0;
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(i).getId() == list.get(j).getId()) {
+                    count++;
+                    list.remove(j);
+                    j--;
+                    list.get(i).getProduct().setAmount(count);
+                }
+            }
+        }
+        double ship = 10.0;
+        double total = 0;
+        for (ProductDetail o : list) {
+            total = total + o.getProduct().getAmount() * (o.getProduct().getProductPrice() - o.getProduct().getProductPrice() * o.getProduct().getDiscount()) + ship;
+        }        
+        request.setAttribute("listC", list);
+        request.setAttribute("total", total);
+        request.setAttribute("ship", ship);
+        request.setAttribute("vat", 0.1 * total);
+        request.setAttribute("sum", 1.1 * total);
+        
+        
         request.getRequestDispatcher("home.jsp").forward(request, response);
         }
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

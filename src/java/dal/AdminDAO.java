@@ -43,13 +43,14 @@ public class AdminDAO extends DBContext {
 
 //        System.out.println(d.sendEmail((new User(0,"ds", "ds","ds", "ds", "ds", "20030201", true, "hophuongdongk15@gmail.com", "ds",new Role(2, ""), 0)),"123413"));
     }
-    public Blog getBlogByID(int id){
+
+    public Blog getBlogByID(int id) {
         String sql = "select * from Blog where statusBlogID = 1 and blogID =?";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, id);
-            ResultSet rs= st.executeQuery();
-            if(rs.next()){
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
                 CategoryBlog cb = new CategoryBlog(rs.getInt(9), "");
                 Blog b = new Blog(rs.getInt(1),
                         rs.getInt(2),
@@ -66,14 +67,15 @@ public class AdminDAO extends DBContext {
         }
         return null;
     }
-    public List<Blog> searchBlogByKey(String key){
+
+    public List<Blog> searchBlogByKey(String key) {
         List<Blog> list = new ArrayList<>();
-        String sql ="select * from Blog where statusBlogID =1 and blogTitle like ? ";
+        String sql = "select * from Blog where statusBlogID =1 and blogTitle like ? ";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
-            st.setString(1, "%"+key+"%");
-            ResultSet rs =st.executeQuery();
-            while(rs.next()){
+            st.setString(1, "%" + key + "%");
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
                 CategoryBlog cb = new CategoryBlog(rs.getInt(9), "");
                 Blog b = new Blog(rs.getInt(1),
                         rs.getInt(2),
@@ -90,14 +92,15 @@ public class AdminDAO extends DBContext {
         }
         return list;
     }
-    public List<Blog> getBlogByCateID(int id){
+
+    public List<Blog> getBlogByCateID(int id) {
         List<Blog> list = new ArrayList<>();
         String sql = "select * from Blog where cateBlogID = ? and statusBlogID =1";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 CategoryBlog cb = new CategoryBlog(rs.getInt(9), "");
                 Blog b = new Blog(rs.getInt(1),
                         rs.getInt(2),
@@ -113,15 +116,16 @@ public class AdminDAO extends DBContext {
         } catch (Exception e) {
         }
         return list;
-        
+
     }
-    public List<Blog> getPostLatest(){
+
+    public List<Blog> getPostLatest() {
         List<Blog> list = new ArrayList<>();
         String sql = "select top 5 * from Blog where statusBlogID =1 order by createDate desc";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 CategoryBlog cb = new CategoryBlog(rs.getInt(9), "");
                 Blog b = new Blog(rs.getInt(1),
                         rs.getInt(2),
@@ -138,6 +142,7 @@ public class AdminDAO extends DBContext {
         }
         return list;
     }
+
     public List<Blog> getPaging(int index) {
         String sql = "select * from Blog where statusBlogID = 1\n"
                 + "order by createDate desc\n"
@@ -146,9 +151,9 @@ public class AdminDAO extends DBContext {
         List<Blog> list = new ArrayList<>();
         try {
             PreparedStatement st = connection.prepareStatement(sql);
-            st.setInt(1, (index - 1)*3);
+            st.setInt(1, (index - 1) * 3);
             ResultSet rs = st.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 CategoryBlog cb = new CategoryBlog(rs.getInt(9), "");
                 Blog b = new Blog(rs.getInt(1),
                         rs.getInt(2),
@@ -164,15 +169,16 @@ public class AdminDAO extends DBContext {
         } catch (Exception e) {
         }
         return list;
-        
+
     }
-    public List<CategoryBlog> getCateBlog(){
-        String sql ="select * from CategoryBlog";
+
+    public List<CategoryBlog> getCateBlog() {
+        String sql = "select * from CategoryBlog";
         List<CategoryBlog> list = new ArrayList<>();
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 CategoryBlog cb = new CategoryBlog(rs.getInt(1), rs.getString(2));
                 list.add(cb);
             }
@@ -180,6 +186,7 @@ public class AdminDAO extends DBContext {
         }
         return list;
     }
+
     public int getNumberPage() {
         AdminDAO d = new AdminDAO();
         List<Blog> list = d.getListBlog();
@@ -191,7 +198,7 @@ public class AdminDAO extends DBContext {
         }
         return countPage;
     }
-    
+
     public List<Blog> getListBlog() {
         List<Blog> list = new ArrayList<>();
         String sql = "select * from Blog where statusBlogID =1";
@@ -215,6 +222,7 @@ public class AdminDAO extends DBContext {
         }
         return list;
     }
+
     public void update(User p) {
         String sql = "update [User] set fullName = ?, userEmail= ?, userAdress=?, userPhone=?, userBirth=?,userAvatar = ? where userID= ?";
         try {
@@ -321,6 +329,54 @@ public class AdminDAO extends DBContext {
 //
 //        return test;
 //    }
+    public boolean sendEmail(User user) {
+        boolean test = false;
+
+        String toEmail = user.getEmail();
+        String fromEmail = "phungduchai2001@gmail.com";
+        String password = "yaaahkccgvrotcld";
+
+        try {
+
+            // your host email smtp server details
+            Properties props = new Properties();
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.starttls.enable", "true");
+            props.put("mail.smtp.host", "smtp.gmail.com");
+            props.put("mail.smtp.port", "587");
+            Session session = Session.getInstance(props, new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(fromEmail, password);
+                }
+            });
+
+            //set email message details
+            Message mess = new MimeMessage(session);
+
+            //set from email address
+            mess.setFrom(new InternetAddress(fromEmail));
+            //set to email address or destination email address
+            mess.setRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
+
+            //set email subject
+            mess.setSubject("Admin of website...have add new account for you");
+
+            //set message text
+            mess.setText("Order Success!!! ");
+            //send the message
+            Transport.send(mess);
+
+            test = true;
+            System.out.println("Oke");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return test;
+    }
+    
     public boolean sendEmail(User user, String code) {
         boolean test = false;
 

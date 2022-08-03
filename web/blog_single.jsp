@@ -192,14 +192,17 @@ FACEBOOK: https://www.facebook.com/themefisher
 
 
                             <!-- Elements -->
-                            <li class="dropdown dropdown-slide">
+                            <li class="dropdown ">
+                                <a href="blogList" data-translate="word_6">Shop</a>
+                            </li>
+<!--                            <li class="dropdown dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false" data-translate="word_7">Shop</a> 
-                                <!--<spanclass="tf-ion-ios-arrow-down"></span>-->
+                                <spanclass="tf-ion-ios-arrow-down"></span>
                                 <div class="dropdown-menu">
                                     <div class="row">
 
-                                        <!-- Basic -->
+                                         Basic 
                                         <div class="col-lg-6 col-md-6 mb-sm-3">
                                             <ul>
                                                 <li class="dropdown-header" data-translate="word_8">Pages</li>
@@ -213,30 +216,30 @@ FACEBOOK: https://www.facebook.com/themefisher
                                             </ul>
                                         </div>
 
-                                        <!-- Layout -->
+                                         Layout 
                                         <div class="col-lg-6 col-md-6 mb-sm-3">
                                             <ul>
                                                 <li class="dropdown-header" data-translate="word_11">Layout</li>
                                                 <li role="separator" class="divider"></li>
                                                 <li><a href="viewuser" data-translate="word_12">Product Details</a></li>
-                                                <li><a href="shop-sidebar.jsp" data-translate="word_13">Shop With Sidebar</a></li>
+                                                <li><a href="shop-sidebar" data-translate="word_13">Shop With Sidebar</a></li>
 
                                             </ul>
                                         </div>
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
-                            </li><!-- / Elements -->
+                                    </div> / .row 
+                                </div> / .dropdown-menu 
+                            </li> / Elements -->
 
 
                             <!-- Pages -->
-                            <li class="dropdown full-width dropdown-slide">
+<!--                            <li class="dropdown full-width dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false" data-translate="word_8">Pages</a>
-                                <!--<span class="tf-ion-ios-arrow-down"></span>-->
+                                <span class="tf-ion-ios-arrow-down"></span>
                                 <div class="dropdown-menu">
                                     <div class="row">
 
-                                        <!-- Introduction -->
+                                         Introduction 
                                         <div class="col-sm-3 col-xs-12">
                                             <ul>
                                                 <li class="dropdown-header" data-translate="word_14">Introduction</li>
@@ -249,7 +252,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                                             </ul>
                                         </div>
 
-                                        <!-- Contact -->
+                                         Contact 
                                         <div class="col-sm-3 col-xs-12">
                                             <ul>
                                                 <li class="dropdown-header" data-translate="word_20">Dashboard</li>
@@ -261,7 +264,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                                             </ul>
                                         </div>
 
-                                        <!-- Utility -->
+                                         Utility 
                                         <div class="col-sm-3 col-xs-12">
                                             <ul>
                                                 <li class="dropdown-header" data-translate="word_25">Utility</li>
@@ -272,15 +275,15 @@ FACEBOOK: https://www.facebook.com/themefisher
                                             </ul>
                                         </div>
 
-                                        <!-- Mega Menu -->
+                                         Mega Menu 
                                         <div class="col-sm-3 col-xs-12">
                                             <a href="shop.jsp">
                                                 <img class="img-responsive" src="images/shop/header-img.jpg" alt="menu image" />
                                             </a>
                                         </div>
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
-                            </li><!-- / Pages -->
+                                    </div> / .row 
+                                </div> / .dropdown-menu 
+                            </li> / Pages -->
 
 
                             <li class="dropdown ">
@@ -322,7 +325,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     <div class="col-md-4">
                         <aside class="sidebar">
                             <div class="widget widget-subscription">
-                                <h4 class="widget-title">What do you want to find?</h4>
+                                <h4 class="widget-title" style="font-weight: bold; font-size: 23px">What do you want to find?</h4>
                                 <form action="blogSearch" method="post">
                                     <div class="form-group">
                                         <input type="text" name="key" class="form-control" placeholder="Enter anything ...">
@@ -332,30 +335,34 @@ FACEBOOK: https://www.facebook.com/themefisher
                             </div>
 
                             <!-- Widget Latest Posts -->
-                            <div class="widget widget-latest-post">
-                                <h4 class="widget-title">Latest Posts</h4>
+                            <div class="widget widget-latest-post" style="justify-content: space-between">
+                                <h4 class="widget-title" style="font-weight: bold; font-size: 23px">Latest Posts</h4>
                                 <c:forEach var="i" items="${latestPost}">
-                                
-                                <div class="media">
-                                    <a class="pull-left" href="blogDetail?id=${i.blogID}">
-                                        <img class="media-object" src="images/img_blog/${i.image}" alt="Image" style="height: 150px">
-                                    </a>
-                                    <div class="media-body" style="display: flex; align-items: flex-start;">
-                                        <h4 class="media-heading" style="font-style: oblique"><a href="blogDetail?id=${i.blogID}">${i.title}</a></h4>
+
+                                    <div class="media">
+                                        <div >
+                                            <a class="pull-left" href="blogDetail?id=${i.blogID}" style="display: 30%; float: left">
+                                                <img class="media-object" src="images/img_blog/${i.image}" alt="Image" style="height: 150px">
+                                            </a>
+                                        </div>
+
+                                        <div style="margin-left: 175px">
+                                            <h4 class="media-heading" ><a href="blogDetail?id=${i.blogID}" style="font-size: 18px">${i.title}</a></h4>
+                                            <p style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;min-width: 0 ; font-size: 15px">${i.content}</p>
+                                        </div>
+
                                     </div>
-                                        <p style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;min-width: 0">${i.content}</p>
-                                </div>
                                 </c:forEach>
                             </div>
                             <!-- End Latest Posts -->
 
                             <!-- Widget Category -->
                             <div class="widget widget-category">
-                                <h4 class="widget-title">Categories</h4>
+                                <h4 class="widget-title" style="font-weight: bold; font-size: 23px">Categories</h4>
                                 <c:forEach var="o" items="${listCateBlog}">
                                 
                                 <ul class="widget-category-list">
-                                    <li><a href="blogCate?idCate=${o.cateBlogID}">${o.cateBlogName}</a>
+                                    <li><a href="blogCate?idCate=${o.cateBlogID}" style="font-size: 18px; font-weight: bold">${o.cateBlogName}</a>
                                     </li>
                                     
                                 </ul>
@@ -372,9 +379,9 @@ FACEBOOK: https://www.facebook.com/themefisher
                     <div class="col-md-8">
                         <div class="post post-single">
                             <div class="post-thumb">
-                                <img class="img-responsive" src="images/img_blog/${blogDetail.image}" alt="">
+                                <img class="img-responsive" src="images/img_blog/${blogDetail.image}" style="height: 400px; width: 2500px" alt="">
                             </div>
-                            <h2 class="post-title">${blogDetail.title}</h2>
+                            <h2 class="post-title" style="font-weight: bolder; font-size: 27px">${blogDetail.title}</h2>
                             <div class="post-meta">
                                 <ul>
                                     <li>
@@ -410,183 +417,9 @@ FACEBOOK: https://www.facebook.com/themefisher
                                 </div>
                             </div>
 
-                            <div class="post-comments">
-                                <h3 class="post-sub-heading">10 Comments</h3>
-                                <ul class="media-list comments-list m-bot-50 clearlist">
-                                    <!-- Comment Item start-->
-                                    <li class="media">
+                            
 
-                                        <a class="pull-left" href="#!">
-                                            <img class="media-object comment-avatar" src="images/blog/avater-1.jpg" alt="" width="50" height="50">
-                                        </a>
-
-                                        <div class="media-body">
-                                            <div class="comment-info">
-                                                <h4 class="comment-author">
-                                                    <a href="#!">Jonathon Andrew</a>
-
-                                                </h4>
-                                                <time>July 02, 2015, at 11:34</time>
-                                                <a class="comment-button" href="#!"><i class="tf-ion-chatbubbles"></i>Reply</a>
-                                            </div>
-
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
-                                            </p>
-
-                                            <!--  second level Comment start-->
-                                            <div class="media">
-
-                                                <a class="pull-left" href="#!">
-                                                    <img class="media-object comment-avatar" src="images/blog/avater-2.jpg" alt="" width="50" height="50">
-                                                </a>
-
-                                                <div class="media-body">
-
-                                                    <div class="comment-info">
-                                                        <div class="comment-author">
-                                                            <a href="#!">Senorita</a>
-                                                        </div>
-                                                        <time>July 02, 2015, at 11:34</time>
-                                                        <a class="comment-button" href="#!"><i class="tf-ion-chatbubbles"></i>Reply</a>
-                                                    </div>
-
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
-                                                    </p>
-
-
-                                                    <!-- third level Comment start -->
-                                                    <div class="media">
-
-                                                        <a class="pull-left" href="#!">
-                                                            <img class="media-object comment-avatar" src="images/blog/avater-3.jpg" alt="" width="50" height="50">
-                                                        </a>
-
-                                                        <div class="media-body">
-
-                                                            <div class="comment-info">
-                                                                <div class="comment-author">
-                                                                    <a href="#!">Senorita</a>
-                                                                </div>
-                                                                <time>July 02, 2015, at 11:34</time>
-                                                                <a class="comment-button" href="#!"><i class="tf-ion-chatbubbles"></i>Reply</a>
-                                                            </div>
-
-                                                            <p>
-                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
-                                                            </p>
-
-
-                                                        </div>
-
-                                                    </div>
-                                                    <!-- third level Comment end -->
-
-                                                </div>
-
-                                            </div>
-                                            <!-- second level Comment end -->
-
-                                        </div>
-
-                                    </li>
-                                    <!-- End Comment Item -->
-
-                                    <!-- Comment Item start-->
-                                    <li class="media">
-
-                                        <a class="pull-left" href="#!">
-                                            <img class="media-object comment-avatar" src="images/blog/avater-4.jpg" alt="" width="50" height="50">
-                                        </a>
-
-                                        <div class="media-body">
-
-                                            <div class="comment-info">
-                                                <div class="comment-author">
-                                                    <a href="#!">Jonathon Andrew</a>
-                                                </div>
-                                                <time>July 02, 2015, at 11:34</time>
-                                                <a class="comment-button" href="#!"><i class="tf-ion-chatbubbles"></i>Reply</a>
-                                            </div>
-
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
-                                            </p>
-
-                                        </div>
-
-                                    </li>
-                                    <!-- End Comment Item -->
-
-                                    <!-- Comment Item start-->
-                                    <li class="media">
-
-                                        <a class="pull-left" href="#!">
-                                            <img class="media-object comment-avatar" src="images/blog/avater-1.jpg" alt="" width="50" height="50">
-                                        </a>
-
-                                        <div class="media-body">
-
-                                            <div class="comment-info">
-                                                <div class="comment-author">
-                                                    <a href="#!">Jonathon Andrew</a>
-                                                </div>
-                                                <time>July 02, 2015, at 11:34</time>
-                                                <a class="comment-button" href="#!"><i class="tf-ion-chatbubbles"></i>Reply</a>
-                                            </div>
-
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
-                                            </p>
-
-                                        </div>
-
-                                    </li>
-                                    <!-- End Comment Item -->
-
-                                </ul>
-                            </div>
-
-                            <div class="post-comments-form">
-                                <h3 class="post-sub-heading">Leave You Comments</h3>
-                                <form method="post" action="#" id="form" role="form" >
-
-                                    <div class="row">
-
-                                        <div class="col-md-6 form-group">
-                                            <!-- Name -->
-                                            <input type="text" name="name" id="name" class=" form-control" placeholder="Name *" maxlength="100" required="">
-                                        </div>
-
-                                        <div class="col-md-6 form-group">
-                                            <!-- Email -->
-                                            <input type="email" name="email" id="email" class=" form-control" placeholder="Email *" maxlength="100" required="">
-                                        </div>
-
-
-                                        <div class="form-group col-md-12">
-                                            <!-- Website -->
-                                            <input type="text" name="website" id="website" class=" form-control" placeholder="Website" maxlength="100">
-                                        </div>
-
-                                        <!-- Comment -->
-                                        <div class="form-group col-md-12">
-                                            <textarea name="text" id="text" class=" form-control" rows="6" placeholder="Comment" maxlength="400"></textarea>
-                                        </div>
-
-                                        <!-- Send Button -->
-                                        <div class="form-group col-md-12">
-                                            <button type="submit" class="btn btn-small btn-main ">
-                                                Send comment
-                                            </button>
-                                        </div>
-
-
-                                    </div>
-
-                                </form>
-                            </div>
+                            
 
 
                         </div>

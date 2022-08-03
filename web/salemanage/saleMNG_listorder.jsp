@@ -20,13 +20,15 @@
             https://templatemo.com/tm-524-product-admin
         -->
         <style>
-            .cuaTao a.active{
-                background-color: #28a745;
+            .cuaTao button.active{
+                background-color: #2f4a7a;
                 color: white;
+                cursor: pointer;
             }
-            .cuaTao a.notActive{
-                background-color: #34ce57;
+            .cuaTao button.notActive{
+                background-color: #9da49e;
                 color: black;
+                cursor: pointer;
             }
         </style>
     </head>
@@ -43,61 +45,30 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mx-auto h-100">
-                            <li class="nav-item">
-                                <a class="nav-link dropdown-toggle" href="#">
-                                    <i class="fas fa-tachometer-alt"></i>
-                                    Dashboard
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
+                        <hr class="sidebar-divider my-0">
 
-                                <a class="nav-link active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    <i class="far fa-file-alt"></i>
-                                    <span>
-                                        Reports <i class="fas fa-angle-down"></i>
-                                    </span>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Daily Report</a>
-                                    <a class="dropdown-item" href="#">Weekly Report</a>
-                                    <a class="dropdown-item" href="#">Yearly Report</a>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="products.html">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    Products
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="accounts.html">
-                                    <i class="far fa-user"></i>
-                                    Accounts
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-cog"></i>
-                                    <span>
-                                        Settings <i class="fas fa-angle-down"></i>
-                                    </span>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Profile</a>
-                                    <a class="dropdown-item" href="#">Billing</a>
-                                    <a class="dropdown-item" href="#">Customize</a>
-                                </div>
-                            </li>
-                        </ul>
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="saledashboard">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Dashboard</span></a>
+                </li>
+                <hr class="sidebar-divider my-0">
+                <li class="nav-item ">
+                    <a class="nav-link active" href="salemng_listorder">
+                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        <span>List Order</span></a>
+                </li>
+                <hr class="sidebar-divider my-0">
+                <li class="nav-item ">
+                    <a class="nav-link" href="home">
+                        <ion-icon name="receipt"></ion-icon>                       
+                        <span>Home Page</span></a>
+                </li>
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link d-block" href="login.html">
-                                    Admin, <b>Logout</b>
+                                    ${sessionScope.user.fullname}, <b>Logout</b>
                                 </a>
                             </li>
                         </ul>
@@ -108,7 +79,7 @@
             <div class="container" style="margin: 0 auto">
                 <div class="row">
                     <div class="col">
-                        <p class="text-white mt-5 mb-5">Welcome back, <b>Admin</b></p>
+                        <p class="text-white mt-5 mb-5">Welcome back, <b>${sessionScope.user.fullname}</b></p>
                     </div>
                 </div>
                 <form action="salemng_listorder">
@@ -213,7 +184,7 @@
                             </table>
                             <div class="cuaTao" style="text-align: center;">
                                 <c:forEach begin="1" end="${requestScope.totalPage}" var="i">
-                                    <a  class="${i==page?"active":"notActive"}" href="salemng_listorder?page=${i}&key=${key}&sort=${sort}&from=${from}&to=${to}&" style="padding: 0 5px;background-color: #31b0d5">${i}</a>
+                                        <button class="${i==page?"active":"notActive"}" name="page" value="${i}">${i}</button>
                                 </c:forEach>
                             </div>
                         </div>
@@ -221,17 +192,25 @@
                 </form>
             </div>
         </div>
-        <!--        <footer class="tm-footer row tm-mt-small">
-                    <div class="col-12 font-weight-light">
-                        <p class="text-center text-white mb-0 px-4 small">
-                            Copyright &copy; <b>2018</b> All rights reserved. 
-        
-                            Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
-                        </p>
-                    </div>
-                </footer>-->
-    </div>
+        <footer class="tm-footer row tm-mt-small">
+            <div class="col-12 font-weight-light">
+                <p class="text-center text-white mb-0 px-4 small">
+                    Copyright &copy; <b>2018</b> All rights reserved. 
 
+                    Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+    <script>
+//        function paggingListOrder(idOfPage)
+//        {
+//            console.log(idOfPage);
+//            var x=${state};
+//            window.location = "salemng_listorder?page=" + idOfPage + "&key=${key}&sort=${sort}&from=${from}&to=${to}";
+//
+//        }
+    </script>
     <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
     <!-- https://jquery.com/download/ -->
     <script src="${pageContext.request.contextPath}/js/moment.min.js"></script>

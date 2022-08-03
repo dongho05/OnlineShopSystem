@@ -65,7 +65,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     <div class="col-md-4 col-xs-12 col-sm-4">
                         <!-- Site Logo -->
                         <div class="logo text-center">
-                            <a href="index.html">
+                            <a href="home">
                                 <!-- replace logo here -->
                                 <svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                      xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -81,14 +81,14 @@ FACEBOOK: https://www.facebook.com/themefisher
                             </a>
                         </div>
                     </div>
+
                     <div class="col-md-4 col-xs-12 col-sm-4">
-                        <!-- Cart -->
                         <ul class="top-menu text-right list-inline">
                             <li class="dropdown cart-nav dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
-                                        class="tf-ion-android-cart"></i>Cart</a>
+                                <i class="tf-ion-android-cart" style="margin-right: -10px"></i> 
+                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-translate="cart">Cart</a>
                                 <div class="dropdown-menu cart-dropdown">
-                                    <!-- Cart Item -->
+
                                     <div class="media">
                                         <a class="pull-left" href="#!">
                                             <img class="media-object" src="images/shop/cart/cart-1.jpg" alt="image" />
@@ -102,8 +102,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                                             <h5><strong>$1200</strong></h5>
                                         </div>
                                         <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
-                                    <!-- Cart Item -->
+                                    </div> 
                                     <div class="media">
                                         <a class="pull-left" href="#!">
                                             <img class="media-object" src="images/shop/cart/cart-2.jpg" alt="image" />
@@ -117,24 +116,23 @@ FACEBOOK: https://www.facebook.com/themefisher
                                             <h5><strong>$1200</strong></h5>
                                         </div>
                                         <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
+                                    </div> 
 
                                     <div class="cart-summary">
-                                        <span>Total</span>
+                                        <span data-translate="total">Total</span>
                                         <span class="total-price">$1799.00</span>
                                     </div>
                                     <ul class="text-center cart-buttons">
-                                        <li><a href="cart.html" class="btn btn-small">View Cart</a></li>
-                                        <li><a href="checkout.html" class="btn btn-small btn-solid-border">Checkout</a></li>
+                                        <li><a href="cart.jsp" class="btn btn-small" data-translate="view_cart">View Cart</a></li>
+                                        <li><a href="checkout.jsp" class="btn btn-small btn-solid-border" data-translate="checkout">Checkout</a></li>
                                     </ul>
                                 </div>
-
-                            </li><!-- / Cart -->
+                            </li> 
+                            <!--Cart--> 
 
                             <!-- Search -->
                             <li class="dropdown search dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
-                                        class="tf-ion-ios-search-strong"></i> Search</a>
+                                <i class="tf-ion-ios-search-strong" style="margin-right: -5px"></i><a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-translate="search">Search</a>
                                 <ul class="dropdown-menu search-dropdown">
                                     <li>
                                         <form action="post"><input type="search" class="form-control" placeholder="Search..."></form>
@@ -142,173 +140,92 @@ FACEBOOK: https://www.facebook.com/themefisher
                                 </ul>
                             </li><!-- / Search -->
 
+                            <li>
+                                <div class="trancolor">
+                                    <label>
+                                        <input type="checkbox">
+                                        <span class="check"></span>
+                                    </label>
+                                </div>
+                            </li>
                             <!-- Languages -->
-                            <li class="commonSelect">
-                                <select class="form-control">
-                                    <option>EN</option>
-                                    <option>DE</option>
-                                    <option>FR</option>
-                                    <option>ES</option>
-                                </select>
+                            <li>
+                                <button onclick="change_lang()">EN/VI</button>
                             </li><!-- / Languages -->
 
                         </ul><!-- / .nav .navbar-nav .navbar-right -->
                     </div>
                 </div>
+
+
+
             </div>
         </section><!-- End Top Header Bar -->
+
+
         <!-- Main Menu Section -->
         <section class="menu">
             <nav class="navbar navigation">
                 <div class="container">
-                    <div class="navbar-header">
-                        <h2 class="menu-title">Main Menu</h2>
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                                aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
-                    </div><!-- / .navbar-header -->
-
                     <!-- Navbar Links -->
-                    <div id="navbar" class="navbar-collapse collapse text-center">
-                        <ul class="nav navbar-nav">
+                    <div id="navbar" class="menu_title navbar-collapse collapse text-center">
+                        <div class="menu_center">
+                            <ul class="nav navbar-nav">
+                                <!-- Home -->
+                                <li class="dropdown ">
+                                    <a href="home" data-translate="home">Home</a>
+                                </li><!-- / Home -->
 
-                            <!-- Home -->
-                            <li class="dropdown ">
-                                <a href="index.html">Home</a>
-                            </li><!-- / Home -->
+                                <!-- Elements -->
+                                <li class="dropdown dropdown-slide">                              
+                                    <a href="shop-sidebar">Shop</a>
+                                </li>
 
+                                <!-- Pages -->
+                                
 
-                            <!-- Elements -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Shop <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <div class="dropdown-menu">
-                                    <div class="row">
-                                        <!-- Basic -->
-                                        <div class="col-lg-6 col-md-6 mb-sm-3">
-                                            <ul>
-                                                <li class="dropdown-header">Pages</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="shop.html">Shop</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="cart.html">Cart</a></li>
-                                                <li><a href="pricing.html">Pricing</a></li>
-                                                <li><a href="confirmation.html">Confirmation</a></li>
+                                <!-- Blog -->
+                                <li class="dropdown dropdown-slide">
+                                    <a href="blogList" data-translate="blog">Blog</a> 
+                                </li><!-- / Blog -->
+                                <c:if test="${sessionScope.user == null}">
+                                    <li class="dropdown dropdown-slide">
+                                        <a href="login" data-translate="login_page">Login</a>
+                                    </li>
+                                </c:if> 
+                                <c:if test="${sessionScope.user != null}">
+                                    <li class="dropdown dropdown-slide"> 
+                                        <a href="logout" data-translate="logout_page">
+                                            ${sessionScope.user.name}
+                                            <span class="tf-ion-ios-arrow-down"></span>
+                                            <ul  class="dropdown-menu">
+                                                <li>
+                                                    <a href="viewuser" data-translate="profile">Profile</a>
+                                                </li>
+                                                <li>
+                                                    <a href="myorder" data-translate="my_order">My Order</a>
+                                                </li>
+                                                <li>
+                                                    <a href="change" data-translate="change_pass">Change Pass</a>
+                                                </li>
+                                                <c:if test="${sessionScope.user.role.roleID == 1}">
+                                                    <li>
+                                                        <a href="mktDashboard" data-translate="dashboard">MKT Dashboard</a>
+                                                    </li>
+                                                </c:if>
+                                                <li>
+                                                    <a href="logout" data-translate="logout_page">Logout</a>
+                                                </li>
                                             </ul>
-                                        </div>
-                                        <!-- Layout -->
-                                        <div class="col-lg-6 col-md-6 mb-sm-3">
-                                            <ul>
-                                                <li class="dropdown-header">Layout</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="product-single.html">Product Details</a></li>
-                                                <li><a href="shop-sidebar.html">Shop With Sidebar</a></li>
-                                            </ul>
-                                        </div>
+                                        </a>
+                                    </li>                                    
+                                </c:if>
+                            </ul><!-- / .nav .navbar-nav -->
+                        </div>
+                        <div class="menu_right col-md-2">
 
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
-                            </li><!-- / Elements -->
+                        </div>
 
-
-                            <!-- Pages -->
-                            <li class="dropdown full-width dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Pages <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <div class="dropdown-menu">
-                                    <div class="row">
-
-                                        <!-- Introduction -->
-                                        <div class="col-sm-3 col-xs-12">
-                                            <ul>
-                                                <li class="dropdown-header">Introduction</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="contact.html">Contact Us</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="404.html">404 Page</a></li>
-                                                <li><a href="coming-soon.html">Coming Soon</a></li>
-                                                <li><a href="faq.html">FAQ</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Contact -->
-                                        <div class="col-sm-3 col-xs-12">
-                                            <ul>
-                                                <li class="dropdown-header">Dashboard</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="dashboard.html">User Interface</a></li>
-                                                <li><a href="order.html">Orders</a></li>
-                                                <li><a href="address.html">Address</a></li>
-                                                <li><a href="addUser.html">Profile Details</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Utility -->
-                                        <div class="col-sm-3 col-xs-12">
-                                            <ul>
-                                                <li class="dropdown-header">Utility</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="verifyAddUser.html">Login Page</a></li>
-                                                <li><a href="signin.html">Signin Page</a></li>
-                                                <li><a href="forget-password.html">Forget Password</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Mega Menu -->
-                                        <div class="col-sm-3 col-xs-12">
-                                            <a href="shop.html">
-                                                <img class="img-responsive" src="images/shop/header-img.jpg" alt="menu image" />
-                                            </a>
-                                        </div>
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
-                            </li><!-- / Pages -->
-
-
-
-                            <!-- Blog -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Blog <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                    <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                    <li><a href="blog-full-width.html">Blog Full Width</a></li>
-                                    <li><a href="blog-grid.html">Blog 2 Columns</a></li>
-                                    <li><a href="blog-single.html">Blog Single</a></li>
-                                </ul>
-                            </li><!-- / Blog -->
-
-                            <!-- Shop -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Elements <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="typography.html">Typography</a></li>
-                                    <li><a href="buttons.html">Buttons</a></li>
-                                    <li><a href="alerts.html">Alerts</a></li>
-                                </ul>
-                            </li><!-- / Blog -->
-
-                            <li class="dropdown dropdown-slide">
-                                <a  class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                    role="button" aria-haspopup="true" aria-expanded="false">Management <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="listuser">List User</a></li>
-                                    <li><a href="AdminDashboard">Statistic Shop</a></li>
-                                </ul>
-                            </li>
-                        </ul><!-- / .nav .navbar-nav -->
 
                     </div>
                     <!--/.navbar-collapse -->
@@ -400,7 +317,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                                                                 <h4 style="font-weight: 720">${a.id}</h4>
                                                             </div>
                                                         </td>
-                                                        <td class=""><a href="adminedituser?id=${a.id}" style="color: #269abc">${a.name}</a</td>
+                                                        <td class=""><a href="adminedituser?id=${a.id}" style="color: #269abc">${a.name}</a></td>
                                                         <td class="">
                                                             <div>${a.email}</div>
                                                             <div>${a.phone}</div>

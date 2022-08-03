@@ -62,5 +62,4 @@ public class ProductDetail {
     public void setColor(Color color) {
         this.color = color;
     }
-
 }

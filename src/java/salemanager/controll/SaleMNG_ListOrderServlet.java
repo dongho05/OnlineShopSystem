@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package salemanager.controll;
 
 import dal.OrderDAO;
@@ -19,21 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import model.order.Order;
 import model.order.OrderState;
 
-/**
- *
- * @author phung
- */
 public class SaleMNG_ListOrderServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -51,14 +33,138 @@ public class SaleMNG_ListOrderServlet extends HttpServlet {
         }
     }
 
+//    @Override
+//
+//    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+//            throws ServletException, IOException {
+//        response.setContentType("text/html;charset=UTF-8");
+//        request.setCharacterEncoding("utf-8");
+//        PrintWriter out = response.getWriter();
+//        OrderDAO od = new OrderDAO();
+//        List<OrderState> listOrderState = od.getListOrderState();
+////        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+//        //handle id orderState
+//        String[] getIDState = request.getParameterValues("orderState");
+//        int orderStateID[] = null;
+//        if (getIDState != null) {
+//            orderStateID = new int[getIDState.length];
+//            for (int i = 0; i < getIDState.length; i++) {
+//                //transform data string to int
+//                orderStateID[i] = Integer.parseInt(getIDState[i]);
+//            }
+//        }
+//        boolean[] tid = new boolean[listOrderState.size()];
+//        for (int i = 0; i < tid.length; i++) {
+//            if (isCheck(listOrderState.get(i).getStateID(), orderStateID)) {
+//                tid[i] = true;
+//            } else {
+//                tid[i] = false;
+//            }
+//        }
+////        //handle sort
+//        int sortCondition = 2;
+//        if (request.getParameter("sort") != null) {
+//            sortCondition = Integer.parseInt(request.getParameter("sort"));
+//        }
+//        //handle key
+//        String key = "";
+//        if (request.getParameter("key") != null) {
+//            key = request.getParameter("key");
+//        }
+//        //handle page
+//        int pageSize = 5;
+//        int page = 1;//default
+//        if (request.getParameter("page") != null) {
+//            page = Integer.parseInt(request.getParameter("page"));
+//        }
+//        //handle fromTo
+//        String realFrom = "";
+//        String realTo = "";
+//        String from_raw = request.getParameter("from");
+//        String to_raw = request.getParameter("to");
+//        if ((from_raw == null && to_raw != null) || (from_raw != null && to_raw == null)) {
+//            request.setAttribute("tid", tid);
+//            request.setAttribute("listOrderState", listOrderState);
+//            request.setAttribute("messDate", "Need fill both from date and to date");
+//            request.getRequestDispatcher("salemanage/saleMNG_listorder2.jsp").forward(request, response);
+//        } else if (checkDate(from_raw, to_raw)) {
+//            request.setAttribute("tid", tid);
+//            request.setAttribute("listOrderState", listOrderState);
+//            request.setAttribute("messDate", "From date must less than To date");
+//            request.getRequestDispatcher("salemanage/saleMNG_listorder2.jsp").forward(request, response);
+//        } else if (from_raw != null && to_raw != null) {
+//            realFrom=from_raw;
+//            realTo=to_raw;
+//            List<Order> test= od.getTotalPage(key, realFrom, realTo, orderStateID);
+//            int totalOrder = test.size();
+//            int totalSucess=0;
+//            for (int i = 0; i < test.size(); i++) {
+//                if(test.get(i).getOderState().getStateID()==1){
+//                    totalSucess++;
+//                }
+//            }
+//            int totalPage = totalOrder / pageSize;
+//            if (totalOrder % pageSize != 0 && totalOrder > 5) {
+//                totalPage += 1;
+//            } else if (totalOrder <= 5) {
+//                totalPage = 1;
+//            }
+//            List<Order> list = od.getListOrder(key, from_raw, to_raw, orderStateID, sortCondition, page, pageSize);
+//            request.setAttribute("allOrderSuccess", totalSucess);
+//            request.setAttribute("allOrder", totalOrder);
+//            request.setAttribute("page", page);
+//            request.setAttribute("sort", sortCondition);
+//            request.setAttribute("key", key);
+//            request.setAttribute("tid", tid);
+//            request.setAttribute("state", orderStateID);
+//            request.setAttribute("listOrder", list);
+//            request.setAttribute("from", from_raw);
+//            request.setAttribute("to", to_raw);
+//            request.setAttribute("listOrderState", listOrderState);
+//            request.setAttribute("totalPage", totalPage);
+//            request.getRequestDispatcher("salemanage/saleMNG_listorder2.jsp").forward(request, response);
+//        } else {
+//            List<Order> test= od.getTotalPage(key, realFrom, realTo, orderStateID);
+//            int totalOrder = test.size();
+//            int totalSucess=0;
+//            for (int i = 0; i < test.size(); i++) {
+//                if(test.get(i).getOderState().getStateID()==1){
+//                    totalSucess++;
+//                }
+//            }
+//            
+//            int totalPage = totalOrder / pageSize;
+//            if (totalOrder % pageSize != 0 && totalOrder >5) {
+//                totalPage += 1;
+//            } else if (totalOrder <= 5) {
+//                totalPage = 1;
+//            }
+//            List<Order> list = od.getListOrder(key, "", "", orderStateID, sortCondition, page, pageSize);
+//            request.setAttribute("allOrderSuccess", totalSucess);
+//            request.setAttribute("allOrder", totalOrder);
+//            request.setAttribute("page", page);
+//            request.setAttribute("sort", sortCondition);
+//            request.setAttribute("key", key);
+//            request.setAttribute("state", orderStateID);
+//            request.setAttribute("listOrder", list);
+//            request.setAttribute("from", realFrom);
+//            request.setAttribute("to", realTo);
+//            request.setAttribute("tid", tid);
+//            request.setAttribute("listOrderState", listOrderState);
+//            request.setAttribute("totalPage", totalPage);
+//            request.getRequestDispatcher("salemanage/saleMNG_listorder2.jsp").forward(request, response);
+//        };
+//    }
     @Override
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         PrintWriter out = response.getWriter();
         OrderDAO od = new OrderDAO();
         List<OrderState> listOrderState = od.getListOrderState();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+//        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         //handle id orderState
         String[] getIDState = request.getParameterValues("orderState");
         int orderStateID[] = null;
@@ -82,14 +188,13 @@ public class SaleMNG_ListOrderServlet extends HttpServlet {
         if (request.getParameter("sort") != null) {
             sortCondition = Integer.parseInt(request.getParameter("sort"));
         }
-
         //handle key
         String key = "";
         if (request.getParameter("key") != null) {
             key = request.getParameter("key");
         }
         //handle page
-        int pageSize = 10;
+        int pageSize = 5;
         int page = 1;//default
         if (request.getParameter("page") != null) {
             page = Integer.parseInt(request.getParameter("page"));
@@ -99,57 +204,78 @@ public class SaleMNG_ListOrderServlet extends HttpServlet {
         String realTo = "";
         String from_raw = request.getParameter("from");
         String to_raw = request.getParameter("to");
-        if ((from_raw == null && to_raw != null) || (from_raw != null && to_raw == null)) {
+        if ((checkNull(from_raw) && checkNull(to_raw) == false) || (checkNull(from_raw) == false && checkNull(to_raw))) {
             request.setAttribute("tid", tid);
             request.setAttribute("listOrderState", listOrderState);
             request.setAttribute("messDate", "Need fill both from date and to date");
-            request.getRequestDispatcher("salemanage/saleMNG_listorder.jsp").forward(request, response);
-        } else if (checkDate(from_raw, to_raw)) {
-            request.setAttribute("tid", tid);
-            request.setAttribute("listOrderState", listOrderState);
-            request.setAttribute("messDate", "From date must less than To date");
-            request.getRequestDispatcher("salemanage/saleMNG_listorder.jsp").forward(request, response);
+            request.getRequestDispatcher("salemanage/saleMNG_listorder2.jsp").forward(request, response);
         } else if (from_raw != null && to_raw != null) {
-            int totalOrder = od.getTotalPage(key, realFrom, realTo, orderStateID);
+            if (checkDate(from_raw, to_raw)) {
+                request.setAttribute("tid", tid);
+                request.setAttribute("listOrderState", listOrderState);
+                request.setAttribute("messDate", "From date must less than To date");
+                request.getRequestDispatcher("salemanage/saleMNG_listorder2.jsp").forward(request, response);
+            }
+            realFrom = from_raw;
+            realTo = to_raw;
+            List<Order> test = od.getTotalPage(key, realFrom, realTo, orderStateID);
+            int totalOrder = test.size();
+            int totalSucess = 0;
+            for (int i = 0; i < test.size(); i++) {
+                if (test.get(i).getOderState().getStateID() == 1) {
+                    totalSucess++;
+                }
+            }
             int totalPage = totalOrder / pageSize;
-            if (totalOrder % pageSize != 0 && totalOrder > 10) {
+            if (totalOrder % pageSize != 0 && totalOrder > 5) {
                 totalPage += 1;
-            } else if (totalOrder <= 10) {
+            } else if (totalOrder <= 5) {
                 totalPage = 1;
             }
-            List<Order> list = od.getListOrder(key, from_raw, to_raw, orderStateID, sortCondition, page, pageSize);
+            List<Order> list = od.getListOrder(key, realFrom, realTo, orderStateID, sortCondition, page, pageSize);
+            request.setAttribute("allOrderSuccess", totalSucess);
+            request.setAttribute("allOrder", totalOrder);
             request.setAttribute("page", page);
             request.setAttribute("sort", sortCondition);
             request.setAttribute("key", key);
             request.setAttribute("tid", tid);
-            request.setAttribute("state", orderStateID);
-            request.setAttribute("listOrder", list);
-            request.setAttribute("from", from_raw);
-            request.setAttribute("to", to_raw);
-            request.setAttribute("listOrderState", listOrderState);
-            request.setAttribute("totalPage", totalPage);
-            request.getRequestDispatcher("salemanage/saleMNG_listorder.jsp").forward(request, response);
-        } else {
-            int totalOrder = od.getTotalPage(key, realFrom, realTo, orderStateID);
-            int totalPage = totalOrder / pageSize;
-            if (totalOrder % pageSize != 0 && totalOrder > 10) {
-                totalPage += 1;
-            } else if (totalOrder <= 10) {
-                totalPage = 1;
-            }
-            List<Order> list = od.getListOrder(key, "", "", orderStateID, sortCondition, page, pageSize);
-            request.setAttribute("page", page);
-            request.setAttribute("sort", sortCondition);
-            request.setAttribute("key", key);
             request.setAttribute("state", orderStateID);
             request.setAttribute("listOrder", list);
             request.setAttribute("from", realFrom);
             request.setAttribute("to", realTo);
-            request.setAttribute("tid", tid);
             request.setAttribute("listOrderState", listOrderState);
             request.setAttribute("totalPage", totalPage);
-            request.getRequestDispatcher("salemanage/saleMNG_listorder.jsp").forward(request, response);
+            request.getRequestDispatcher("salemanage/saleMNG_listorder2.jsp").forward(request, response);
+        } 
+        List<Order> test = od.getTotalPage(key, realFrom, realTo, orderStateID);
+        int totalOrder = test.size();
+        int totalSucess = 0;
+        for (int i = 0; i < test.size(); i++) {
+            if (test.get(i).getOderState().getStateID() == 1) {
+                totalSucess++;
+            }
         }
+
+        int totalPage = totalOrder / pageSize;
+        if (totalOrder % pageSize != 0 && totalOrder > 5) {
+            totalPage += 1;
+        } else if (totalOrder <= 5) {
+            totalPage = 1;
+        }
+        List<Order> list = od.getListOrder(key, "", "", orderStateID, sortCondition, page, pageSize);
+        request.setAttribute("allOrderSuccess", totalSucess);
+        request.setAttribute("allOrder", totalOrder);
+        request.setAttribute("page", page);
+        request.setAttribute("sort", sortCondition);
+        request.setAttribute("key", key);
+        request.setAttribute("state", orderStateID);
+        request.setAttribute("listOrder", list);
+        request.setAttribute("from", realFrom);
+        request.setAttribute("to", realTo);
+        request.setAttribute("tid", tid);
+        request.setAttribute("listOrderState", listOrderState);
+        request.setAttribute("totalPage", totalPage);
+        request.getRequestDispatcher("salemanage/saleMNG_listorder2.jsp").forward(request, response);
     }
 
     boolean checkDate(String x, String y) {
@@ -163,6 +289,16 @@ public class SaleMNG_ListOrderServlet extends HttpServlet {
             }
         } catch (Exception e) {
             System.out.println(e);
+        }
+        return false;
+    }
+
+    boolean checkNull(String x) {
+        try {
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            Date cp = df.parse(x);
+            return true;
+        } catch (Exception e) {
         }
         return false;
     }

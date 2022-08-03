@@ -18,9 +18,7 @@ import model.product.Product;
  *
  * @author hophu
  */
-public class MarketingDAO extends DBContext{
-
-    
+public class MarketingDAO extends DBContext {
     
     public static void main(String[] args) {
         MarketingDAO m = new MarketingDAO();
@@ -31,25 +29,34 @@ public class MarketingDAO extends DBContext{
         System.out.println(list.size());
 
     }
-    
-    public List<Product> getTop10ProductBuyMost(){
-        List<Product> list = new ArrayList<>();
-            
-        return list;
+
+    public int getTotalPost() {
+        int total = 0;
+        String sql = "select COUNT(blogID) from Blog where statusBlogID = 1";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                total = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+        return total;
     }
-    
-    public List<Double> getRevenueByDay(int from,int to,int month,int year){
-        List<Double> list = new ArrayList<>() ;
+
+    public List<Double> getRevenueByDay(int from, int to, int month, int year) {
+        List<Double> list = new ArrayList<>();
         String sql = "select sum(amount) from [Order] where MONTH(orderDate) = ? and YEAR(orderDate)= ? and DAY(orderDate) between ? and ? group by userID";
         try {
-            PreparedStatement st= connection.prepareStatement(sql);
+            PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, month);
             st.setInt(2, year);
             st.setInt(3, from);
             st.setInt(4, to);
             ResultSet rs = st.executeQuery();
-            while(rs.next()){
-                double x = (double)rs.getInt(1);
+            while (rs.next()) {
+                double x = (double) rs.getInt(1);
                 list.add(x);
             }
         } catch (SQLException e) {
@@ -57,6 +64,7 @@ public class MarketingDAO extends DBContext{
         }
         return list;
     }
+
     public List<Integer> getTop5UserBuyMost() {
         List<Integer> list = new ArrayList<>();
         int userID = 0;
@@ -66,7 +74,7 @@ public class MarketingDAO extends DBContext{
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 userID = rs.getInt(2);
                 list.add(userID);
             }
@@ -74,5 +82,55 @@ public class MarketingDAO extends DBContext{
         } catch (Exception e) {
         }
         return null;
+    }
+
+    public List<Double> getTopRevenueByWeek() {
+        List<Double> list = new ArrayList<>();
+        String sql = "select top 7 orderDate,sum(amount) as 'total' from [Order] \n"
+                + "group by orderDate\n"
+                + "order by orderDate desc";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                double x = (double) rs.getDouble(2);
+                list.add(x);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+        return list;
+    }
+
+    public List<String> getDayTopRevenueByWeek() {
+        List<String> list = new ArrayList<>();
+        String sql = "select top 7 orderDate,sum(amount) as 'total' from [Order] \n"
+                + "group by orderDate\n"
+                + "order by orderDate desc";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                String x = rs.getString(1);
+                list.add(x);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+        return list;
+    }
+    public int getTotalOrder(){
+        int x = 0;
+        String sql = "select COUNT(orderID) from [Order] ";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()) {
+                x = (int) rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+        return x;
     }
 }

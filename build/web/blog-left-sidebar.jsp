@@ -72,22 +72,12 @@
                     </div>
 
                     <div class="col-md-4 col-xs-12 col-sm-4">
-                        <!-- Cart -->
-
                         <ul class="top-menu text-right list-inline">
-                            <li>
-                                <div class="trancolor">
-                                    <label>
-                                        <input type="checkbox">
-                                        <span class="check"></span>
-                                    </label>
-                                </div>
-                            </li>
-
                             <li class="dropdown cart-nav dropdown-slide">
-                                <i class="tf-ion-android-cart" style="margin-right: -10px"></i> <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-translate="word_1">Cart</a>
+                                <i class="tf-ion-android-cart" style="margin-right: -10px"></i> 
+                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-translate="cart">Cart</a>
                                 <div class="dropdown-menu cart-dropdown">
-                                    <!-- Cart Item -->
+
                                     <div class="media">
                                         <a class="pull-left" href="#!">
                                             <img class="media-object" src="images/shop/cart/cart-1.jpg" alt="image" />
@@ -101,8 +91,7 @@
                                             <h5><strong>$1200</strong></h5>
                                         </div>
                                         <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
-                                    <!-- Cart Item -->
+                                    </div> 
                                     <div class="media">
                                         <a class="pull-left" href="#!">
                                             <img class="media-object" src="images/shop/cart/cart-2.jpg" alt="image" />
@@ -116,23 +105,23 @@
                                             <h5><strong>$1200</strong></h5>
                                         </div>
                                         <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
+                                    </div> 
 
                                     <div class="cart-summary">
-                                        <span data-translate="word_2">Total</span>
+                                        <span data-translate="total">Total</span>
                                         <span class="total-price">$1799.00</span>
                                     </div>
                                     <ul class="text-center cart-buttons">
-                                        <li><a href="cart.jsp" class="btn btn-small" data-translate="word_3">View Cart</a></li>
-                                        <li><a href="checkout.jsp" class="btn btn-small btn-solid-border" data-translate="word_4">Checkout</a></li>
+                                        <li><a href="showcart" class="btn btn-small" data-translate="view_cart">View Cart</a></li>
+                                        <li><a href="checkout.jsp" class="btn btn-small btn-solid-border" data-translate="checkout">Checkout</a></li>
                                     </ul>
                                 </div>
-
-                            </li><!-- / Cart -->
+                            </li> 
+                            <!--Cart--> 
 
                             <!-- Search -->
                             <li class="dropdown search dropdown-slide">
-                                <i class="tf-ion-ios-search-strong" style="margin-right: -5px"></i><a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-translate="word_5">Search</a>
+                                <i class="tf-ion-ios-search-strong" style="margin-right: -5px"></i><a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-translate="search">Search</a>
                                 <ul class="dropdown-menu search-dropdown">
                                     <li>
                                         <form action="post"><input type="search" class="form-control" placeholder="Search..."></form>
@@ -140,16 +129,25 @@
                                 </ul>
                             </li><!-- / Search -->
 
+                            <li>
+                                <div class="trancolor">
+                                    <label>
+                                        <input type="checkbox">
+                                        <span class="check"></span>
+                                    </label>
+                                </div>
+                            </li>
+                            <!-- Languages -->
+                            <li>
                                 <button onclick="change_lang()">EN/VI</button>
                             </li><!-- / Languages -->
-                            
-                            
+
                         </ul><!-- / .nav .navbar-nav .navbar-right -->
                     </div>
                 </div>
-                
-                
-                
+
+
+
             </div>
         </section><!-- End Top Header Bar -->
 
@@ -158,128 +156,65 @@
         <section class="menu">
             <nav class="navbar navigation">
                 <div class="container">
-                    <div class="navbar-header">
-                        <h2 class="menu-title">Main Menu</h2>
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                                aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
-                    </div><!-- / .navbar-header -->
-
                     <!-- Navbar Links -->
-                    <div id="navbar" class="navbar-collapse collapse text-center">
-                        <ul class="nav navbar-nav">
+                    <div id="navbar" class="menu_title navbar-collapse collapse text-center">
+                        <div class="menu_center">
+                            <ul class="nav navbar-nav">
+                                <!-- Home -->
+                                <li class="dropdown ">
+                                    <a href="home" data-translate="home">Home</a>
+                                </li><!-- / Home -->
 
-                            <!-- Home -->
-                            <li class="dropdown ">
-                                <a href="home" data-translate="word_6">Home</a>
-                            </li><!-- / Home -->
+                                <!-- Elements -->
+                                <li class="dropdown dropdown-slide">                              
+                                    <a href="shop-sidebar">Shop</a>
+                                </li>
 
+                                <!-- Pages -->
+                                
 
-                            <!-- Elements -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false" data-translate="word_7">Shop</a> 
-                                <!--<spanclass="tf-ion-ios-arrow-down"></span>-->
-                                <div class="dropdown-menu">
-                                    <div class="row">
-
-                                        <!-- Basic -->
-                                        <div class="col-lg-6 col-md-6 mb-sm-3">
-                                            <ul>
-                                                <li class="dropdown-header" data-translate="word_8">Pages</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="shop.jsp" data-translate="word_7">Shop</a></li>
-                                                <li><a href="checkout.jsp" data-translate="word_4">Checkout</a></li>
-                                                <li><a href="cart.jsp" data-translate="word_1">Cart</a></li>
-                                                <li><a href="pricing.jsp" data-translate="word_9">Pricing</a></li>
-                                                <li><a href="confirmation.jsp" data-translate="word_10">Confirmation</a></li>
-
+                                <!-- Blog -->
+                                <li class="dropdown dropdown-slide">
+                                    <a href="blogList" data-translate="blog">Blog</a> 
+                                </li><!-- / Blog -->
+                                <c:if test="${sessionScope.user == null}">
+                                    <li class="dropdown dropdown-slide">
+                                        <a href="login" data-translate="login_page">Login</a>
+                                    </li>
+                                </c:if> 
+                                <c:if test="${sessionScope.user != null}">
+                                    <li class="dropdown dropdown-slide"> 
+                                        <a href="logout" data-translate="logout_page">
+                                            ${sessionScope.user.name}
+                                            <span class="tf-ion-ios-arrow-down"></span>
+                                            <ul  class="dropdown-menu">
+                                                <li>
+                                                    <a href="viewuser" data-translate="profile">Profile</a>
+                                                </li>
+                                                <li>
+                                                    <a href="myorder" data-translate="my_order">My Order</a>
+                                                </li>
+                                                <li>
+                                                    <a href="change" data-translate="change_pass">Change Pass</a>
+                                                </li>
+                                                <c:if test="${sessionScope.user.role.roleID == 1}">
+                                                    <li>
+                                                        <a href="mktDashboard" data-translate="dashboard">MKT Dashboard</a>
+                                                    </li>
+                                                </c:if>
+                                                <li>
+                                                    <a href="logout" data-translate="logout_page">Logout</a>
+                                                </li>
                                             </ul>
-                                        </div>
+                                        </a>
+                                    </li>                                    
+                                </c:if>
+                            </ul><!-- / .nav .navbar-nav -->
+                        </div>
+                        <div class="menu_right col-md-2">
 
-                                        <!-- Layout -->
-                                        <div class="col-lg-6 col-md-6 mb-sm-3">
-                                            <ul>
-                                                <li class="dropdown-header" data-translate="word_11">Layout</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="viewuser" data-translate="word_12">Product Details</a></li>
-                                                <li><a href="shop-sidebar.jsp" data-translate="word_13">Shop With Sidebar</a></li>
+                        </div>
 
-                                            </ul>
-                                        </div>
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
-                            </li><!-- / Elements -->
-
-
-                            <!-- Pages -->
-                            <li class="dropdown full-width dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false" data-translate="word_8">Pages</a>
-                                <!--<span class="tf-ion-ios-arrow-down"></span>-->
-                                <div class="dropdown-menu">
-                                    <div class="row">
-
-                                        <!-- Introduction -->
-                                        <div class="col-sm-3 col-xs-12">
-                                            <ul>
-                                                <li class="dropdown-header" data-translate="word_14">Introduction</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="contact.jsp" data-translate="word_15">Contact Us</a></li>
-                                                <li><a href="about.jsp" data-translate="word_16">About Us</a></li>
-                                                <li><a href="404.jsp" data-translate="word_17">404 Page</a></li>
-                                                <li><a href="coming-soon.jsp" data-translate="word_18">Coming Soon</a></li>
-                                                <li><a href="faq.jsp" data-translate="word_19">FAQ</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Contact -->
-                                        <div class="col-sm-3 col-xs-12">
-                                            <ul>
-                                                <li class="dropdown-header" data-translate="word_20">Dashboard</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="dashboard.jsp" data-translate="word_21">User Interface</a></li>
-                                                <li><a href="order.jsp" data-translate="word_22">Orders</a></li>
-                                                <li><a href="address.jsp" data-translate="word_23">Address</a></li>
-                                                <li><a href="viewuser" data-translate="word_24">Profile Details</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Utility -->
-                                        <div class="col-sm-3 col-xs-12">
-                                            <ul>
-                                                <li class="dropdown-header" data-translate="word_25">Utility</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="login.jsp" data-translate="word_25">Login Page</a></li>
-                                                <li><a href="signin.jsp" data-translate="word_26">Signin Page</a></li>
-                                                <li><a href="forget-password.jsp" data-translate="word_27">Forget Password</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Mega Menu -->
-                                        <div class="col-sm-3 col-xs-12">
-                                            <a href="shop.jsp">
-                                                <img class="img-responsive" src="images/shop/header-img.jpg" alt="menu image" />
-                                            </a>
-                                        </div>
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
-                            </li><!-- / Pages -->
-
-
-                            <li class="dropdown ">
-                                <a href="blogList" data-translate="word_6">Blog</a>
-                            </li>
-                            
-                            <li class="dropdown ">
-                                <a href="login" data-translate="word_6">Login</a>
-                            </li>
-                        </ul><!-- / .nav .navbar-nav -->
 
                     </div>
                     <!--/.navbar-collapse -->
@@ -295,7 +230,7 @@
                             <h1 class="page-name">Blog</h1>
                             <ol class="breadcrumb">
                                 <li><a href="home">Home</a></li>
-                                <li class="active">blog</li>
+                                <li class="active">Blog</li>
                             </ol>
                         </div>
                     </div>
@@ -309,7 +244,7 @@
                     <div class="col-md-4">
                         <aside class="sidebar">
                             <div class="widget widget-subscription">
-                                <h4 class="widget-title">What do you want to find?</h4>
+                                <h4 class="widget-title" style="font-weight: bold; font-size: 23px">What do you want to find?</h4>
                                 <form action="blogSearch" method="post">
                                     <div class="form-group">
                                         <input type="text" name="key" class="form-control" placeholder="Enter anything ...">
@@ -319,33 +254,37 @@
                             </div>
 
                             <!-- Widget Latest Posts -->
-                            <div class="widget widget-latest-post">
-                                <h4 class="widget-title">Latest Posts</h4>
+                            <div class="widget widget-latest-post" style="justify-content: space-between">
+                                <h4 class="widget-title" style="font-weight: bold; font-size: 23px">Latest Posts</h4>
                                 <c:forEach var="i" items="${latestPost}">
-                                
-                                <div class="media">
-                                    <a class="pull-left" href="#!">
-                                        <img class="media-object" src="images/img_blog/${i.image}" alt="Image" style="height: 150px">
-                                    </a>
-                                    <div class="media-body" style="display: flex; align-items: flex-start;">
-                                        <h4 class="media-heading" style="font-style: oblique"><a href="blogDetail?id=${i.blogID}">${i.title}</a></h4>
+
+                                    <div class="media">
+                                        <div >
+                                            <a class="pull-left" href="blogDetail?id=${i.blogID}" style="display: 30%; float: left">
+                                                <img class="media-object" src="images/img_blog/${i.image}" alt="Image" style="height: 150px">
+                                            </a>
+                                        </div>
+
+                                        <div style="margin-left: 175px">
+                                            <h4 class="media-heading" ><a href="blogDetail?id=${i.blogID}" style="font-size: 18px">${i.title}</a></h4>
+                                            <p style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;min-width: 0 ; font-size: 15px">${i.content}</p>
+                                        </div>
+
                                     </div>
-                                        <p style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;min-width: 0">${i.content}</p>
-                                </div>
                                 </c:forEach>
                             </div>
                             <!-- End Latest Posts -->
 
                             <!-- Widget Category -->
                             <div class="widget widget-category">
-                                <h4 class="widget-title">Categories</h4>
+                                <h4 class="widget-title" style="font-weight: bold; font-size: 23px">Categories</h4>
                                 <c:forEach var="o" items="${listCateBlog}">
-                                
-                                <ul class="widget-category-list">
-                                    <li><a href="blogCate?idCate=${o.cateBlogID}">${o.cateBlogName}</a>
-                                    </li>
-                                    
-                                </ul>
+
+                                    <ul class="widget-category-list">
+                                        <li><a href="blogCate?idCate=${o.cateBlogID}" style="font-size: 18px; font-weight: bold">${o.cateBlogName}</a>
+                                        </li>
+
+                                    </ul>
                                 </c:forEach>
                             </div> <!-- End category  -->
 
@@ -353,44 +292,38 @@
                         </aside>
                     </div>
                     <div class="col-md-8">
-                        
-                        <c:forEach var="i" items="${listPaged}">
-                        <div class="post">
-                            <div class="post-media post-thumb">
-                                <a href="blogDetail?id=${i.blogID}">
-                                    <img src="images/img_blog/${i.image}" alt="">
-                                </a>
-                            </div>
-                            <h2 class="post-title"><a href="blogDetail?id=${i.blogID}">${i.title}</a></h2>
-                            <div class="post-meta">
-                                <ul>
-                                    <li>
-                                        <i class="tf-ion-ios-calendar"></i> ${i.createDate}
-                                    </li>
-                                    <li>
-                                        <i class="tf-ion-android-person"></i> POSTED BY ${i.author}
-                                    </li>
-<!--                                    <li>
-                                        <a href="#!"><i class="tf-ion-ios-pricetags"></i> LIFESTYLE</a>,<a href="#!"> TRAVEL</a>, <a href="#!">FASHION</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!"><i class="tf-ion-chatbubbles"></i> 4 COMMENTS</a>
-                                    </li>-->
-                                </ul>
-                            </div>
-                            <div class="post-content">
-                                <p>${i.content}</p>
-                                <a href="blogDetail?id=${i.blogID}" class="btn btn-main">Continue Reading</a>
-                            </div>
 
-                        </div>
+                        <c:forEach var="i" items="${listPaged}">
+                            <div class="post">
+                                <div class="post-media post-thumb">
+                                    <a href="blogDetail?id=${i.blogID}">
+                                        <img src="images/img_blog/${i.image}" alt="" style="height: 400px; ">
+                                    </a>
+                                </div>
+                                <div class="post-meta">
+                                    <h2 class="post-title"><a href="blogDetail?id=${i.blogID}">${i.title}</a></h2>
+                                    <ul>
+                                        <li>
+                                            <i class="tf-ion-ios-calendar"></i> ${i.createDate}
+                                        </li>
+                                        <li>
+                                            <i class="tf-ion-android-person"></i> POSTED BY ${i.author}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="post-content">
+                                    <p style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;min-width: 0 ; font-size: 15px">${i.content}</p>
+                                    <a href="blogDetail?id=${i.blogID}" class="btn btn-main">Continue Reading</a>
+                                </div>
+
+                            </div>
                         </c:forEach>
                         <div class="text-center">
                             <c:forEach begin="1" end="${countPage}" var="i">
-                            <ul class="pagination post-pagination">
-                                <li class ="${indexPage==i?"active":""}"><a href="blogList?index=${i}">${i}</a>
-                                </li>
-                            </ul>
+                                <ul class="pagination post-pagination">
+                                    <li class ="${indexPage==i?"active":""}"><a href="blogList?index=${i}" style="font-size: 15px">${i}</a>
+                                    </li>
+                                </ul>
                             </c:forEach>
                         </div>
                     </div>

@@ -36,6 +36,8 @@ public class AdminEditUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         String id=request.getParameter("id");
         ControllUser d=new ControllUser();
         if(id!=null){

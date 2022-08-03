@@ -8,20 +8,31 @@ package postcontroller;
 import dal.MKTDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Blog;
 import model.CategoryBlog;
 
 /**
  *
- * @author phung
+ * @author Admin
  */
 public class searchpostServlet extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -51,7 +62,32 @@ public class searchpostServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        PrintWriter pr = response.getWriter();
+        MKTDAO mkt = new MKTDAO();
+        String key = request.getParameter("key");
+        String id = request.getParameter("id");
+        int idPage = 1;
+        try {
+            idPage = Integer.parseInt(id);
+        } catch (Exception e) {
+        }
+        List<Blog> lst = mkt.getBlogByTitle(key);
+        int numberPage = lst.size();
+        if (numberPage % 5 != 0) numberPage = (numberPage/5) +1;
+        else numberPage = numberPage/5;
+        int cc = Math.min((idPage-1)*5 + 5, lst.size()-1);
+        List <Blog> lstB = new ArrayList<>();
+        for (int i = (idPage-1)*5+1; i <= cc; i++) {
+            lstB.add(lst.get(i));
+        }
+        List<CategoryBlog> listCateBlog = mkt.getAllCateBlog();
+        request.setAttribute("idPage", idPage);
+        request.setAttribute("action", "searchpost");
+        request.setAttribute("numberPage", numberPage);
+        request.setAttribute("lstPost", lstB);
+        request.setAttribute("key", key);
+        request.setAttribute("listCateBlog", listCateBlog);
+        request.getRequestDispatcher("managepost.jsp").forward(request, response);
     }
 
     /**
@@ -67,13 +103,29 @@ public class searchpostServlet extends HttpServlet {
             throws ServletException, IOException {
         String key = request.getParameter("key");
         MKTDAO mkt = new MKTDAO();
+        String id = request.getParameter("id");
+        int idPage = 1;
+        try {
+            idPage = Integer.parseInt(id);
+        } catch (Exception e) {
+        }
         List<Blog> lst = mkt.getBlogByTitle(key);
+        int numberPage = lst.size();
+        if (numberPage % 5 != 0) numberPage = (numberPage/5) +1;
+        else numberPage = numberPage/5;
+        int cc = Math.min((idPage-1)*5 + 5, lst.size()-1);
+        List <Blog> lstB = new ArrayList<>();
+        for (int i = (idPage-1)*5+1; i <= cc; i++) {
+            lstB.add(lst.get(i));
+        }
         List<CategoryBlog> listCateBlog = mkt.getAllCateBlog();
         
-        request.setAttribute("lstPost", lst);
+        request.setAttribute("action", "searchpost");
+        request.setAttribute("numberPage", numberPage);
+        request.setAttribute("lstPost", lstB);
         request.setAttribute("key", key);
         request.setAttribute("listCateBlog", listCateBlog);
-        request.getRequestDispatcher("MKT_Dashboard_1.jsp").forward(request, response);
+        request.getRequestDispatcher("managepost.jsp").forward(request, response);
     }
 
     /**
@@ -87,4 +139,3 @@ public class searchpostServlet extends HttpServlet {
     }// </editor-fold>
 
 }
-

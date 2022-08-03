@@ -114,7 +114,8 @@ public class AuthorizationFilter implements Filter {
         User u = (User) session.getAttribute("user");
         
         if (url.equals("/AdminDashboard") || url.equals("/listuser") 
-                || url.equals("/userdetail") || url.equals("/adduser") || url.equals("/searchuser")) {
+                || url.equals("/userdetail") || url.equals("/adduser") 
+                || url.equals("/searchuser")) {
             if (u == null) {
                 hsResponse.sendRedirect("login");
             }
@@ -124,7 +125,10 @@ public class AuthorizationFilter implements Filter {
                     chain.doFilter(request, response);
                 }
                 else {
-                    if(r == 2 || r == 3) {
+                    if(r == 2 ) {
+                        hsResponse.sendRedirect("salemng_listorder");
+                    }
+                    else if(r == 3){
                         hsResponse.sendRedirect("saledashboard");
                     }
                     else if (r == 4) {
@@ -136,7 +140,7 @@ public class AuthorizationFilter implements Filter {
                 }
             }
         }
-        if (url.equals("/saledashboard") || url.equals("/orderlist") ) {
+        if (url.equals("/salemng_listorder") || url.equals("/orderlist") || url.equals("/saledashboard")) {
             if (u == null) {
                 hsResponse.sendRedirect("login");
             }
@@ -146,7 +150,9 @@ public class AuthorizationFilter implements Filter {
                     chain.doFilter(request, response);
                 }
                 else {
-                    if(r == 2 || r == 3) {
+                    if(r == 2 ) {
+                        chain.doFilter(request, response);
+                    }else if(r ==3){
                         chain.doFilter(request, response);
                     }
                     else if (r == 4) {
@@ -169,7 +175,9 @@ public class AuthorizationFilter implements Filter {
                     chain.doFilter(request, response);
                 }
                 else {
-                    if(r == 2 || r == 3) {
+                    if(r == 2 ) {
+                        hsResponse.sendRedirect("salemng_listorder");
+                    }else if(r ==3){
                         hsResponse.sendRedirect("saledashboard");
                     }
                     else if (r == 4) {
@@ -191,7 +199,9 @@ public class AuthorizationFilter implements Filter {
                     hsResponse.sendRedirect("AdminDashboard");
                 }
                 else {
-                    if(r == 2 || r == 3) {
+                    if(r == 2 ) {
+                        hsResponse.sendRedirect("salemng_listorder");
+                    }else if(r==3){
                         hsResponse.sendRedirect("saledashboard");
                     }
                     else if (r == 4) {
@@ -201,6 +211,11 @@ public class AuthorizationFilter implements Filter {
                         chain.doFilter(request, response);
                     }
                 }
+            }
+        }
+         if (url.equals("/addcart") || url.equals("/showcart")) {
+            if (u == null) {
+                hsResponse.sendRedirect("login");
             }
         }
         

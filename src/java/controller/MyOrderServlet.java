@@ -5,7 +5,7 @@
  */
 package controller;
 
-import dal.MyOrderDAO;
+import dal.OrderDAO;
 import dal.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,13 +21,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.User;
 import model.order.MyOrder;
+import model.order.Order;
+import model.order.OrderDetail;
 import model.product.Product;
 
 /**
  *
  * @author HP
  */
-@WebServlet(name = "MyOrdersServlet", urlPatterns = {"/myorder"})
+@WebServlet(name = "MyOrderServlet", urlPatterns = {"/myorder"})
 public class MyOrderServlet extends HttpServlet {
 
     /**
@@ -68,29 +70,38 @@ public class MyOrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
+        HttpSession session = request.getSession();
+        User U = (User) session.getAttribute("user");
         try {
             String indexPage = request.getParameter("index");
             if (indexPage == null) {
                 indexPage = "1";
             }
             int index = Integer.parseInt(indexPage);
-            MyOrderDAO dao = new MyOrderDAO();
+            OrderDAO dao = new OrderDAO();
             ProductDAO Pdao = new ProductDAO();
             List<Product> listP = Pdao.getAll();
-            int count = dao.getTotalOrder();
+            int count = dao.getTotalOrderByUserID(U.getId());
             int endPage = count / 6;
             if (count % 6 != 0) {
                 endPage++;
             }
             request.setAttribute("tag", index);
             request.setAttribute("endP", endPage);
-            HttpSession session = request.getSession();
-            User U = (User) session.getAttribute("user");
-            String id = U.getId() + "";
-            List<MyOrder> list = dao.pagingOrders(id,index);
+            List<Order> list = dao.pagingOrders(U.getId(), index);
+            PrintWriter out = response.getWriter();
+//            out.print(U.getId());
             request.setAttribute("listO", list);
             request.setAttribute("listP", listP);
-            request.getRequestDispatcher("myorder.jsp").forward(request, response);
+//            for (int i = 0; i < list.size(); i++) {
+//                out.println("================");
+//                for (OrderDetail object : list.get(i).getListOfOrder()) {
+//                    out.println(object.toString());
+//                }
+//            }
+            request.getRequestDispatcher("order.jsp").forward(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(MyOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -107,33 +118,33 @@ public class MyOrderServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            String text = request.getParameter("search");
-            String indexPage = request.getParameter("index");
-            if (indexPage == null) {
-                indexPage = "1";
-            }
-            int index = Integer.parseInt(indexPage);
-            MyOrderDAO dao = new MyOrderDAO();
-            ProductDAO Pdao = new ProductDAO();
-            List<Product> listP = Pdao.getAll();
-            int count = dao.getTotalOrder();
-            int endPage = count / 6;
-            if (count % 6 != 0) {
-                endPage++;
-            }
-            request.setAttribute("tag", index);
-            request.setAttribute("endP", endPage);
-            HttpSession session = request.getSession();
-            User U = (User) session.getAttribute("user");
-            //String id = U.getId() + "";
-            List<MyOrder> list = dao.getAllName(text);
-            request.setAttribute("listO", list);
-            request.setAttribute("listP", listP);
-            request.getRequestDispatcher("myorder.jsp").forward(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(MyOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            String text = request.getParameter("search");
+//            String indexPage = request.getParameter("index");
+//            if (indexPage == null) {
+//                indexPage = "1";
+//            }
+//            int index = Integer.parseInt(indexPage);
+//            MyOrderDAO dao = new MyOrderDAO();
+//            ProductDAO Pdao = new ProductDAO();
+//            List<Product> listP = Pdao.getAll();
+//            int count = dao.getTotalOrder();
+//            int endPage = count / 6;
+//            if (count % 6 != 0) {
+//                endPage++;
+//            }
+//            request.setAttribute("tag", index);
+//            request.setAttribute("endP", endPage);
+//            HttpSession session = request.getSession();
+//            User U = (User) session.getAttribute("user");
+//            //String id = U.getId() + "";
+//            List<MyOrder> list = dao.getAllName(text);
+//            request.setAttribute("listO", list);
+//            request.setAttribute("listP", listP);
+//            request.getRequestDispatcher("myorder.jsp").forward(request, response);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(MyOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 
     /**

@@ -48,15 +48,12 @@ public class UserProfile_UpdateServlet extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+        public String checkString(String value, String regex, String message) {
+        if (!value.matches(regex)) {
+            return null;
+        }
+        return value;
+    }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -111,15 +108,19 @@ public class UserProfile_UpdateServlet extends HttpServlet {
         } catch (Exception e) {
         }
 
+        if (checkString(phone, "(\\+[0-9]{1,2})?[0-9]{8,11}", "Enter address again") == null) {
+            String err = "Enter phonenumber again";
+            request.setAttribute("message", err);
+            request.getRequestDispatcher("infor.jsp").forward(request, response);
+        }else{
+            
         Role x = new Role(1, "");
         boolean ge = Boolean.parseBoolean(gender);
         User u = new User(u1.getId(), name, pass, fname, avatar, address, dob, ge, email, phone, x, status_new);
         d.update(u);
-//                PrintWriter out = response.getWriter();
-//        out.print(u.getFullname());
         session.setAttribute("UserTemp", u);
         request.getRequestDispatcher("user_profile_detail.jsp").forward(request, response);
-//        response.sendRedirect("viewuser");
+        }
 
     }
 

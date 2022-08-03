@@ -3,6 +3,7 @@ package admin.controll.user;
 import dal.ControllUser;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -33,6 +34,10 @@ public class ListUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //vietnamesse
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
+        //vietnamese
         //xu li phan trang
         ControllUser d = new ControllUser();
         List<Role> listRole = d.getRole();
@@ -41,7 +46,7 @@ public class ListUser extends HttpServlet {
         if (pageGet != null) {
             page = Integer.parseInt(pageGet);
         }
-        int pageSize = 10;
+        int pageSize = 6;
 
         //xu li filter
         int gender = -1, roleName = -1, isActive = -1;
@@ -70,12 +75,14 @@ public class ListUser extends HttpServlet {
         List<User> takeAmmountList = d.forGetList(ar, sort,key);
         int totalUser = d.amountUser(takeAmmountList);
         int totalPage = totalUser / pageSize;
-        if (totalUser % pageSize != 0 && totalUser > 10) {
+        if (totalUser % pageSize != 0 && totalUser > 6) {
             totalPage += 1;
-        } else if (totalUser <= 10) {
+        } else if (totalUser <= 6) {
             totalPage = 1;
         }
+        
         List<User> list = d.getList(ar, sort, page, pageSize, key);
+
         request.setAttribute("gender", gender);
         request.setAttribute("roleName", roleName);
         request.setAttribute("status", isActive);//status
@@ -84,7 +91,8 @@ public class ListUser extends HttpServlet {
         request.setAttribute("totalPage", totalPage);
         request.setAttribute("listRole", listRole);
         request.setAttribute("key", key);
-        request.getRequestDispatcher("admin/controll_User/listuser.jsp").forward(request, response);
+        request.setAttribute("page", page);
+        request.getRequestDispatcher("admin/controll_User/listuser2.jsp").forward(request, response);
     }
 
     @Override

@@ -5,6 +5,8 @@
  */
 package model;
 
+import model.product.ProductDetail;
+
 /**
  *
  * @author phung
@@ -12,21 +14,41 @@ package model;
 public class Feedback {
     private int feedbackID;
     private User user;
-    private int detailID;
+    private ProductDetail detailID;
     private String comment;
     private String commentDate;
-
+    private int star;
+    private boolean statusF;
     public Feedback() {
     }
 
-    public Feedback(int feedbackID, User user, int detailID, String comment, String commentDate) {
+    public Feedback(int feedbackID, User user, ProductDetail detailID, String comment, String commentDate, int star, boolean statusF) {
         this.feedbackID = feedbackID;
         this.user = user;
         this.detailID = detailID;
         this.comment = comment;
         this.commentDate = commentDate;
+        this.star = star;
+        this.statusF = statusF;
     }
 
+    public int getStar() {
+        return star;
+    }
+
+    public void setStar(int star) {
+        this.star = star;
+    }
+
+    public boolean isStatusF() {
+        return statusF;
+    }
+
+    public void setStatusF(boolean statusF) {
+        this.statusF = statusF;
+    }
+
+    
     public int getFeedbackID() {
         return feedbackID;
     }
@@ -43,11 +65,11 @@ public class Feedback {
         this.user = user;
     }
 
-    public int getDetailID() {
+    public ProductDetail getDetailID() {
         return detailID;
     }
 
-    public void setDetailID(int detailID) {
+    public void setDetailID(ProductDetail detailID) {
         this.detailID = detailID;
     }
 
@@ -66,7 +88,8 @@ public class Feedback {
     public void setCommentDate(String commentDate) {
         this.commentDate = commentDate;
     }
-    
+
+   
     
    
 }

@@ -7,24 +7,24 @@ package model;
 
 /**
  *
- * @author phung
+ * @author Admin
  */
 public class Slider {
     private int sliderID;
     private String title;
-    private String sliderContent;
     private String img;
+    private String createDate;
     private boolean status;
     private String link;
 
     public Slider() {
     }
 
-    public Slider(int sliderID, String title, String sliderContent, String img, boolean status, String link) {
+    public Slider(int sliderID, String title, String img, String createDate, boolean status, String link) {
         this.sliderID = sliderID;
         this.title = title;
-        this.sliderContent = sliderContent;
         this.img = img;
+        this.createDate = createDate;
         this.status = status;
         this.link = link;
     }
@@ -45,20 +45,20 @@ public class Slider {
         this.title = title;
     }
 
-    public String getSliderContent() {
-        return sliderContent;
-    }
-
-    public void setSliderContent(String sliderContent) {
-        this.sliderContent = sliderContent;
-    }
-
     public String getImg() {
         return img;
     }
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
     }
 
     public boolean isStatus() {
@@ -79,7 +79,11 @@ public class Slider {
 
     @Override
     public String toString() {
-        return "Slider{" + "sliderID=" + sliderID + ", title=" + title + ", sliderContent=" + sliderContent + ", img=" + img + ", status=" + status + ", link=" + link + '}';
+        return "Slider{" + "sliderID=" + sliderID + ", title=" + title + ", img=" + img + ", createDate=" + createDate + ", status=" + status + ", link=" + link + '}';
     }
+
+    
+
+    
     
 }

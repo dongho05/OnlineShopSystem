@@ -1,11 +1,6 @@
-<%-- 
-    Document   : product-single
-    Created on : May 30, 2022, 9:39:55 AM
-    Author     : Long
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 <!DOCTYPE html>
 <html>
     <head>
@@ -41,7 +36,7 @@
 
     <body id="body">
         <!-- Start Top Header Bar -->
-        <section class="top-header">
+                <section class="top-header">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-xs-12 col-sm-4">
@@ -69,14 +64,14 @@
                             </a>
                         </div>
                     </div>
+
                     <div class="col-md-4 col-xs-12 col-sm-4">
-                        <!-- Cart -->
                         <ul class="top-menu text-right list-inline">
                             <li class="dropdown cart-nav dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
-                                        class="tf-ion-android-cart"></i>Cart</a>
+                                <i class="tf-ion-android-cart" style="margin-right: -10px"></i> 
+                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-translate="cart">Cart</a>
                                 <div class="dropdown-menu cart-dropdown">
-                                    <!-- Cart Item -->
+
                                     <div class="media">
                                         <a class="pull-left" href="#!">
                                             <img class="media-object" src="images/shop/cart/cart-1.jpg" alt="image" />
@@ -90,8 +85,7 @@
                                             <h5><strong>$1200</strong></h5>
                                         </div>
                                         <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
-                                    <!-- Cart Item -->
+                                    </div> 
                                     <div class="media">
                                         <a class="pull-left" href="#!">
                                             <img class="media-object" src="images/shop/cart/cart-2.jpg" alt="image" />
@@ -105,24 +99,23 @@
                                             <h5><strong>$1200</strong></h5>
                                         </div>
                                         <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
+                                    </div> 
 
                                     <div class="cart-summary">
-                                        <span>Total</span>
+                                        <span data-translate="total">Total</span>
                                         <span class="total-price">$1799.00</span>
                                     </div>
                                     <ul class="text-center cart-buttons">
-                                        <li><a href="cart.jsp" class="btn btn-small">View Cart</a></li>
-                                        <li><a href="checkout.jsp" class="btn btn-small btn-solid-border">Checkout</a></li>
+                                        <li><a href="cart.jsp" class="btn btn-small" data-translate="view_cart">View Cart</a></li>
+                                        <li><a href="checkout.jsp" class="btn btn-small btn-solid-border" data-translate="checkout">Checkout</a></li>
                                     </ul>
                                 </div>
-
-                            </li><!-- / Cart -->
+                            </li> 
+                            <!--Cart--> 
 
                             <!-- Search -->
                             <li class="dropdown search dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
-                                        class="tf-ion-ios-search-strong"></i> Search</a>
+                                <i class="tf-ion-ios-search-strong" style="margin-right: -5px"></i><a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-translate="search">Search</a>
                                 <ul class="dropdown-menu search-dropdown">
                                     <li>
                                         <form action="post"><input type="search" class="form-control" placeholder="Search..."></form>
@@ -130,19 +123,25 @@
                                 </ul>
                             </li><!-- / Search -->
 
+                            <li>
+                                <div class="trancolor">
+                                    <label>
+                                        <input type="checkbox">
+                                        <span class="check"></span>
+                                    </label>
+                                </div>
+                            </li>
                             <!-- Languages -->
-                            <li class="commonSelect">
-                                <select class="form-control">
-                                    <option>EN</option>
-                                    <option>DE</option>
-                                    <option>FR</option>
-                                    <option>ES</option>
-                                </select>
+                            <li>
+                                <button onclick="change_lang()">EN/VI</button>
                             </li><!-- / Languages -->
 
                         </ul><!-- / .nav .navbar-nav .navbar-right -->
                     </div>
                 </div>
+
+
+
             </div>
         </section><!-- End Top Header Bar -->
 
@@ -151,148 +150,65 @@
         <section class="menu">
             <nav class="navbar navigation">
                 <div class="container">
-                    <div class="navbar-header">
-                        <h2 class="menu-title">Main Menu</h2>
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                                aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
-                    </div><!-- / .navbar-header -->
-
                     <!-- Navbar Links -->
-                    <div id="navbar" class="navbar-collapse collapse text-center">
-                        <ul class="nav navbar-nav">
+                    <div id="navbar" class="menu_title navbar-collapse collapse text-center">
+                        <div class="menu_center">
+                            <ul class="nav navbar-nav">
+                                <!-- Home -->
+                                <li class="dropdown ">
+                                    <a href="home" data-translate="home">Home</a>
+                                </li><!-- / Home -->
 
-                            <!-- Home -->
-                            <li class="dropdown ">
-                                <a href="home">Home</a>
-                            </li><!-- / Home -->
+                                <!-- Elements -->
+                                <li class="dropdown dropdown-slide">                              
+                                    <a href="shop-sidebar">Shop</a>
+                                </li>
 
+                                <!-- Pages -->
+                                
 
-                            <!-- Elements -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Shop <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <div class="dropdown-menu">
-                                    <div class="row">
-
-                                        <!-- Basic -->
-                                        <div class="col-lg-6 col-md-6 mb-sm-3">
-                                            <ul>
-                                                <li class="dropdown-header">Pages</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="shop.jsp">Shop</a></li>
-                                                <li><a href="checkout.jsp">Checkout</a></li>
-                                                <li><a href="cart.jsp">Cart</a></li>
-                                                <li><a href="pricing.jsp">Pricing</a></li>
-                                                <li><a href="confirmation.jsp">Confirmation</a></li>
-
+                                <!-- Blog -->
+                                <li class="dropdown dropdown-slide">
+                                    <a href="blogList" data-translate="blog">Blog</a> 
+                                </li><!-- / Blog -->
+                                <c:if test="${sessionScope.user == null}">
+                                    <li class="dropdown dropdown-slide">
+                                        <a href="login" data-translate="login_page">Login</a>
+                                    </li>
+                                </c:if> 
+                                <c:if test="${sessionScope.user != null}">
+                                    <li class="dropdown dropdown-slide"> 
+                                        <a href="logout" data-translate="logout_page">
+                                            ${sessionScope.user.name}
+                                            <span class="tf-ion-ios-arrow-down"></span>
+                                            <ul  class="dropdown-menu">
+                                                <li>
+                                                    <a href="viewuser" data-translate="profile">Profile</a>
+                                                </li>
+                                                <li>
+                                                    <a href="myorder" data-translate="my_order">My Order</a>
+                                                </li>
+                                                <li>
+                                                    <a href="change" data-translate="change_pass">Change Pass</a>
+                                                </li>
+                                                <c:if test="${sessionScope.user.role.roleID == 1}">
+                                                    <li>
+                                                        <a href="mktDashboard" data-translate="dashboard">MKT Dashboard</a>
+                                                    </li>
+                                                </c:if>
+                                                <li>
+                                                    <a href="logout" data-translate="logout_page">Logout</a>
+                                                </li>
                                             </ul>
-                                        </div>
+                                        </a>
+                                    </li>                                    
+                                </c:if>
+                            </ul><!-- / .nav .navbar-nav -->
+                        </div>
+                        <div class="menu_right col-md-2">
 
-                                        <!-- Layout -->
-                                        <div class="col-lg-6 col-md-6 mb-sm-3">
-                                            <ul>
-                                                <li class="dropdown-header">Layout</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="product-single.jsp">Product Details</a></li>
-                                                <li><a href="shop-sidebar.jsp">Shop With Sidebar</a></li>
+                        </div>
 
-                                            </ul>
-                                        </div>
-
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
-                            </li><!-- / Elements -->
-
-
-                            <!-- Pages -->
-                            <li class="dropdown full-width dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Pages <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <div class="dropdown-menu">
-                                    <div class="row">
-
-                                        <!-- Introduction -->
-                                        <div class="col-sm-3 col-xs-12">
-                                            <ul>
-                                                <li class="dropdown-header">Introduction</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="contact.jsp">Contact Us</a></li>
-                                                <li><a href="about.jsp">About Us</a></li>
-                                                <li><a href="404.jsp">404 Page</a></li>
-                                                <li><a href="coming-soon.jsp">Coming Soon</a></li>
-                                                <li><a href="faq.jsp">FAQ</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Contact -->
-                                        <div class="col-sm-3 col-xs-12">
-                                            <ul>
-                                                <li class="dropdown-header">Dashboard</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="dashboard.jsp">User Interface</a></li>
-                                                <li><a href="order.jsp">Orders</a></li>
-                                                <li><a href="address.jsp">Address</a></li>
-                                                <li><a href="profile-details.jsp">Profile Details</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Utility -->
-                                        <div class="col-sm-3 col-xs-12">
-                                            <ul>
-                                                <li class="dropdown-header">Utility</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="login.jsp">Login Page</a></li>
-                                                <li><a href="signin.jsp">Signin Page</a></li>
-                                                <li><a href="forget-password.jsp">Forget Password</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Mega Menu -->
-                                        <div class="col-sm-3 col-xs-12">
-                                            <a href="shop.jsp">
-                                                <img class="img-responsive" src="images/shop/header-img.jpg" alt="menu image" />
-                                            </a>
-                                        </div>
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
-                            </li><!-- / Pages -->
-
-
-
-                            <!-- Blog -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Blog <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="blog-left-sidebar.jsp">Blog Left Sidebar</a></li>
-                                    <li><a href="blog-right-sidebar.jsp">Blog Right Sidebar</a></li>
-                                    <li><a href="blog-full-width.jsp">Blog Full Width</a></li>
-                                    <li><a href="blog-grid.jsp">Blog 2 Columns</a></li>
-                                    <li><a href="blog-single.jsp">Blog Single</a></li>
-                                </ul>
-                            </li><!-- / Blog -->
-
-                            <!-- Shop -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Elements <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="typography.jsp">Typography</a></li>
-                                    <li><a href="buttons.jsp">Buttons</a></li>
-                                    <li><a href="alerts.jsp">Alerts</a></li>
-                                </ul>
-                            </li><!-- / Blog -->
-                        </ul><!-- / .nav .navbar-nav -->
 
                     </div>
                     <!--/.navbar-collapse -->
@@ -301,12 +217,12 @@
         </section>
         <div style="text-align: center">
             <form action="shop-sidebar" method="get">
-             
-                    <input style="width: 70%" type="text" name="txt" placeholder="Search Product">
-           
+
+                <input style="width: 70%" type="text" name="txt" placeholder="Search Product"><button style="padding: 10px">Search</button>
+
             </form>
         </div>
-        <section class="single-product">
+        <section class="single-product" style="padding: 40px 20px">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
@@ -323,24 +239,28 @@
                             <div class="single-product-slider">
                                 <div id='carousel-custom' class='carousel slide' data-ride='carousel'>
                                     <div class='carousel-outer'>
-                                        <!-- me art lab slider -->
-                                        <div class='carousel-inner '>
 
+                                        <!-- me art lab slider -->
+
+                                        <div class='carousel-inner'>
 
                                             <div class='item active'>
                                                 <img src='images/shop/single-products/${img.get(0).getProductID()}/${img.get(0).getColor().getColorName()}/${img.get(0).getImageProduct()}' alt='' data-zoom-image="images/shop/single-products/${img.get(0).getProductID()}/${img.get(0).getColor().getColorName()}/${img.get(0).getImageProduct()}" />
                                         </div>
                                         <div class='item'>
-                                            <img src='images/shop/single-products/${img.get(1).getProductID()}/${img.get(1).getColor().getColorName()}/${img.get(1).getImageProduct()}' alt='' data-zoom-image="images/shop/single-products/${img.get(0).getProductID()}/${img.get(0).getColor().getColorName()}/${img.get(0).getImageProduct()}" />
+                                            <img src='images/shop/single-products/${img.get(1).getProductID()}/${img.get(1).getColor().getColorName()}/${img.get(1).getImageProduct()}' alt='' data-zoom-image="images/shop/single-products/${img.get(1).getProductID()}/${img.get(1).getColor().getColorName()}/${img.get(1).getImageProduct()}" />
                                         </div>
                                         <div class='item'>
-                                            <img src='images/shop/single-products/${img.get(2).getProductID()}/${img.get(2).getColor().getColorName()}/${img.get(2).getImageProduct()}' alt='' data-zoom-image="images/shop/single-products/${img.get(0).getProductID()}/${img.get(0).getColor().getColorName()}/${img.get(0).getImageProduct()}" />
+                                            <img src='images/shop/single-products/${img.get(2).getProductID()}/${img.get(2).getColor().getColorName()}/${img.get(2).getImageProduct()}' alt='' data-zoom-image="images/shop/single-products/${img.get(2).getProductID()}/${img.get(2).getColor().getColorName()}/${img.get(2).getImageProduct()}" />
                                         </div>
                                         <div class='item'>
-                                            <img src='images/shop/single-products/${img.get(3).getProductID()}/${img.get(3).getColor().getColorName()}/${img.get(3).getImageProduct()}' alt='' data-zoom-image="images/shop/single-products/${img.get(0).getProductID()}/${img.get(0).getColor().getColorName()}/${img.get(0).getImageProduct()}" />
+                                            <img src='images/shop/single-products/${img.get(3).getProductID()}/${img.get(3).getColor().getColorName()}/${img.get(3).getImageProduct()}' alt='' data-zoom-image="images/shop/single-products/${img.get(3).getProductID()}/${img.get(3).getColor().getColorName()}/${img.get(3).getImageProduct()}" />
                                         </div>
                                         <div class='item'>
-                                            <img src='images/shop/single-products/${img.get(4).getProductID()}/${img.get(4).getColor().getColorName()}/${img.get(4).getImageProduct()}' alt='' data-zoom-image="images/shop/single-products/${img.get(0).getProductID()}/${img.get(0).getColor().getColorName()}/${img.get(0).getImageProduct()}" />
+                                            <img src='images/shop/single-products/${img.get(4).getProductID()}/${img.get(4).getColor().getColorName()}/${img.get(4).getImageProduct()}' alt='' data-zoom-image="images/shop/single-products/${img.get(4).getProductID()}/${img.get(4).getColor().getColorName()}/${img.get(4).getImageProduct()}" />
+                                        </div>
+                                        <div class='item'>
+                                            <img src='images/shop/single-products/${img.get(5).getProductID()}/${img.get(5).getColor().getColorName()}/${img.get(5).getImageProduct()}' alt='' data-zoom-image="images/shop/single-products/${img.get(5).getProductID()}/${img.get(5).getColor().getColorName()}/${img.get(5).getImageProduct()}" />
                                         </div>
 
                                     </div>
@@ -353,7 +273,15 @@
                                         <i class="tf-ion-ios-arrow-right"></i>
                                     </a>
                                 </div>
-
+                                <span style="position: absolute;
+                                      top: 12px;
+                                      right: 12px;
+                                      background: #000;
+                                      color: #fff;
+                                      font-size: 12px;
+                                      padding: 10px 20px;
+                                      font-weight: 300;
+                                      display: inline-block;">Sale</span>
                                 <!-- thumb -->
                                 <ol style="text-align: center" class='carousel-indicators mCustomScrollbar meartlab'>
 
@@ -372,6 +300,11 @@
                                     <li data-target='#carousel-custom' data-slide-to='4'>
                                         <img src='images/shop/single-products/${img.get(4).getProductID()}/${img.get(4).getColor().getColorName()}/${img.get(4).getImageProduct()}' alt='' />
                                     </li>
+                                    <li data-target='#carousel-custom' data-slide-to='5'>
+                                        <img src='images/shop/single-products/${img.get(5).getProductID()}/${img.get(5).getColor().getColorName()}/${img.get(5).getImageProduct()}' alt='' />
+                                    </li>
+
+
                                 </ol>
                             </div>
                         </div>
@@ -380,7 +313,9 @@
                         <form action="detailproduct">
                             <div class="single-product-details">
                                 <h2>${showPage.product.productName}</h2>
-                                <p class="product-price">Price: $${showPage.product.productPrice}</p>
+                                <%--<p class="product-price">Price: $${showPage.product.productPrice}</p> --%>
+                                <del style="font-size: 15px">Origin: $${showPage.product.productPrice}</del>
+                                <p class="product-price">Price: $${showPage.product.productPrice-(showPage.product.productPrice*showPage.product.discount)}</p>
                                 <p class="product-description mt-20">
                                     ${showPage.product.productDes}
                                 </p>
@@ -394,11 +329,9 @@
                                                 <a style="background-color:${s.get(i).getColorName()};${s.get(i).getColorID()==colorID?"border: 3px solid aqua;":""}" 
                                                    href="detailproduct?productID=${productID}&colorID=${s.get(i).getColorID()}" class="swatch"></a>
                                                 --%>
-                                                <a style="background-color:${s.get(i).getColorName()};${s.get(i).getColorID()==colorID?"border: 3px solid aqua;":""}" 
+                                                <a style="background-color:${s.get(i).getColorName()};${s.get(i).getColorID()==colorID?"border: 3px solid aqua;":"border: 1px solid blueviolet"}" 
                                                    onclick="detailProduct(${s.get(i).getColorID()})" href="#" id="color"
                                                    class="swatch"></a>    
-
-
                                             </li>
                                         </c:forEach>
                                     </ul>
@@ -414,20 +347,23 @@
                                 <div class="product-quantity">
                                     <p style="margin:0;font-size: 12px;">Quantity Exist ${quantityProduct}</p>
                                 </div>
-                                <div class="product-quantity">
-                                    <span>Quantity:</span>
-                                    <div class="product-quantity-slider">
-                                        <input style="text-align: center" id="product-quantity" type="text" value="0" name="product-quantity">
-                                    </div>
-                                </div>
                                 <div class="product-category">
                                     <span>Categories:</span>
                                     <ul style="display: contents;">
                                         <li><a href="product-single.jsp">${showPage.product.cate.cateName}</a></li>
+                                        
+                                    </ul>
+                                </div>
+                                    <div class="product-category">
+                                    <span>Brand: </span>
+                                    <ul style="display: contents;">
+                                        
                                         <li><a href="product-single.jsp">${showPage.product.cate.brand.brandName}</a></li>
                                     </ul>
                                 </div>
-                                <a href="cart.jsp" class="btn btn-main mt-20">Add To Cart</a>
+                                        <c:if test="${quantityProduct>0}">
+                                            <a href="addcart?id=${showPage.id}" class="btn btn-main mt-20">Add To Cart</a>
+                                        </c:if>
                             </div>
                         </form>
                     </div>
@@ -454,7 +390,7 @@
                                                 <li class="media">
 
                                                     <a class="pull-left" href="#!">
-                                                        <img class="media-object comment-avatar" src="images/blog/avater-1.jpg" alt="" width="50" height="50" />
+                                                        <img class="media-object comment-avatar" src="images/shop/user/${lFB.user.avatar}" alt="" width="50" height="50" />
                                                     </a>
 
                                                     <div class="media-body">
@@ -463,7 +399,8 @@
                                                                 <a href="#!">${lFB.user.fullname}</a>
 
                                                             </h4>
-                                                            <time datetime="2013-04-06T13:53">July 02, 2015, at 11:34</time>
+                                                            <!--datetime="2013-04-06T13:53"-->
+                                                            <time >${lFB.commentDate}</time>
                                                             <a class="comment-button" href="#!"><i class="tf-ion-chatbubbles"></i>Reply</a>
                                                         </div>
 
@@ -498,20 +435,18 @@
                             <div class="product-item">
                                 <div class="product-thumb">
                                     <span class="bage">Sale</span>
-                                    <img class="img-responsive" src="images/shop/products/product-5.jpg" alt="product-img" />
+                                    <img class="img-responsive" style="width: 280px;height: 280px" src="images/shop/products/${rcm.productImg}" alt="product-img" />
                                     <div class="preview-meta">
                                         <ul>
                                             <li>
-                                                <span  data-toggle="modal" data-target="#product-modal">
+                                                 <a href="detailproduct?productID=${rcm.productID}" >
                                                     <i class="tf-ion-ios-search"></i>
-                                                </span>
+                                                </a>
                                             </li>
-                                            <li>
+<!--                                            <li>
                                                 <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                                            </li>
+                                            </li>-->
+                                            
                                         </ul>
                                     </div>
                                 </div>
@@ -602,6 +537,8 @@
                     </div>
                 </div>
             </div>
+            <img src="images/shop/single-products/2/black/2.1.jpg">
+
         </footer>
         <!-- 
         Essential Scripts

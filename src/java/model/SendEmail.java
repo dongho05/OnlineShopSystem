@@ -4,7 +4,7 @@ package testmail;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modal;
+package model;
 import java.util.Properties;
 import java.util.Random;
 import java.util.logging.Level;
@@ -30,9 +30,9 @@ public class SendEmail {
         pr.setProperty("mail.smtp.port", "587");
         pr.setProperty("mail.smtp.auth", "true");
         pr.setProperty("mail.smtp.starttls.enable", "true");
-        String myaccount = "beastwantlov3@gmail.com";
+        String myaccount = "dungndhe150788@fpt.edu.vn";
         String password = "anhdungzoo9";
-        Session session = Session.getInstance(pr, new Authenticator() {
+        Session session = Session.getInstance(pr, new javax.mail.Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(myaccount, password);
@@ -47,8 +47,8 @@ public class SendEmail {
         try {
             message.setFrom(new InternetAddress(account));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(infor));
-            message.setSubject("Email Verification");
-            message.setText("Thank you for using our service click here to reset password \nhttp://localhost:8080/AviatoProject/confirm_reset.jsp");
+            message.setSubject("Feedback Email");
+            message.setText("Thank you for using our service click here to give us feedback\n http://localhost:8080/OnlineShopSystem/feedback.jsp ");
             return message;           
         } catch (MessagingException ex) {
             Logger.getLogger(SendEmail.class.getName()).log(Level.SEVERE, null, ex);

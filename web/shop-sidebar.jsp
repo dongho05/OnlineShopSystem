@@ -37,7 +37,7 @@
 
         <!-- Main Stylesheet -->
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/projectstyle.css">
+        <link rel="stylesheet" href="css/projectstyle2.css">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -74,60 +74,59 @@
                             </a>
                         </div>
                     </div>
+
                     <div class="col-md-4 col-xs-12 col-sm-4">
-                        <!-- Cart -->
                         <ul class="top-menu text-right list-inline">
                             <li class="dropdown cart-nav dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
-                                        class="tf-ion-android-cart"></i>Cart</a>
-                                <div class="dropdown-menu cart-dropdown">
-                                    <!-- Cart Item -->
-                                    <div class="media">
-                                        <a class="pull-left" href="#!">
-                                            <img class="media-object" src="images/shop/cart/cart-1.jpg" alt="image" />
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
-                                            <div class="cart-price">
-                                                <span>1 x</span>
-                                                <span>1250.00</span>
-                                            </div>
-                                            <h5><strong>$1200</strong></h5>
-                                        </div>
-                                        <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
-                                    <!-- Cart Item -->
-                                    <div class="media">
-                                        <a class="pull-left" href="#!">
-                                            <img class="media-object" src="images/shop/cart/cart-2.jpg" alt="image" />
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
-                                            <div class="cart-price">
-                                                <span>1 x</span>
-                                                <span>1250.00</span>
-                                            </div>
-                                            <h5><strong>$1200</strong></h5>
-                                        </div>
-                                        <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
+                                <i class="tf-ion-android-cart" style="margin-right: -10px"></i> 
+                                <a href="showcart">Cart</a>
+                                <c:if test="${sessionScope.user != null}">
+                                    <c:if test="${sessionScope.user.role.roleID == 5}">
+                                        <div class="dropdown-menu cart-dropdown">
 
-                                    <div class="cart-summary">
-                                        <span>Total</span>
-                                        <span class="total-price">$1799.00</span>
-                                    </div>
-                                    <ul class="text-center cart-buttons">
-                                        <li><a href="cart.jsp" class="btn btn-small">View Cart</a></li>
-                                        <li><a href="checkout.jsp" class="btn btn-small btn-solid-border">Checkout</a></li>
-                                    </ul>
-                                </div>
+                                            <c:forEach items="${listCart}" var="ca">
+                                                <div class="media">
+                                                    <a class="pull-left" href="#!">
+                                                        <img class="media-object" src="images/shop/products/${ca.product.productImg}" alt="image" />
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading"><a href="#!">${ca.product.productName}</a></h4>
+                                                        <div class="cart-price">
+                                                            <span>${ca.product.amount} x</span>
+                                                            <!--<span>${ca.product.productPrice - ca.product.productPrice*ca.product.discount}</span>-->
+                                                            <span>
+                                                                <fmt:formatNumber pattern="###.##" value="${ca.product.productPrice - ca.product.productPrice*ca.product.discount}">
+                                                                </fmt:formatNumber>
+                                                            </span>
+                                                        </div>
+                                                        <h5><strong>
+                                                                <fmt:formatNumber pattern="###.##" value="${ca.product.amount*(ca.product.productPrice - ca.product.productPrice*ca.product.discount)}"></fmt:formatNumber>
+                                                                </strong></h5>
+                                                        </div>
+                                                        <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
+                                                    </div>  
+                                            </c:forEach>
 
-                            </li><!-- / Cart -->
+                                            <div class="cart-summary">
+                                                <span data-translate="total">Total</span>
+                                                <span class="total-price">
+                                                    <fmt:formatNumber pattern="###.##" value="${sum}">
+                                                    </fmt:formatNumber>
+                                                </span>
+                                            </div>
+                                            <ul class="text-center cart-buttons">
+                                                <li><a href="showcart" class="btn btn-small" data-translate="view_cart">View Cart</a></li>
+                                                <li><a href="checkout" class="btn btn-small btn-solid-border" data-translate="checkout">Checkout</a></li>
+                                            </ul>
+                                        </div>
+                                    </c:if>
+                                </c:if>
+                            </li> 
+                            <!--Cart--> 
 
                             <!-- Search -->
                             <li class="dropdown search dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
-                                        class="tf-ion-ios-search-strong"></i> Search</a>
+                                <i class="tf-ion-ios-search-strong" style="margin-right: -5px"></i><a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-translate="search">Search</a>
                                 <ul class="dropdown-menu search-dropdown">
                                     <li>
                                         <form action="post"><input type="search" class="form-control" placeholder="Search..."></form>
@@ -135,19 +134,25 @@
                                 </ul>
                             </li><!-- / Search -->
 
+                            <li>
+                                <div class="trancolor">
+                                    <label>
+                                        <input type="checkbox">
+                                        <span class="check"></span>
+                                    </label>
+                                </div>
+                            </li>
                             <!-- Languages -->
-                            <li class="commonSelect">
-                                <select class="form-control">
-                                    <option>EN</option>
-                                    <option>DE</option>
-                                    <option>FR</option>
-                                    <option>ES</option>
-                                </select>
+                            <li>
+                                <button onclick="change_lang()">EN/VI</button>
                             </li><!-- / Languages -->
 
                         </ul><!-- / .nav .navbar-nav .navbar-right -->
                     </div>
                 </div>
+
+
+
             </div>
         </section><!-- End Top Header Bar -->
 
@@ -156,145 +161,65 @@
         <section class="menu">
             <nav class="navbar navigation">
                 <div class="container">
-                    <div class="navbar-header">
-                        <h2 class="menu-title">Main Menu</h2>
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                                aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
-                    </div><!-- / .navbar-header -->
-
                     <!-- Navbar Links -->
-                    <div id="navbar" class="navbar-collapse collapse text-center">
-                        <ul class="nav navbar-nav">
+                    <div id="navbar" class="menu_title navbar-collapse collapse text-center">
+                        <div class="menu_center">
+                            <ul class="nav navbar-nav">
+                                <!-- Home -->
+                                <li class="dropdown ">
+                                    <a href="home" data-translate="home">Home</a>
+                                </li><!-- / Home -->
 
-                            <!-- Home -->
-                            <li class="dropdown ">
-                                <a href="home">Home</a>
-                            </li><!-- / Home -->
+                                <!-- Elements -->
+                                <li class="dropdown dropdown-slide">                              
+                                    <a href="shop-sidebar">Shop</a>
+                                </li>
 
+                                <!-- Pages -->
+                                
 
-                            <!-- Elements -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Shop <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <div class="dropdown-menu">
-                                    <div class="row">
-                                        <!-- Basic -->
-                                        <div class="col-lg-6 col-md-6 mb-sm-3">
-                                            <ul>
-                                                <li class="dropdown-header">Pages</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="shop">Shop</a></li>
-                                                <li><a href="checkout.jsp">Checkout</a></li>
-                                                <li><a href="cart.jsp">Cart</a></li>
-                                                <li><a href="pricing.jsp">Pricing</a></li>
-                                                <li><a href="confirmation.jsp">Confirmation</a></li>
-
+                                <!-- Blog -->
+                                <li class="dropdown dropdown-slide">
+                                    <a href="blogList" data-translate="blog">Blog</a> 
+                                </li><!-- / Blog -->
+                                <c:if test="${sessionScope.user == null}">
+                                    <li class="dropdown dropdown-slide">
+                                        <a href="login" data-translate="login_page">Login</a>
+                                    </li>
+                                </c:if> 
+                                <c:if test="${sessionScope.user != null}">
+                                    <li class="dropdown dropdown-slide"> 
+                                        <a href="logout" data-translate="logout_page">
+                                            ${sessionScope.user.name}
+                                            <span class="tf-ion-ios-arrow-down"></span>
+                                            <ul  class="dropdown-menu">
+                                                <li>
+                                                    <a href="viewuser" data-translate="profile">Profile</a>
+                                                </li>
+                                                <li>
+                                                    <a href="myorder" data-translate="my_order">My Order</a>
+                                                </li>
+                                                <li>
+                                                    <a href="change" data-translate="change_pass">Change Pass</a>
+                                                </li>
+                                                <c:if test="${sessionScope.user.role.roleID == 1}">
+                                                    <li>
+                                                        <a href="mktDashboard" data-translate="dashboard">MKT Dashboard</a>
+                                                    </li>
+                                                </c:if>
+                                                <li>
+                                                    <a href="logout" data-translate="logout_page">Logout</a>
+                                                </li>
                                             </ul>
-                                        </div>
+                                        </a>
+                                    </li>                                    
+                                </c:if>
+                            </ul><!-- / .nav .navbar-nav -->
+                        </div>
+                        <div class="menu_right col-md-2">
 
-                                        <!-- Layout -->
-                                        <div class="col-lg-6 col-md-6 mb-sm-3">
-                                            <ul>
-                                                <li class="dropdown-header">Layout</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="product-single.jsp">Product Details</a></li>
-                                                <li><a href="shop-sidebar.jsp">Shop With Sidebar</a></li>
+                        </div>
 
-                                            </ul>
-                                        </div>
-
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
-                            </li><!-- / Elements -->
-
-
-                            <!-- Pages -->
-                            <li class="dropdown full-width dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Pages <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <div class="dropdown-menu">
-                                    <div class="row">
-
-                                        <!-- Introduction -->
-                                        <div class="col-sm-3 col-xs-12">
-                                            <ul>
-                                                <li class="dropdown-header">Introduction</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="contact.jsp">Contact Us</a></li>
-                                                <li><a href="about.jsp">About Us</a></li>
-                                                <li><a href="404.jsp">404 Page</a></li>
-                                                <li><a href="coming-soon.jsp">Coming Soon</a></li>
-                                                <li><a href="faq.jsp">FAQ</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Contact -->
-                                        <div class="col-sm-3 col-xs-12">
-                                            <ul>
-                                                <li class="dropdown-header">Dashboard</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="dashboard.jsp">User Interface</a></li>
-                                                <li><a href="order.jsp">Orders</a></li>
-                                                <li><a href="address.jsp">Address</a></li>
-                                                <li><a href="profile-details.jsp">Profile Details</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Utility -->
-                                        <div class="col-sm-3 col-xs-12">
-                                            <ul>
-                                                <li class="dropdown-header">Utility</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="login.jsp">Login Page</a></li>
-                                                <li><a href="signin.jsp">Signin Page</a></li>
-                                                <li><a href="forget-password.jsp">Forget Password</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Mega Menu -->
-                                        <div class="col-sm-3 col-xs-12">
-                                            <a href="shop">
-                                                <img class="img-responsive" src="images/shop/header-img.jpg" alt="menu image" />
-                                            </a>
-                                        </div>
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
-                            </li><!-- / Pages -->
-
-                            <!-- Blog -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Blog <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="blog-left-sidebar.jsp">Blog Left Sidebar</a></li>
-                                    <li><a href="blog-right-sidebar.jsp">Blog Right Sidebar</a></li>
-                                    <li><a href="blog-full-width.jsp">Blog Full Width</a></li>
-                                    <li><a href="blog-grid.jsp">Blog 2 Columns</a></li>
-                                    <li><a href="blog-single.jsp">Blog Single</a></li>
-                                </ul>
-                            </li><!-- / Blog -->
-
-                            <!-- Shop -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Elements <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="typography.jsp">Typography</a></li>
-                                    <li><a href="buttons.jsp">Buttons</a></li>
-                                    <li><a href="alerts.jsp">Alerts</a></li>
-                                </ul>
-                            </li><!-- / Blog -->
-                        </ul><!-- / .nav .navbar-nav -->
 
                     </div>
                     <!--/.navbar-collapse -->
@@ -318,27 +243,26 @@
             </div>
         </section>
 
-
         <section class="shop-siderbar-sider product section">
             <div class="container">
                 <div class="row">
                     <div class="col-md-2">
-                        <div class="widget product-category">
-                            <div class="filter_search">
-                                <div class="filter_title">Search</div>
-                                <form action="shop-sidebar" method="get" class="filter_search_form">
-                                    <!--<input type="text" placeholder="Search here..." name="txt" class="search_sidebar"/>-->
-                                    <!--<button type="submit" > <i class="fas fa-search"></i> </button>-->  
+                        <div>
+                            <form action="shop-sidebar" method="get" class="filter_search_form">
+                                <div class="filter_search">
+                                    <div class="filter_title">Search</div>
                                     <c:if test="${txt!=null}">
-                                        <input style="width: 70%" type="text" name="txt" placeholder="${txt}">
+                                        <input type="text" name="txt" placeholder="${txt}">
                                     </c:if>
                                     <c:if test="${txt==null}">
-                                        <input style="width: 70%" type="text" name="txt" placeholder="Search Product">
+                                        <input type="text" name="txt" placeholder="Search Product">
                                     </c:if>
-                                </form>
-                            </div>  
-                            <hr/>
-                            <form action="shop-sidebar">
+                                </div>
+                            </form>
+                        </div>
+                        <hr/>
+                        <div class="widget product-category"> 
+                            <form action="shop-sidebar" method="get" class="filter_search_form">
                                 <div class="filter">
                                     <div class="filter_check">
                                         <div class="filter_title"><a>Price</a></div>
@@ -352,9 +276,9 @@
                                         <div class="filter_title"><a>Order by</a></div>
                                         <div class="filter_option">
                                             <div>
-                                                <input type="radio" name="desc">DESC
+                                                <input type="radio" name="desc">&nbsp; DESC
                                                 <br/>
-                                                <input type="radio" name="asc">ASC
+                                                <input type="radio" name="asc">&nbsp; ASC
                                             </div>
                                         </div>
                                     </div>
@@ -362,9 +286,9 @@
                                     <div class="filter_check">
                                         <div class="filter_title"><a>Category</a></div>
                                         <div class="filter_option">
-                                            <c:forEach begin="0" end="5" items="${requestScope.listC}" var="lc">
+                                            <c:forEach begin="0" end="2" items="${requestScope.listC}" var="lc">
                                                 <div>
-                                                    <input type="radio" value="${lc.cateID}" name="cateID">${lc.cateName}
+                                                    <input type="radio" value="${lc.cateID}" name="cateID">&nbsp; ${lc.cateName}
                                                 </div>
                                             </c:forEach>
                                         </div>
@@ -375,7 +299,7 @@
                                         <div class="filter_option">
                                             <c:forEach begin="0" end="5" items="${requestScope.listB}" var="lb">
                                                 <div>
-                                                    <input type="radio" value="${lb.brandID}" name="brandID">${lb.brandName}
+                                                    <input type="radio" value="${lb.brandID}" name="brandID">&nbsp; ${lb.brandName}
                                                 </div>
                                             </c:forEach>
                                         </div>
@@ -389,64 +313,41 @@
                     </div>
 
                     <div class="shop-sidebar col-md-10">
-
                         <div class="row">
-                            <c:forEach items="${requestScope.listShop}" var="t">
-                                <div class="col-md-4">
-                                    <div class="product-item">
-                                        <div class="product-thumb">
-                                            <img style="height: 300px;width: 300px" class="img-responsive" src="images/shop/products/${t.productImg}.jpg" alt="product-img" />
-                                            <div class="preview-meta">
-                                                <div class="modal-content">
-                                                    <div class="modal-body">
-                                                        <div class="row">
-                                                            <div>
-                                                                <div class="modal-image">
-                                                                    <img class="img-responsive" src="images/shop/products/${t.productImg}.jpg" alt="product-img" />
-                                                                </div>
-                                                            </div>
-                                                            <div>
-                                                                <div class="product-short-details">
-                                                                    <h2 class="product-title">${t.productName}</h2>
+                            <c:forEach items="${listShop}" var="t"> 
+                                <div class="col-md-3">
+                                    <!--<div class="product-items">-->
+                                    <div class="product-thumbs">
+                                        <img class="img-responsive" src="images/shop/products/${t.productImg}" alt="product-img" />
 
-                                                                    <div class="product-price">
-                                                                        <div data-translate="price">Price:
-                                                                            <del class="initial_price">$${t.productPrice}</del> --> 
-                                                                            $<fmt:formatNumber pattern="##.#" value="${t.productPrice - t.productPrice*t.discount}"/>
-                                                                        </div>
+                                        <div class="product_name" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;min-width: 0 ; font-size: 15px">${t.productName}</div>
 
-                                                                    </div>
-
-                                                                    <p class="product-short-description">${t.productDes} </p>
-                                                                    <a href="cart.jsp" class="add_to_cart btn btn-main" data-translate="add_to_cart">Add To Cart</a><br/><br/>
-                                                                    <a href="detailproduct?productID=${t.productID}" class="view_to btn btn-transparent" data-translate="view_product_details">View Product Details</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!--</div>-->  
-                                                <ul>
-                                                    <li>
-                                                        <a href="#!" ><i class="tf-ion-ios-heart"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="cart.jsp"><i class="tf-ion-android-cart"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                        <div class="product_des">
+                                            <p style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;min-width: 0 ; font-size: 15px">
+                                                
+                                            ${t.productDes}
+                                            </p>
                                         </div>
-
-                                        <div class="product-content">
-                                            <h4><a href="product-single.jsp">${t.productName}</a></h4>
+                                        <div class="product-price" > 
+                                            <div class="price_discount">
+                                                <fmt:formatNumber pattern="###.#" value="${t.productPrice - t.productPrice*t.discount}">
+                                                </fmt:formatNumber> đ
+                                            </div>
+                                            <div class="discount">
+                                                <span class="discount_1">${t.productPrice} đ</span>&nbsp;
+                                                <span class="discount_2">-${t.discount*100}%</span>
+                                            </div>   
+                                        </div>
+                                        <div class="cart_view">
+                                            <!--<span class="cart"><a href="addcart?id=${t.productID}">Add to cart</a></span>-->
+                                            <span class="view"><a href="detailproduct?productID=${t.productID}">View product</a></span>
                                         </div>
                                     </div>
-                                </div>                    
+                                    <!--</div>-->
+                                </div>                      
                             </c:forEach>
-                        </div>				
+                        </div>			
                     </div>
-
-
                 </div>
             </div>
         </section>
@@ -455,141 +356,111 @@
         <div class="next">
             <a><</a>
             <c:forEach begin="1" end="${requestScope.num}" var="i">
-                <c:if test="${priceF == null && priceT == null && txt == null && cateID == null && brandID == null}">
+                <c:if test="${priceF == null && priceT == null && txt == null && cateID == null && brandID == null && desc == null && asc == null}">
                     <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}">${i}</a>
-                </c:if>
-                <c:if test="${priceF != null && priceT != null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&priceF=${priceF}&priceT=${priceT}">${i}</a>
-                </c:if>
-                <c:if test="${txt != null}">
+                </c:if>     
+
+                <!--txt-->
+                <c:if test="${priceF == null && priceT == null && txt != null && cateID == null && brandID == null && desc == null && asc == null}">
                     <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&txt=${txt}">${i}</a>
-                </c:if>
-                <c:if test="%${cateID != null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&cateID=${cateID}">${i}</a>
-                </c:if>    
-                <c:if test="%${brandID != null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&brandID=${brandID}">${i}</a>
                 </c:if>
 
-                <%--
-                <!--không chọn-->
-                <c:if test="${cateID == null && brandID == null && priceF == null && priceT == null && txt == null && desc == null && asc == null}" >
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}">${i}</a>
-                </c:if>
-                    
-                    <!--=========================================================================================-->
-                    <!--chọn search-->
-                <c:if test="${cateID == null && brandID == null && priceF == null && priceT == null && txt != null && desc == null && asc == null}" >
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&txt=${txt}">${i}</a>
-                </c:if>
-                    <!--chọn search & desc-->
-                <c:if test="${cateID == null && brandID == null && priceF == null && priceT == null && txt != null && desc != null && asc == null}" >
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&txt=${txt}">${i}</a>
-                </c:if>
-                    <!--chọn search & asc-->
-                <c:if test="${cateID == null && brandID == null && priceF == null && priceT == null && txt != null && desc == null && asc != null}" >
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&txt=${txt}">${i}</a>
-                </c:if>
-                    
-                    <!--=========================================================================================-->
-                    <!--chọn cateID-->
-                <c:if test="${cateID != null && brandID == null && priceF == null && priceT == null && txt == null && desc == null && asc == null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&cateID=${cateID}">${i}</a>
-                </c:if>
-                    <!--chọn cateID & desc-->
-                <c:if test="${cateID != null && brandID == null && priceF == null && priceT == null && txt == null && desc != null && asc == null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&cateID=${cateID}">${i}</a>
-                </c:if>
-                    <!--chọn cateID & asc-->
-                <c:if test="${cateID != null && brandID == null && priceF == null && priceT == null && txt == null && desc == null && asc != null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&cateID=${cateID}">${i}</a>
-                </c:if>
-                    
-                    <!--=========================================================================================-->
-                    <!--chọn brandID-->
-                <c:if test="${cateID == null && brandID != null && priceF == null && priceT == null && txt == null && desc == null && asc == null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&brandID=${brandID}">${i}</a>
-                </c:if>
-                    <!--chọn brandID & asc-->
-                <c:if test="${cateID == null && brandID != null && priceF == null && priceT == null && txt == null && desc == null && asc != null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&brandID=${brandID}">${i}</a>
-                </c:if>
-                    <!--chọn brandID  & desc-->
-                <c:if test="${cateID == null && brandID != null && priceF == null && priceT == null && txt == null && desc != null && asc == null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&brandID=${brandID}">${i}</a>
-                </c:if>
-                
-                    <!--=========================================================================================-->
-                    <!--chọn price-->
-                <c:if test="${cateID == null && brandID == null && priceF == null && priceT != null && txt == null && desc == null && asc == null}">
+                <!--price-->
+                <c:if test="${priceF != null && priceT != null && cateID == null && brandID == null && desc == null && asc == null}">
                     <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&priceF=${priceF}&priceT=${priceT}">${i}</a>
                 </c:if>
-                    <!--chọn price & desc-->
-                <c:if test="${cateID == null && brandID == null && priceF == null && priceT != null && txt == null && desc != null && asc == null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&priceF=${priceF}&priceT=${priceT}">${i}</a>
+                <!--price + desc-->
+                <c:if test="${priceF != null && priceT != null && cateID == null && brandID == null && desc != null && asc == null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&priceF=${priceF}&priceT=${priceT}&desc=${desc}">${i}</a>
+                </c:if>  
+                <!--price + asc-->
+                <c:if test="${priceF != null && priceT != null && cateID == null && brandID == null && desc == null && asc != null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&priceF=${priceF}&priceT=${priceT}&asc=${asc}">${i}</a>
                 </c:if>
-                    <!--chọn price & asc-->
-                <c:if test="${cateID == null && brandID == null && priceF == null && priceT != null && txt == null && desc == null && asc != null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&priceF=${priceF}&priceT=${priceT}">${i}</a>
+                <!--price + cateID-->
+                <c:if test="${priceF != null && priceT != null && cateID != null && brandID == null && desc == null && asc == null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&priceF=${priceF}&priceT=${priceT}&cateID=${cateID}">${i}</a>
                 </c:if>
-                    
-                    <!--=========================================================================================-->
-                    <!--chọn cate & brand-->
-                <c:if test="${cateID != null && brandID != null && priceF == null && priceT == null && txt == null  && desc == null && asc == null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&cateID0=${cateID}&brandID=${brandID}">${i}</a>
+                <!--price + cateID + desc-->
+                <c:if test="${priceF != null && priceT != null && cateID != null && brandID == null && desc != null && asc == null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&priceF=${priceF}&priceT=${priceT}&cateID=${cateID}&desc=${desc}">${i}</a>
                 </c:if>
-                    <!--chọn cate & brand & desc-->
-                <c:if test="${cateID != null && brandID != null && priceF == null && priceT == null && txt == null  && desc != null && asc == null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&cateID0=${cateID}&brandID=${brandID}">${i}</a>
+                <!--price + cateID + asc-->
+                <c:if test="${priceF != null && priceT != null && cateID != null && brandID == null && desc == null && asc != null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&priceF=${priceF}&priceT=${priceT}&cateID=${cateID}&asc=${asc}">${i}</a>
                 </c:if>
-                    <!--chọn cate & brand & asc-->
-                <c:if test="${cateID != null && brandID != null && priceF == null && priceT == null && txt == null  && desc == null && asc != null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&cateID0=${cateID}&brandID=${brandID}">${i}</a>
+                <!--price + brandID-->
+                <c:if test="${priceF != null && priceT != null && cateID == null && brandID != null && desc == null && asc == null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&priceF=${priceF}&priceT=${priceT}&brandID=${brandID}">${i}</a>
                 </c:if>
-                    
-                    <!--=========================================================================================-->
-                    <!--chọn cate & price-->
-                <c:if test="${cateID != null && brandID == null && priceF != null && priceT != null && txt == null && desc == null && asc == null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&cateID=${cateID}&priceF=${priceF}&priceT=${priceT}">${i}</a>
+                <!--price + brandID + desc-->
+                <c:if test="${priceF != null && priceT != null && cateID == null && brandID != null && desc != null && asc == null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&priceF=${priceF}&priceT=${priceT}&brandID=${brandID}&desc=${desc}">${i}</a>
                 </c:if>
-                    <!--chọn cate & price & asc-->
-                <c:if test="${cateID != null && brandID == null && priceF != null && priceT != null && txt == null && desc == null && asc != null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&cateID=${cateID}&priceF=${priceF}&priceT=${priceT}">${i}</a>
+                <!--price + brandID + asc-->
+                <c:if test="${priceF != null && priceT != null && cateID == null && brandID != null && desc == null && asc != null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&priceF=${priceF}&priceT=${priceT}&brandID=${brandID}&asc=${asc}">${i}</a>
                 </c:if>
-                    <!--chọn cate & price & desc-->
-                <c:if test="${cateID != null && brandID == null && priceF != null && priceT != null && txt == null && desc != null && asc == null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&cateID=${cateID}&priceF=${priceF}&priceT=${priceT}">${i}</a>
+                <!--price + cateID + brandID-->
+                <c:if test="${priceF != null && priceT != null && cateID != null && brandID != null && desc == null && asc == null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&priceF=${priceF}&priceT=${priceT}&brandID=${brandID}&cateID=${cateID}">${i}</a>
                 </c:if>
-                    
-                    <!--=========================================================================================-->
-                    <!--chọn brand & price-->
-                <c:if test="${cateID == null && brandID != null && priceF != null && priceT != null && txt == null && desc == null && asc == null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&brandID=${brandID}&priceF=${priceF}&priceT=${priceT}">${i}</a>
-                </c:if>    
-                    <!--chọn brand & price & desc-->
-                <c:if test="${cateID == null && brandID != null && priceF != null && priceT != null && txt == null && desc != null && asc == null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&brandID=${brandID}&priceF=${priceF}&priceT=${priceT}">${i}</a>
-                </c:if>    
-                    <!--chọn brand & price & asc-->
-                <c:if test="${cateID == null && brandID != null && priceF != null && priceT != null && txt == null && desc == null && asc != null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&brandID=${brandID}&priceF=${priceF}&priceT=${priceT}">${i}</a>
+                <!--price + cateID + brandID + desc-->
+                <c:if test="${priceF != null && priceT != null && cateID != null && brandID != null && desc != null && asc == null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&priceF=${priceF}&priceT=${priceT}&brandID=${brandID}&cateID=${cateID}&desc=${desc}">${i}</a>
                 </c:if>
-                    
-                    <!--=========================================================================================-->
-                    <!--chọn brand & cate & price-->
-                <c:if test="${cateID != null && brandID != null && priceF != null && priceT != null && txt == null && desc == null && asc == null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&cateID=${cateID}&brandID=${brandID}&priceF=${priceF}&priceT=${priceT}">${i}</a>
+                <!--price + cateID + brandID + asc-->
+                <c:if test="${priceF != null && priceT != null && cateID != null && brandID != null && desc == null && asc != null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&priceF=${priceF}&priceT=${priceT}&brandID=${brandID}&cateID=${cateID}&asc=${asc}">${i}</a>
                 </c:if>
-                    <!--chọn brand & cate & price & asc-->
-                <c:if test="${cateID != null && brandID != null && priceF != null && priceT != null && txt == null && desc == null && asc != null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&cateID=${cateID}&brandID=${brandID}&priceF=${priceF}&priceT=${priceT}">${i}</a>
+
+                <!--asc-->
+                <c:if test="${priceF == null && priceT == null && cateID == null && brandID == null && desc == null && asc != null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&asc=${asc}">${i}</a>
                 </c:if>
-                    <!--chọn brand & cate & price & desc-->
-                <c:if test="${cateID != null && brandID != null && priceF != null && priceT != null && txt == null && desc != null && asc == null}">
-                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&cateID=${cateID}&brandID=${brandID}&priceF=${priceF}&priceT=${priceT}">${i}</a>
+                <!--asc + cateID-->
+                <c:if test="${priceF == null && priceT == null && cateID != null && brandID == null && desc == null && asc != null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&asc=${asc}&cateID=${cateID}">${i}</a>
                 </c:if>
-                    
-                --%>
+                <!--asc + brandID-->
+                <c:if test="${priceF == null && priceT == null && cateID == null && brandID != null && desc == null && asc != null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&asc=${asc}&brandID=${brandID}">${i}</a>
+                </c:if>
+                <!--asc + brandID + cateID-->
+                <c:if test="${priceF == null && priceT == null && cateID != null && brandID != null && desc == null && asc != null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&asc=${asc}&cateID=${cateID}&brandID=${brandID}">${i}</a>
+                </c:if>
+
+                <!--desc-->
+                <c:if test="${priceF == null && priceT == null && cateID == null && brandID == null && desc != null && asc == null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&desc=${desc}">${i}</a>
+                </c:if>
+                <!--desc + cateID-->
+                <c:if test="${priceF == null && priceT == null && cateID != null && brandID == null && desc != null && asc == null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&asc=${desc}&cateID=${cateID}">${i}</a>
+                </c:if>
+                <!--desc + brandID-->
+                <c:if test="${priceF == null && priceT == null && cateID == null && brandID != null && desc != null && asc == null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&asc=${desc}&brandID=${brandID}">${i}</a>
+                </c:if>
+                <!--desc + brandID + cateID-->
+                <c:if test="${priceF == null && priceT == null && cateID != null && brandID != null && desc != null && asc == null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&asc=${desc}&cateID=${cateID}&brandID=${brandID}">${i}</a>
+                </c:if>
+
+                <!--cateID-->
+                <c:if test="${priceF == null && priceT == null && cateID != null && brandID == null && desc == null && asc == null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&cateID=${cateID}">${i}</a>
+                </c:if>
+                <!--cateID + brandID-->
+                <c:if test="${priceF == null && priceT == null && cateID != null && brandID != null && desc == null && asc == null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&cateID=${cateID}&brandID=${brandID}">${i}</a>
+                </c:if>
+
+                <!--brandID-->
+                <c:if test="${priceF == null && priceT == null && cateID == null && brandID != null && desc == null && asc == null}">
+                    <a class="${i==page?"active":""}" href="shop-sidebar?page=${i}&brandID=${brandID}">${i}</a>
+                </c:if>
             </c:forEach>
             <a>></a>
         </div>  

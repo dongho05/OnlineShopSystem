@@ -8,14 +8,17 @@ package controller;
 import dal.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.product.Brand;
 import model.product.Category;
 import model.product.Product;
+import model.product.ProductDetail;
 
 /**
  *
@@ -40,18 +43,12 @@ public class ShopSideBarServlet extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         //Sidebar
         ProductDAO pd = new ProductDAO();
         String cateID_raw = request.getParameter("cateID");
@@ -60,14 +57,15 @@ public class ShopSideBarServlet extends HttpServlet {
         String priceT_raw = request.getParameter("priceT");
         String asc = request.getParameter("asc");
         String desc = request.getParameter("desc");
+        String txt_raw = request.getParameter("txt");
        
         //Trường hợp chưa chọn cateID & brandID & txt & sort & price
-        if (cateID_raw == null && brandID_raw == null && priceF_raw == null && priceT_raw == null) {
+        if (cateID_raw == null && brandID_raw == null && priceF_raw == null && priceT_raw == null && txt_raw == null) {
             List<Product> listPS1 = pd.getProductShop();
             int page, size, num;
-            int numberpage = 9;
+            int numberpage = 12;
             size = listPS1.size();
-            num = (size % 9 == 0 ? (size / 9) : ((size / 9)) + 1);
+            num = (size % 12 == 0 ? (size / 12) : ((size / 12)) + 1);
             String xpage = request.getParameter("page");
             if (xpage == null) {
                 page = 1;
@@ -89,17 +87,18 @@ public class ShopSideBarServlet extends HttpServlet {
         
         //Trường hợp chọn cateID và brandID
         else {
-            request.setAttribute("cateID", cateID_raw);
-            request.setAttribute("brandID", brandID_raw);
-            request.setAttribute("priceF", priceF_raw);
-            request.setAttribute("priceT", priceT_raw);
-            request.setAttribute("desc", desc);
-            request.setAttribute("asc", asc);
+//            request.setAttribute("cateID", cateID_raw);
+//            request.setAttribute("brandID", brandID_raw);
+//            request.setAttribute("priceF", priceF_raw);
+//            request.setAttribute("priceT", priceT_raw);
+//            request.setAttribute("desc", desc);
+//            request.setAttribute("asc", asc);
+//            request.setAttribute("txt", txt);
             List<Product> listPS2 = pd.SideBarProduct(cateID_raw, brandID_raw, priceF_raw, priceT_raw,asc, desc);
             int page, size, num;
-            int numberpage = 9;
+            int numberpage = 12;
             size = listPS2.size();
-            num = (size % 9 == 0 ? (size / 9) : ((size / 9)) + 1);
+            num = (size % 12 == 0 ? (size / 12) : ((size / 12)) + 1);
             String xpage = request.getParameter("page");
             if (xpage == null) {
                 page = 1;
@@ -111,7 +110,15 @@ public class ShopSideBarServlet extends HttpServlet {
             end = Math.min(page * numberpage, size);
             List<Product> listShop2 = pd.getListByPage(listPS2, start, end);
             request.setAttribute("listShop", listShop2);
+            
             request.setAttribute("cateID", cateID_raw);
+            request.setAttribute("brandID", brandID_raw);
+            request.setAttribute("priceF", priceF_raw);
+            request.setAttribute("priceT", priceT_raw);
+            request.setAttribute("desc", desc);
+            request.setAttribute("asc", asc);
+//            request.setAttribute("txt", txt_raw);
+
             List<Category> listC2 = pd.listCate();
             request.setAttribute("listC", listC2);
             List<Brand> listB2 = pd.listBrand();
@@ -124,9 +131,9 @@ public class ShopSideBarServlet extends HttpServlet {
         String txt = request.getParameter("txt");
         if(txt != null){
             List<Product> listSBS = pd.searchSideBarShop(txt);
-            int page, numberpage = 9;
+            int page, numberpage = 12;
             int size = listSBS.size();
-            int num = (size % 9 == 0 ? (size / 9) : ((size / 9)) + 1);
+            int num = (size % 12 == 0 ? (size / 12) : ((size / 12)) + 1);
             String xpage = request.getParameter("page");
             if (xpage == null) {
                 page = 1;
@@ -143,7 +150,41 @@ public class ShopSideBarServlet extends HttpServlet {
             request.setAttribute("num", num);
             request.setAttribute("txt", txt);        
         }
+        Cookie arr[] = request.getCookies();
+        PrintWriter out = response.getWriter();
+        List<ProductDetail> list = new ArrayList<>();
+        ProductDAO dao = new ProductDAO();
+        for (Cookie o : arr) {
+            if (o.getName().equals("id")) {
+                String txt1[] = o.getValue().split(",");
+                for (String s : txt1) {
+                    list.add(dao.getProductDetailByID(Integer.parseInt(s)));
+                }
+            }
+        }
         
+        
+        for (int i = 0; i < list.size(); i++) {
+            int count = 0;
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(i).getId() == list.get(j).getId()) {
+                    count++;
+                    list.remove(j);
+                    j--;
+                    list.get(i).getProduct().setAmount(count);
+                }
+            }
+        }
+        double ship = 10.0;
+        double total = 0;
+        for (ProductDetail o : list) {
+            total = total + o.getProduct().getAmount() * (o.getProduct().getProductPrice() - o.getProduct().getProductPrice() * o.getProduct().getDiscount()) + ship;
+        }
+        request.setAttribute("listCart", list);
+        request.setAttribute("total", total);
+        request.setAttribute("ship", ship);
+        request.setAttribute("vat", 0.1 * total);
+        request.setAttribute("sum", 1.1 * total);
         request.getRequestDispatcher("shop-sidebar.jsp").forward(request, response);
         
     }

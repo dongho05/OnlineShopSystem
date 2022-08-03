@@ -181,14 +181,17 @@
 
 
                             <!-- Elements -->
-                            <li class="dropdown dropdown-slide">
+                            <li class="dropdown ">
+                                <a href="blogList" data-translate="word_6">Shop</a>
+                            </li>
+<!--                            <li class="dropdown dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false" data-translate="word_7">Shop</a> 
-                                <!--<spanclass="tf-ion-ios-arrow-down"></span>-->
+                                <spanclass="tf-ion-ios-arrow-down"></span>
                                 <div class="dropdown-menu">
                                     <div class="row">
 
-                                        <!-- Basic -->
+                                         Basic 
                                         <div class="col-lg-6 col-md-6 mb-sm-3">
                                             <ul>
                                                 <li class="dropdown-header" data-translate="word_8">Pages</li>
@@ -202,7 +205,7 @@
                                             </ul>
                                         </div>
 
-                                        <!-- Layout -->
+                                         Layout 
                                         <div class="col-lg-6 col-md-6 mb-sm-3">
                                             <ul>
                                                 <li class="dropdown-header" data-translate="word_11">Layout</li>
@@ -212,20 +215,20 @@
 
                                             </ul>
                                         </div>
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
-                            </li><!-- / Elements -->
+                                    </div> / .row 
+                                </div> / .dropdown-menu 
+                            </li> / Elements -->
 
 
                             <!-- Pages -->
-                            <li class="dropdown full-width dropdown-slide">
+<!--                            <li class="dropdown full-width dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false" data-translate="word_8">Pages</a>
-                                <!--<span class="tf-ion-ios-arrow-down"></span>-->
+                                <span class="tf-ion-ios-arrow-down"></span>
                                 <div class="dropdown-menu">
                                     <div class="row">
 
-                                        <!-- Introduction -->
+                                         Introduction 
                                         <div class="col-sm-3 col-xs-12">
                                             <ul>
                                                 <li class="dropdown-header" data-translate="word_14">Introduction</li>
@@ -238,7 +241,7 @@
                                             </ul>
                                         </div>
 
-                                        <!-- Contact -->
+                                         Contact 
                                         <div class="col-sm-3 col-xs-12">
                                             <ul>
                                                 <li class="dropdown-header" data-translate="word_20">Dashboard</li>
@@ -250,7 +253,7 @@
                                             </ul>
                                         </div>
 
-                                        <!-- Utility -->
+                                         Utility 
                                         <div class="col-sm-3 col-xs-12">
                                             <ul>
                                                 <li class="dropdown-header" data-translate="word_25">Utility</li>
@@ -261,15 +264,15 @@
                                             </ul>
                                         </div>
 
-                                        <!-- Mega Menu -->
+                                         Mega Menu 
                                         <div class="col-sm-3 col-xs-12">
                                             <a href="shop.jsp">
                                                 <img class="img-responsive" src="images/shop/header-img.jpg" alt="menu image" />
                                             </a>
                                         </div>
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
-                            </li><!-- / Pages -->
+                                    </div> / .row 
+                                </div> / .dropdown-menu 
+                            </li> / Pages -->
 
 
                             <li class="dropdown ">
@@ -309,7 +312,7 @@
                     <div class="col-md-4">
                         <aside class="sidebar">
                             <div class="widget widget-subscription">
-                                <h4 class="widget-title">What do you want to find?</h4>
+                                <h4 class="widget-title" style="font-weight: bold; font-size: 23px">What do you want to find?</h4>
                                 <form action="blogSearch" method="post">
                                     <div class="form-group">
                                         <input type="text" name="key" class="form-control" placeholder="Enter anything ...">
@@ -319,30 +322,34 @@
                             </div>
 
                             <!-- Widget Latest Posts -->
-                            <div class="widget widget-latest-post">
-                                <h4 class="widget-title">Latest Posts</h4>
+                            <div class="widget widget-latest-post" style="justify-content: space-between">
+                                <h4 class="widget-title" style="font-weight: bold; font-size: 23px">Latest Posts</h4>
                                 <c:forEach var="i" items="${latestPost}">
-                                
-                                <div class="media">
-                                    <a class="pull-left" href="#!">
-                                        <img class="media-object" src="images/img_blog/${i.image}" alt="Image" style="height: 150px">
-                                    </a>
-                                    <div class="media-body" style="display: flex; align-items: flex-start;">
-                                        <h4 class="media-heading" style="font-style: oblique"><a href="blogDetail?id=${i.blogID}">${i.title}</a></h4>
+
+                                    <div class="media">
+                                        <div >
+                                            <a class="pull-left" href="blogDetail?id=${i.blogID}" style="display: 30%; float: left">
+                                                <img class="media-object" src="images/img_blog/${i.image}" alt="Image" style="height: 150px">
+                                            </a>
+                                        </div>
+
+                                        <div style="margin-left: 175px">
+                                            <h4 class="media-heading" ><a href="blogDetail?id=${i.blogID}" style="font-size: 18px">${i.title}</a></h4>
+                                            <p style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;min-width: 0 ; font-size: 15px">${i.content}</p>
+                                        </div>
+
                                     </div>
-                                        <p style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;min-width: 0">${i.content}</p>
-                                </div>
                                 </c:forEach>
                             </div>
                             <!-- End Latest Posts -->
 
                             <!-- Widget Category -->
                             <div class="widget widget-category">
-                                <h4 class="widget-title">Categories</h4>
+                                <h4 class="widget-title" style="font-weight: bold; font-size: 23px">Categories</h4>
                                 <c:forEach var="o" items="${listCateBlog}">
                                 
                                 <ul class="widget-category-list">
-                                    <li><a href="blogCate?idCate=${o.cateBlogID}">${o.cateBlogName}</a>
+                                    <li><a href="blogCate?idCate=${o.cateBlogID}" style="font-size: 18px; font-weight: bold">${o.cateBlogName}</a>
                                     </li>
                                     
                                 </ul>
@@ -358,28 +365,22 @@
                         <div class="post">
                             <div class="post-media post-thumb">
                                 <a href="blogDetail?id=${i.blogID}">
-                                    <img src="images/img_blog/${i.image}" alt="">
+                                    <img src="images/img_blog/${i.image}" alt="" style="height: 400px; ">
                                 </a>
                             </div>
-                            <h2 class="post-title"><a href="blogDetail?id=${i.blogID}">${i.title}</a></h2>
                             <div class="post-meta">
+                            <h2 class="post-title"><a href="blogDetail?id=${i.blogID}">${i.title}</a></h2>
                                 <ul>
                                     <li>
-                                        <i class="tf-ion-ios-calendar"></i> 20, MAR 2017
+                                        <i class="tf-ion-ios-calendar"></i> ${i.createDate}
                                     </li>
                                     <li>
-                                        <i class="tf-ion-android-person"></i> POSTED BY ADMIN
-                                    </li>
-                                    <li>
-                                        <a href="#!"><i class="tf-ion-ios-pricetags"></i> LIFESTYLE</a>,<a href="#!"> TRAVEL</a>, <a href="#!">FASHION</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!"><i class="tf-ion-chatbubbles"></i> 4 COMMENTS</a>
+                                        <i class="tf-ion-android-person"></i> POSTED BY ${i.author}
                                     </li>
                                 </ul>
                             </div>
                             <div class="post-content">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit vitae placeat ad architecto nostrum asperiores vel aperiam, veniam eum nulla. Maxime cum magnam, adipisci architecto quibusdam cumque veniam fugiat quae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio vitae ab doloremque accusamus sit, eos dolorum officiis a perspiciatis aliquid. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, facere. </p>
+                                <p style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;min-width: 0 ; font-size: 15px">${i.content}</p>
                                 <a href="blogDetail?id=${i.blogID}" class="btn btn-main">Continue Reading</a>
                             </div>
 
@@ -392,7 +393,7 @@
                                 </li>-->
 <!--                                <li class="active"><a href="#!">1</a>
                                 </li>-->
-                                <li class ="${indexPage==i?"active":""}"><a href="blogList?index=${i}">${i}</a>
+                                <li class ="${indexPage==i?"active":""}"><a href="blogList?index=${i}" style="font-size: 15px">${i}</a>
                                 </li>
                                 
 <!--                                <li><a href="#!">Next</a>

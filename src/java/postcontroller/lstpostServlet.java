@@ -5,20 +5,24 @@
  */
 package postcontroller;
 
+import dal.AdminDAO;
 import dal.MKTDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Blog;
 import model.CategoryBlog;
+import model.User;
 
 /**
  *
- * @author phung
+ * @author Admin
  */
 public class lstpostServlet extends HttpServlet {
 
@@ -60,17 +64,31 @@ public class lstpostServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
+
         PrintWriter pr = response.getWriter();
         MKTDAO mkt = new MKTDAO();
-        List<Blog> lstPost = mkt.getAllBlog();
-        //pr.print(lstPost.get(0).toString());
+        AdminDAO ad = new AdminDAO();
+       
+        String id = request.getParameter("id");
+        int idPage = 1;
+        try {
+            idPage = Integer.parseInt(id);
+        } catch (Exception e) {
+        }
+        
+        int numberPage = mkt.getNumberOfBlog();
+        if (numberPage % 5 != 0) numberPage = (numberPage/5) +1;
+        else numberPage = numberPage/5;
+        List<Blog> lstPost = mkt.getPageBlog(idPage);
         List<CategoryBlog> listCateBlog = mkt.getAllCateBlog();
-        
-        
+        request.setAttribute("action", "lstpost");
+        request.setAttribute("idPage", idPage);
+        request.setAttribute("numberPage", numberPage);
         request.setAttribute("lstPost", lstPost);
         request.setAttribute("listCateBlog", listCateBlog);
-//        request.getRequestDispatcher("listpost.jsp").forward(request, response);
-        request.getRequestDispatcher("MKT_Dashboard_1.jsp").forward(request, response);
+        request.getRequestDispatcher("managepost.jsp").forward(request, response);
     }
 
     /**
@@ -84,7 +102,7 @@ public class lstpostServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
     }
 
     /**

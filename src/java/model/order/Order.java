@@ -19,7 +19,7 @@ public class Order {
     private double amount;
     private OrderState oderState;
     private List<OrderDetail> listOfOrder;
-
+    
     public Order() {
     }
 

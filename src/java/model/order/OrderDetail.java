@@ -13,11 +13,12 @@ public class OrderDetail {
     private String updateAt;
     private int orderID;
     private double odAmount;
+    private boolean isFeedback;
     
     public OrderDetail() {
     }
 
-    public OrderDetail(int orderDetailID, ProductDetail productDetail, int quantity, double price, double discount, String createAt, String updateAt, int orderID, double odAmount) {
+    public OrderDetail(int orderDetailID, ProductDetail productDetail, int quantity, double price, double discount, String createAt, String updateAt, int orderID, double odAmount, boolean isFeedback) {
         this.orderDetailID = orderDetailID;
         this.productDetail = productDetail;
         this.quantity = quantity;
@@ -27,6 +28,7 @@ public class OrderDetail {
         this.updateAt = updateAt;
         this.orderID = orderID;
         this.odAmount = odAmount;
+        this.isFeedback = isFeedback;
     }
 
     public int getOrderDetailID() {
@@ -100,6 +102,16 @@ public class OrderDetail {
     public void setOdAmount(double odAmount) {
         this.odAmount = odAmount;
     }
+
+    public boolean isIsFeedback() {
+        return isFeedback;
+    }
+
+    public void setIsFeedback(boolean isFeedback) {
+        this.isFeedback = isFeedback;
+    }
+
+    
 
    
 

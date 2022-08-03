@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modal.Encrypt;
 import static modal.Encrypt.toHexString;
-import modal.SendEmail;
+import model.SendEmail;
 import model.User;
 
 
